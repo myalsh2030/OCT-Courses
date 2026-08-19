@@ -39,7 +39,7 @@
    "pageStart": 23,
    "pageEnd": 26,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "الرسم الفني الكهربائي",
    "units": [
     {
      "title": "مبادئ وضع الابعاد",
@@ -81,9 +81,7 @@
    "pageStartIn": {
     "qwa": 23,
     "alat": 24
-   },
-   "conflict": true,
-   "conflictNote": "ورد في الخطتين باختلاف — الطرفان في conflicts.json والمثبت هنا من خطة القوى"
+   }
   },
   {
    "code": "كهرب-102",
@@ -107,7 +105,7 @@
    "pageStart": 27,
    "pageEnd": 31,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "السلامة الصناعية",
    "units": [
     {
      "title": "القواعد العامة لسلامة المعدات و الآلات الكهربائية",
@@ -149,9 +147,7 @@
    "pageStartIn": {
     "qwa": 27,
     "alat": 28
-   },
-   "conflict": true,
-   "conflictNote": "ورد في الخطتين باختلاف — الطرفان في conflicts.json والمثبت هنا من خطة القوى"
+   }
   },
   {
    "code": "كهرب-111",
@@ -175,7 +171,7 @@
    "pageStart": 18,
    "pageEnd": 22,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "ورشة أساسيات الكهرباء",
    "units": [
     {
      "title": "العدد اليدوية والآلات الميكانيكية وكيفية استخدامها",
@@ -239,7 +235,7 @@
    "pageStart": 14,
    "pageEnd": 17,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "دوائر الكهربائية – 1",
    "units": [
     {
      "title": "المكثفات الكهربائية",
@@ -258,7 +254,7 @@
      "hours": 8
     },
     {
-     "title": "المغناطيسية الكهربائية)Electromagnetism(",
+     "title": "المغناطيسية الكهربائية (Electromagnetism)",
      "hours": 4
     },
     {
@@ -277,9 +273,7 @@
    "pageStartIn": {
     "qwa": 14,
     "alat": 15
-   },
-   "conflict": true,
-   "conflictNote": "ورد في الخطتين باختلاف — الطرفان في conflicts.json والمثبت هنا من خطة القوى"
+   }
   },
   {
    "code": "كهرآ-254",
@@ -304,14 +298,14 @@
    "pageStart": 65,
    "pageEnd": 67,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "ورشة التركيبات الصناعية الخاصة",
    "units": [
     {
-     "title": "دراس ة ظروف وأماكن تركيب التمديدات، ومس تلزماتها، والتقيد التام بتعليمات وقواعد",
+     "title": "دراسة ظروف وأماكن تركيب التمديدات، ومستلزماتها، والتقيد التام بتعليمات وقواعد السلامة فى ذلك، وفى التعامل مع الأنواع المختلفة للبطاريات",
      "hours": 52
     },
     {
-     "title": "السلامة فى ذلك، وفى التعامل مع الأنواع المختلفة للبطاريات قياس و معايرة و إجراءات السلامة للبطاريات",
+     "title": "قياس و معايرة و إجراءات السلامة للبطاريات",
      "hours": 44
     }
    ],
@@ -350,7 +344,7 @@
    "pageStart": 32,
    "pageEnd": 35,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "دوائر كهربائية -2",
    "units": [
     {
      "title": "مبادئ التيار المتردد وتحليل دوائره",
@@ -398,7 +392,7 @@
    "pageStart": 36,
    "pageEnd": 39,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "أجهزة وقياسات كهربائية",
    "units": [
     {
      "title": "القياسات بأجهزة الملف المتحرك",
@@ -468,7 +462,7 @@
    "pageStart": 40,
    "pageEnd": 45,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "آلات التيار المستمر والمحولات",
    "units": [
     {
      "title": "الدوائر المغناطيسية",
@@ -540,7 +534,7 @@
    "pageStart": 46,
    "pageEnd": 49,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "تقنية التحكم المبرمج",
    "units": [
     {
      "title": "نظم الأعداد",
@@ -555,7 +549,7 @@
      "hours": 2
     },
     {
-     "title": "برمجة الحاكم المنطقي)FBD ,STL ,LAD(",
+     "title": "برمجة الحاكم المنطقي (FBD, STL, LAD)",
      "hours": 12
     },
     {
@@ -609,10 +603,10 @@
    "pageStart": 98,
    "pageEnd": 104,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "ورشة التركيبات المنزلية",
    "units": [
     {
-     "title": "التعليمات والنظم الخاصة بتركيبات المنازل السكنية",
+     "title": "المنازل السكنية التعليمات والنظم الخاصة بتركيبات",
      "hours": 6
     },
     {
@@ -720,7 +714,7 @@
    "pageStart": 68,
    "pageEnd": 70,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "ورشة لف وصيأنة المحركات الحثية ثلاثية الاوجه",
    "units": [
     {
      "title": "لف المحركات الكهربائية الحثية ثلاثية الأوجه",
@@ -766,7 +760,7 @@
    "pageStart": 59,
    "pageEnd": 61,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "الكترونيات القدرة",
    "units": [
     {
      "title": "دوائر الموحدات غير المحكومة",
@@ -814,7 +808,10 @@
    "semester": 3,
    "nameAr": "آلات التيار المتردد",
    "nameEn": "AC Machines",
-   "prereqAr": [],
+   "prereqAr": [
+    "122 كهرب",
+    "131 كهرب"
+   ],
    "crh": 3,
    "l": 2,
    "p": 2,
@@ -828,7 +825,7 @@
    "pageStart": 50,
    "pageEnd": 54,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "آلات التيار المتردد",
    "units": [
     {
      "title": "المحركات الحثية ثلاثية الأوجه",
@@ -885,9 +882,9 @@
     "تقنية القوى الكهربائية"
    ],
    "pageStart": 105,
-   "pageEnd": 110,
+   "pageEnd": 112,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "ورشة التركيبات الصناعية",
    "units": [
     {
      "title": "التعليمات والنظم الخاصة بالتركيبات الصناعية وورش العمل",
@@ -940,7 +937,7 @@
    "nameAr": "ورشة التركيبات الخاصة والوقاية",
    "nameEn": "Special Installation & Protection W/S",
    "prereqAr": [
-    "151 كهرق"
+    "111 كهرب"
    ],
    "crh": 2,
    "l": 0,
@@ -954,7 +951,7 @@
    "pageStart": 68,
    "pageEnd": 71,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "ورشة التركيبات الخاصة والوقاية",
    "units": [
     {
      "title": "المتطلبات الخاصة في التركيبات الكهربائية",
@@ -1005,7 +1002,7 @@
    "pageStart": 92,
    "pageEnd": 97,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "تقنية التوزيع الكهربائي",
    "units": [
     {
      "title": "عناصر نظم التوزيع الكهربائي",
@@ -1080,10 +1077,10 @@
    "pageStart": 81,
    "pageEnd": 84,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "الآلات الكهربائية الصغيرة",
    "units": [
     {
-     "title": "محركات الخطوة (Stepper Motors",
+     "title": "محركات الخطوة ( Stepper Motors",
      "hours": 7
     },
     {
@@ -1095,7 +1092,7 @@
      "hours": 6
     },
     {
-     "title": "المحري التنافري والمحري العام (Universal Motor and Repulsion Motors)",
+     "title": "المحرك التنافري والمحرك العام (Universal Motor and Repulsion Motors)",
      "hours": 6
     },
     {
@@ -1137,14 +1134,14 @@
    "pageStart": 71,
    "pageEnd": 74,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "التحكم الالكتروني في الآلات",
    "units": [
     {
-     "title": "مراجعة على خواص المحركات الكهربائية و دوائر إلكترونيات القدرة المس تخدمة",
+     "title": "مراجعة على خواص المحركات الكهربائية و دوائر إلكترونيات القدرة المستخدمة في الصناعة",
      "hours": 2
     },
     {
-     "title": "في الصناعة التحكم في محركات التيار المستمر باستخدام الموحدات المحكومة",
+     "title": "التحكم في محركات التيار المستمر باستخدام الموحدات المحكومة",
      "hours": 20
     },
     {
@@ -1192,9 +1189,9 @@
     "تقنية الآلات الكهربائية"
    ],
    "pageStart": 90,
-   "pageEnd": 95,
+   "pageEnd": 93,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "التحريك الكهربائي",
    "units": [
     {
      "title": "أساسيات الهندسة الميكأنيكية",
@@ -1221,7 +1218,7 @@
      "hours": 4
     },
     {
-     "title": "اختيار محري التحريك المناسب لحمل معين",
+     "title": "اختيار محرك التحريك المناسب لحمل معين",
      "hours": 2
     }
    ],
@@ -1259,7 +1256,7 @@
    "pageStart": 75,
    "pageEnd": 80,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "محطات التوليد وطرق الحماية",
    "units": [
     {
      "title": "أنواع محطات توليد القدرة",
@@ -1324,7 +1321,7 @@
    "pageStart": 85,
    "pageEnd": 89,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "ورشة لف وإصلاح الآلات أحادية الوجة والوقاية",
    "units": [
     {
      "title": "التعرف على أنواع وتركيب المحركات الكهربائية أحادية الوجه",
@@ -1335,7 +1332,7 @@
      "hours": 14
     },
     {
-     "title": "اعادة لف العضو الدائر للمحري العام",
+     "title": "اعادة لف العضو الدائر للمحرك العام",
      "hours": 14
     },
     {
@@ -1382,7 +1379,7 @@
    "pageStart": 55,
    "pageEnd": 58,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "تقنية التحكم الآلي",
    "units": [
     {
      "title": "أساسيات التحكم الآلي",
@@ -1428,7 +1425,10 @@
    "semester": 4,
    "nameAr": "ورشة التحكم في المحركات كهربائية",
    "nameEn": "Electrical Motor Control W/S",
-   "prereqAr": [],
+   "prereqAr": [
+    "141 كهرب",
+    "232 كهرب"
+   ],
    "crh": 2,
    "l": 0,
    "p": 4,
@@ -1442,7 +1442,7 @@
    "pageStart": 62,
    "pageEnd": 64,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "ورشة التحكم في المحركات الكهربائية",
    "units": [
     {
      "title": "التحكم في تشغيل المحرك الحثي ثلاثي الأوجه بالطرق التقليدية",
@@ -1493,7 +1493,7 @@
    "pageStart": 65,
    "pageEnd": 67,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "مختبر القوى الكهربائية",
    "units": [
     {
      "title": "دراسة مكونات المختبر وأجزائه المختلفة",
@@ -1544,7 +1544,7 @@
    "pageStart": 88,
    "pageEnd": 91,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "شبكات النقل الكهربائي",
    "units": [
     {
      "title": "خطوط النقل الكهربائي",
@@ -1578,7 +1578,7 @@
    "codeArPlan": "263 كهرق",
    "codeEn": "ELPO 263",
    "semester": 4,
-   "nameAr": "صيانة نظم القو ى",
+   "nameAr": "صيانة نظم القوى",
    "nameEn": "Maintenance of Power Systems",
    "prereqAr": [
     "261 كهرق"
@@ -1595,7 +1595,7 @@
    "pageStart": 72,
    "pageEnd": 75,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "صيانة نظم القوى",
    "units": [
     {
      "title": "مقدمة عن أهمية الصيانة",
@@ -1654,7 +1654,7 @@
    "pageStart": 76,
    "pageEnd": 79,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "التوليد ومحطات التحويل الرئيسية",
    "units": [
     {
      "title": "مصادر الطاقة الكهربائية",
@@ -1705,7 +1705,7 @@
    "pageStart": 80,
    "pageEnd": 87,
    "hasDetail": true,
-   "sectionNameAr": "",
+   "sectionNameAr": "حماية النظم الكهربائية",
    "units": [
     {
      "title": "أساسيات الحماية الكهربائية",

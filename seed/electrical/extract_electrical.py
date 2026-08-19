@@ -39,6 +39,7 @@ import os
 import re
 import sys
 import unicodedata
+from collections import Counter
 from io import BytesIO
 
 import fitz
@@ -143,8 +144,85 @@ def doc_gid_text(doc):
     return res
 
 
+# خطّا AL-Mateen وAL-Mohanad مرمَّزان بالمنطقة الخاصة (F2xx)، فلا يفيد فيهما
+# برنامجُ الخطّ شيئاً؛ ولكنّ الخطتين تستعملان ثلاث مجموعاتٍ منهما بترقيم رسومٍ
+# واحد، فيُقابَل ما يعلنه ToUnicode لكلٍّ منها ويُؤخذ ما اتّفق عليه الأكثر.
+WRD = "___WRD_EMBED_SUB_"
+
+
+def wrd_consensus(paths):
+    """{(الخطّ، الرسم): الحرف} حيث خالف ترميزُ مجموعةٍ إجماعَ أخواتها."""
+    tab = {}
+    for p in paths:
+        doc = fitz.open(p)
+        for i in range(doc.page_count):
+            for sp in doc[i].get_texttrace():
+                if WRD not in sp["font"]:
+                    continue
+                for c in sp["chars"]:
+                    ch = chr(c[0]) if c[0] > 0 else ""
+                    tab.setdefault(c[1], {}).setdefault(sp["font"], Counter())[ch] += 1
+        doc.close()
+    out = {}
+    for gid, byfont in tab.items():
+        best = {f: c.most_common(1)[0][0] for f, c in byfont.items()}
+        if len(best) < 3 or len(set(best.values())) < 2:
+            continue
+        top, votes = Counter(best.values()).most_common(1)[0]
+        if votes * 2 <= len(best):
+            continue                       # لا أغلبية: لا يُرجَّح شيء
+        for f, v in best.items():
+            if v != top:
+                out[(f, gid)] = top
+    return out
+
+
+def trusted_fonts(doc, gm):
+    """أسماء الخطوط التي يوافق فيها ToUnicode برنامجَ الخطّ في جلّ محارفها.
+
+    اسمُ الخطّ الواحد قد يحمل مجموعتين مختلفتَي ترتيب الرسوم في هذه الملفات
+    (TimesNewRomanPSMT مثلاً)، فتفسد خريطتُه — ويُكشف ذلك بانخفاض نسبة الاتفاق.
+    """
+    stat = {}
+    for i in range(doc.page_count):
+        for sp in doc[i].get_texttrace():
+            tbl = gm.get(sp["font"])
+            if not tbl:
+                continue
+            a, t = stat.get(sp["font"], (0, 0))
+            for c in sp["chars"]:
+                true = tbl.get(c[1])
+                if true is None:
+                    continue
+                t += 1
+                a += 1 if _base(true) == _base(chr(c[0]) if c[0] > 0 else "") else 0
+            stat[sp["font"]] = (a, t)
+    return {f for f, (a, t) in stat.items() if t >= 200 and a >= t * 0.9}
+
+
 def _w(c):
     return c["bbox"][2] - c["bbox"][0]
+
+
+def space_mode(doc):
+    """{(الخطّ، الحجم): عرض المسافة الغالب} — مرجعُ تمييز المسافة الحقيقية.
+
+    ضبطُ السطر في بعض خطوط المصدر يباعد حروف الكلمة بمسافةٍ أضيق من مسافة
+    الكلمات: «موحد» ← «موح د». ولا يضبط المصدر بمسافةٍ أضيق من القياسية إلا
+    في هذا الموضع، فالقياس عليه قاطع.
+    """
+    tally = {}
+    for i in range(doc.page_count):
+        for blk in doc[i].get_text("rawdict")["blocks"]:
+            for ln in blk.get("lines", []):
+                for sp in ln["spans"]:
+                    key = (sp["font"], round(sp.get("size", 0)))
+                    for c in sp["chars"]:
+                        if c["c"] == " ":
+                            w = round(_w(c), 2)
+                            tally.setdefault(key, {})
+                            tally[key][w] = tally[key].get(w, 0) + 1
+    return {k: max(v.items(), key=lambda kv: kv[1])[0] for k, v in tally.items()}
 
 
 def kashida_x(pg):
@@ -159,18 +237,20 @@ def kashida_x(pg):
     return out
 
 
-def glyph_fix(pg, gm):
+def glyph_fix(pg, gm, trusted=None, over=None):
     """{x: [(y, النص الصحيح)]} لكل رسمٍ يخالف فيه ToUnicode برنامجَ الخطّ.
 
     محارف الاستكمال (gid = -1) تُضمّ إلى رسمها قبل المقارنة، وإلا حُسب الرباط
     ناقصاً. وخطُّ الأساس يختلف بين texttrace وrawdict بأجزاء النقطة فيُطابق
     الموضع بتسامح رأسي عند الاستعمال.
     """
-    out = {}
+    out, over = {}, over or {}
     for sp in pg.get_texttrace():
-        tbl = gm.get(sp["font"])
-        if not tbl:
+        tbl = gm.get(sp["font"]) or {}
+        if not tbl and not any(k[0] == sp["font"] for k in over):
             continue
+        if trusted is not None and sp["font"] not in trusted:
+            tbl = {}                       # خريطةٌ لا يوثق بها: الإحلال فقط
         seq = []
         for c in sp["chars"]:
             if c[1] == -1 and seq:
@@ -179,7 +259,7 @@ def glyph_fix(pg, gm):
                 seq.append([c[1], chr(c[0]) if c[0] > 0 else "",
                             (round(c[2][0], 1), c[2][1])])
         for g, got, xy in seq:
-            man = MANUAL.get((sp["font"], g))
+            man = MANUAL.get((sp["font"], g), over.get((sp["font"], g)))
             if man is not None:
                 out.setdefault(xy[0], []).append((xy[1], man))
                 continue
@@ -197,12 +277,41 @@ def glyph_fix(pg, gm):
 
 
 # ═══════════════════════════ (٢) إعادة بناء نصّ الصفحة ══════════════════════
-def span_text(span, drop_x=(), fix=None):
+def span_text(span, drop_x=(), fix=None, space_w=0.0):
     """نص السبان مُعاد البناء: رباطات مجموعة، ترتيب بصري، وإصلاح رسوم الخطّ.
 
     يعيد (النص، أقصى x، أدنى x، أقصى حافة يمنى).
     """
     fix = fix or {}
+
+    def fixed(c):
+        """نصّ إصلاح هذا المحرف إن كان رسمُه مخالفاً لما يعلنه ToUnicode."""
+        for y0, t in fix.get(round(c["origin"][0], 1), ()):
+            if abs(y0 - c["origin"][1]) <= 1.5:   # خطُّ الأساس يختلف قليلاً
+                return t                           # بين texttrace وrawdict
+        return None
+
+    # مسافةٌ تشترك في نقطة بدايتها مع محرفٍ آخر تطويلُ ضبطٍ يعلوه لا فاصلُ
+    # كلمتين — تُسقَط وإلا شطرت الكلمة: «القوى» ← «القو ى».
+    # مكوّناتُ الرباط صفريةُ العرض تشترك في نقطة بداية جارِها، فلا تُحسب حرفاً
+    # وإلا أسقطت فاصلَ كلمتين: «الإجمالية لمجموعة» ← «الإجماليةلمجموعة».
+    letters = {round(c["bbox"][0], 1) for c in span["chars"]
+               if (c["c"] != " " or fixed(c) is not None) and _w(c) > 0.01}
+    # مسافةٌ يغطّي صندوقُها صندوقَ حرفٍ ليست فاصلَ كلمتين بل فاصلَ خليةٍ رُسم
+    # في غير موضعه أو تطويلَ ضبطٍ — ولو حُسبت لشطرت الكلمة: «الت وازي».
+    boxes = [(c["bbox"][0], c["bbox"][2]) for c in span["chars"]
+             if c["c"] != " " and _w(c) > 0.01]
+
+    def buried(c):
+        a, b = c["bbox"][0], c["bbox"][2]
+        w = b - a
+        if w <= 0:
+            return False
+        for x0, x1 in boxes:
+            if min(b, x1) - max(a, x0) >= w * 0.8:
+                return True
+        return False
+
     chars, marks = [], []
     for c in span["chars"]:
         if c["c"] in KASHIDA and _w(c) < 0.01:
@@ -210,8 +319,15 @@ def span_text(span, drop_x=(), fix=None):
         if MARKS.match(c["c"]) and _w(c) < 0.01:
             marks.append(c)
             continue
-        if c["c"] == " " and round(c["bbox"][0], 2) in drop_x:
-            continue
+        if c["c"] == " " and fixed(c) is None:
+            if round(c["bbox"][0], 2) in drop_x:
+                continue
+            if round(c["bbox"][0], 1) in letters:
+                continue
+            if space_w and _w(c) < space_w * 0.85:
+                continue                     # مباعدةُ ضبطٍ داخل الكلمة
+            if buried(c):
+                continue                     # مسافةٌ مطمورة في صندوق حرف
         chars.append(c)
 
     # الرباط: مكوّناته صفرية العرض وتسبق حاملها بترتيب معكوس
@@ -220,11 +336,7 @@ def span_text(span, drop_x=(), fix=None):
         if _w(c) < 0.01:
             pend.append(c)
             continue
-        rep = None
-        for y0, t in fix.get(round(c["origin"][0], 1), ()):
-            if abs(y0 - c["origin"][1]) <= 1.5:   # خطُّ الأساس يختلف قليلاً
-                rep = t                            # بين texttrace وrawdict
-                break
+        rep = fixed(c)
         txt = rep if rep is not None else (
             c["c"] + "".join(p["c"] for p in reversed(pend)))
         groups.append({"t": txt, "x": c["bbox"][0], "x1": c["bbox"][2]})
@@ -298,13 +410,14 @@ def join_items(items, key="t"):
     return buf
 
 
-def page_lines(pg, drop_x, fix):
+def page_lines(pg, drop_x, fix, modes):
     """يجمع سبانات الصفحة في أسطر بحسب y ويرتبها يميناً ثم يساراً."""
     items = []
     for blk in pg.get_text("rawdict")["blocks"]:
         for ln in blk.get("lines", []):
             for sp in ln["spans"]:
-                t, xr, x0, x1 = span_text(sp, drop_x, fix)
+                sw = modes.get((sp["font"], round(sp.get("size", 0))), 0.0)
+                t, xr, x0, x1 = span_text(sp, drop_x, fix, sw)
                 t = re.sub(r"[ \t\u200f\u200e]+", " ", t.translate(AR_DIGITS))
                 if t.strip():
                     items.append({"t": t, "x0": x0, "x1": x1, "xr": xr,
@@ -403,6 +516,7 @@ def norm(t, keep_edges=False):
     خليتين متجاورتين عن كلمة واحدة قطعها المصدر سبانين."""
     for a, b in REPAIRS:
         t = t.replace(a, b)
+    t = t.replace("\u0640", "")          # التطويل زخرفُ ضبطٍ لا حرفَ كلمة
     t = re.sub(r"\s+", " ", t)
     return t if keep_edges else t.strip()
 
@@ -416,6 +530,10 @@ def title(t):
     t = re.sub(r"\s*،\s*", "، ", t)
     t = re.sub(r"\s+([)\]])", r"\1", t)
     t = re.sub(r"([(\[])\s+", r"\1", t)
+    # المصدر يرسم قوسَي المقطع اللاتيني معكوسَين «)LAD(» — والفاصلة تسبقه
+    t = re.sub(r"\)([^()\u0600-\u06ff]+)\(",
+               lambda m: "(" + re.sub(r"\s+,", ", ", m.group(1)).strip() + ")", t)
+    t = re.sub(r"([\u0600-\u06ff])\(", r"\1 (", t)
     t = re.sub(r"([\u0600-\u06ff])([A-Za-z])", r"\1 \2", t)
     t = re.sub(r"([A-Za-z])([\u0600-\u06ff])", r"\1 \2", t)
     t = re.sub(r"\s+", " ", t).strip(" :-،.")
@@ -547,6 +665,19 @@ def section_starts(pages, first):
     return starts
 
 
+def appendix_page(pages, after):
+    """رقم صفحة غلاف «الملاحق والمراجع» — وهي نهاية آخر قسمِ وصفٍ تفصيلي.
+
+    آخر قسمٍ لا يحدّه قسمٌ بعده، فلو قُدِّر طولُه بعددٍ ثابت لضاعت كتلٌ منه:
+    ضاعت بذلك الوحدة الثامنة من «ورشة التركيبات الصناعية» في تجربة سابقة.
+    """
+    for i in range(after + 1, len(pages)):
+        for ln in pages[i][:12]:
+            if ln["text"].startswith("الملاحق والمراجع"):
+                return i
+    return len(pages)
+
+
 def section_lines(pages, a, b):
     out = []
     for p in range(a, b):
@@ -575,7 +706,7 @@ def merge_rows(lines, tol=3.5):
 
 def head_code(lines):
     """رمز المقرر من صدر القسم: «الرمز ### كهرب»."""
-    head = " ".join(l["t"] for l in merge_rows(lines)[:6])
+    head = " ".join(l["t"] for l in merge_rows(lines)[:12])
     m = re.search(r"لرمز\s*(\d{3})\s*(%s)" % CODE_WORD, head)
     if m:
         return "%s-%s" % (canon(m.group(2)), m.group(1))
@@ -585,14 +716,16 @@ def head_code(lines):
 
 def head_name(lines):
     """اسم المقرر كما في صدر صفحة الوصف التفصيلي (بين «اسم المقرر» و«الرمز»)."""
-    head = " ".join(l["t"] for l in merge_rows(lines)[:4])
-    m = re.search(r"اسم\s*المقر\s*ر?\s*(.*?)\s*ا?لرمز", head)
-    return title(m.group(1)) if m else ""
+    for ln in merge_rows(lines)[:12]:
+        m = re.search(r"اسم\s*المقر\s*ر\s*(.*?)\s*ا?لرمز", ln["t"])
+        if m and ARABIC.search(m.group(1) or ""):
+            return title(m.group(1))
+    return ""
 
 
 def head_prereq(lines):
     """المتطلبات السابقة من صدر القسم: «متطلب سابق ### رمز ، ### رمز»."""
-    head = " ".join(l["t"] for l in merge_rows(lines)[:6])
+    head = " ".join(l["t"] for l in merge_rows(lines)[:12])
     m = re.search(r"متطلب\s*سابق(.*?)(الفصل|الساعات|$)", head)
     if not m:
         return []
@@ -643,57 +776,56 @@ def sem_of_x(x):
 UNIT_HOURS_X = 200          # عمود «ساعات التدريب» في أقصى يسار جدول الوحدات
 
 
+def band_rows(lines):
+    """يضمّ سطور صفّ الجدول الواحد بحدوده المرسومة، ويحفظ نصّ كلّ سطرٍ وحده."""
+    out = []
+    for ln in lines:
+        if out and ln["p"] == out[-1]["p"] and ln["band"] == out[-1]["band"]:
+            out[-1]["lines"].append(ln)
+        else:
+            out.append({"p": ln["p"], "y": ln["y"], "band": ln["band"],
+                        "lines": [ln]})
+    for r in out:
+        r["items"] = [i for ln in r["lines"] for i in ln["items"]]
+        r["t"] = norm(" ".join(ln["t"] for ln in r["lines"]))
+    return out
+
+
 def parse_units(lines, pages_n):
-    """جدول «الوحدات (النظرية والعملية) — ساعات التدريب» حتى «المجموع»."""
-    lines = merge_rows(lines)
+    """جدول «الوحدات (النظرية والعملية) — ساعات التدريب» حتى «المجموع».
+
+    صفوفه تُقرأ بحدود الجدول المرسومة لا بتقارب y: عنوانُ الوحدة يلتفّ سطرين
+    وساعاتُها تُرسم بينهما في وسط خليّتها، فلو قُرئ بالتقارب لانشطر العنوان.
+    """
+    rows = band_rows([l for l in lines
+                      if l["t"] and not is_boiler(l["t"], l["y"], pages_n)])
     start = None
-    for i, ln in enumerate(lines):
-        t = ln["t"].lstrip(")(")
-        if t.startswith("الوحدات") and ("ساعات التدريب" in ln["t"]
-                                        or "العملية" in ln["t"]):
+    for i, r in enumerate(rows):
+        t = r["t"].lstrip(")(")
+        if t.startswith("الوحدات") and ("ساعات التدريب" in r["t"]
+                                        or "العملية" in r["t"]):
             start = i + 1
             break
     if start is None:
         return [], None
-    units, total, pending, pending_num = [], None, None, None
-    for ln in lines[start:]:
-        t = ln["t"]
-        if not t or is_boiler(t, ln["y"], pages_n):
-            continue
-        if "المجموع" in t:
-            nums = re.findall(r"\d+", t)
-            if nums:
-                total = int(nums[-1])
-                break
-            total = "PENDING"
-            continue
-        if total == "PENDING":
-            total = int(t) if is_num(t) else None
+    units, total = [], None
+    for r in rows[start:]:
+        nums = [x for x in r["items"] if is_num(x["t"]) and x["x"] < UNIT_HOURS_X]
+        if "المجموع" in r["t"]:
+            total = int(nums[-1]["t"]) if nums else None
             break
-        nums = [x for x in ln["items"] if is_num(x["t"]) and x["x"] < UNIT_HOURS_X]
-        texts = [x for x in ln["items"] if x not in nums
-                 and re.search(r"[0-9A-Za-z\u0600-\u06ff]", x["t"])]
-        if texts and nums:
-            head = title(join_items(texts, "raw"))
-            units.append({"title": (pending + " " + head) if pending else head,
-                          "hours": int(nums[-1]["t"])})
-            pending = pending_num = None
-        elif texts:
-            head = title(join_items(texts, "raw"))
-            if pending_num is not None:
-                units.append({"title": head, "hours": pending_num})
-                pending_num = None
-            elif pending:
-                pending += " " + head
-            else:
-                pending = head
-        elif nums:
-            if pending is not None:
-                units.append({"title": pending, "hours": int(nums[-1]["t"])})
-                pending = None
-            else:
-                pending_num = int(nums[-1]["t"])
-    return units, (total if total != "PENDING" else None)
+        heads = []
+        for ln in r["lines"]:
+            txt = [x for x in ln["items"] if x not in nums
+                   and re.search(r"[0-9A-Za-z\u0600-\u06ff]", x["t"])]
+            v = title(join_items(txt, "raw"))
+            if v:
+                heads.append(v)
+        if not (nums and heads):
+            continue                  # صفٌّ بلا ساعات أو بلا عنوان: ليس وحدة
+        units.append({"title": re.sub(r"\s+", " ", " ".join(heads)).strip(),
+                      "hours": int(nums[-1]["t"])})
+    return units, total
 
 
 # ═══════════════════════ (٨) إجراءات واشتراطات السلامة ═════════════════════
@@ -734,31 +866,64 @@ BULLET = re.compile(r"^[\u2022\u25cf\u25aa\u25e6]+$|^o$", re.I)
 LVL2 = re.compile(r"^o$", re.I)
 REF_LABEL = ("مراجع", "الموضوع", "مراجع الموضوع", "المراجع", "المحتوى",
              "المحتو ى", "الساعات")
+REF_NO = re.compile(r"^\d{1,2}\s*\.$")     # ترقيم قائمة مراجع الموضوع
 TOOL_SKIP = ("أدوات التقييم", "التخصص", "الإدارة العامة", "القسم")
 DETAIL_HEAD = re.compile(r"^المنهج\s*التفصيلي")
 PRACTICAL_HEAD = re.compile(r"تطبيقات\s*عملية|تدريبات\s*عملية|تمارين\s*عملية")
 
 
+def block_rules(pg, hours_x):
+    """ارتفاعات فواصل كتل المنهج التفصيلي: الخطوط الأفقية التي تعبر عمود الساعات.
+
+    خانةُ الساعات مدموجةٌ رأسياً على كتلتها، ورقمُها يُرسم في وسطها — فقد يسبق
+    بنودَها في خطةٍ ويتلوها في أخرى. فلا يُعتمد ترتيبُ الرسم في تحديد الكتلة،
+    بل حدودُ الصف المرسومة: بذلك اتّفق «تقنية التحكم الآلي» في الخطتين.
+    """
+    out = set()
+    for dr in pg.get_drawings():
+        for it in dr["items"]:
+            if it[0] == "l":
+                p, q = it[1], it[2]
+                if abs(p.y - q.y) < 1.0 and abs(p.x - q.x) > 20 \
+                        and min(p.x, q.x) >= hours_x - 5:
+                    out.add(round((p.y + q.y) / 2, 1))
+            elif it[0] == "re":
+                r = it[1]
+                if r.height < 2.0 and r.width > 20 and r.x0 >= hours_x - 5:
+                    out.add(round((r.y0 + r.y1) / 2, 1))
+    return sorted(out)
+
+
 def detail_rows(pages, a, b, pages_n):
-    """صفوف جدول المنهج التفصيلي، وحدودُ أعمدة كلّ صفٍّ من خطوط صفحته."""
+    """صفوف جدول المنهج التفصيلي، وحدودُ أعمدة كلّ صفٍّ وكتلتِه من خطوط صفحته."""
     raw = []
     for p in range(a, b):
-        segs = vert_segs(pages[p]["page"])
+        pg = pages[p]["page"]
+        segs = vert_segs(pg)
+        cols_of = {}
+        for ln in pages[p]["lines"]:
+            cols_of[ln["y"]] = col_at(segs, ln["y"] + 6)
+        hx = [c[1] for c in cols_of.values() if c]
+        hx = max(set(hx), key=hx.count) if hx else 510.0
+        rules = block_rules(pg, hx)
         for ln in pages[p]["lines"]:
             if ln["y"] < 60:            # شريط ترويسة الصفحة فوق إطار الجدول
                 continue
-            cols = col_at(segs, ln["y"] + 6)
+            cols, band = cols_of[ln["y"]], row_band(rules, ln["y"] + 6)
             for it in ln["items"]:
                 t = norm(it["t"])
                 if not t or is_boiler(t, ln["y"], pages_n):
                     continue
                 raw.append({"p": p, "y": ln["y"], "x": it["x0"], "x0": it["x0"],
                             "x1": it["x1"], "xr": it["xr"], "t": t,
-                            "cols": cols, "raw": norm(it["t"], True)})
+                            "cols": cols, "band": band,
+                            "raw": norm(it["t"], True)})
     raw.sort(key=lambda i: (i["p"], i["y"], -i["xr"]))
     rows = []
     for it in raw:
-        if rows and it["p"] == rows[-1][0]["p"] and it["y"] - rows[-1][0]["y"] <= 3.5:
+        # سطرُ الخلية الواحد يُرسم على ارتفاعات تتفاوت حتى ٦ نقاط في هذه الخطط،
+        # وسطور المحتوى المتتالية يفصلها ١٥ نقطة فأكثر — فالتسامح آمن
+        if rows and it["p"] == rows[-1][0]["p"] and it["y"] - rows[-1][0]["y"] <= 6.0:
             rows[-1].append(it)
         else:
             rows.append([it])
@@ -785,42 +950,65 @@ def _cells(row, cols):
     return marks, texts, hours, tools
 
 
+def is_ref_row(row, cols):
+    """أصفُّ مراجعِ الموضوع هو؟ علامتُه رقمٌ متبوعٌ بنقطة في أقصى يسار الصف."""
+    tools_x = cols[0] or 200.0
+    return any(REF_NO.match(i["t"].strip()) and i["x1"] < tools_x for i in row)
+
+
 def parse_detail(rows):
     """كتل المنهج التفصيلي: لكل كتلة ساعاتُها وعنوانها وبنودها ومستوياتها.
 
-    مستويان يميّزهما رمز التعداد نفسه: «•» عنوان موضوع و«o» بندٌ تحته. وصفٌّ
-    بلا رمزٍ تكملةُ سطرٍ التفَّ عن سابقه فيُضمّ إليه. وأدوات التقييم خانةٌ يسرى
+    الكتلة صفٌّ من صفوف الجدول، تُعرف بحدوده المرسومة لا بموضع رقم ساعاتها.
+    ومستوياها يميّزهما رمز التعداد: «•» عنوان موضوع و«o» بندٌ تحته. وصفٌّ بلا
+    رمزٍ تكملةُ سطرٍ التفَّ عن سابقه فيُضمّ إليه. وأدوات التقييم خانةٌ يسرى
     تخصّ الكتلة كلَّها، ووجودُ «الأداء العملي» فيها دليلُ شقٍّ عملي.
     """
+    # صفوفُ الكتلة الواحدة قد تنقسم على صفحتين، فتكون تتمّتُها في صفٍّ بلا
+    # خانة ساعات — فلا تُعدّ كتلةً جديدة ولا يُقطع بها سطرٌ ملتفّ.
+    has_hours = set()
+    for row in rows:
+        c = _cols(row, (200.0, 510.0))
+        if any(i["x0"] >= c[1] and is_num(i["t"]) for i in row):
+            has_hours.add((row[0]["p"], row[0]["band"]))
     started, blocks, cur, last = False, [], None, None
-    fallback = (200.0, 510.0)
+    in_refs, fallback, key = False, (200.0, 510.0), None
     for row in rows:
         cols = _cols(row, fallback)
         if cols[1]:
             fallback = (cols[0] or fallback[0], cols[1])
         joined = norm(join_items(row, "raw"))
         if DETAIL_HEAD.match(joined):
-            started = True
+            started, key = True, None
             continue
         if not started:
             continue
         marks, texts, hours, tools = _cells(row, cols)
         if any(i["t"] == "المراجع" and i["x0"] >= cols[1] for i in row):
             break                          # كتلة مراجع المقرر في آخر القسم
+        now = (row[0]["p"], row[0]["band"])
+        if now != key:
+            key, in_refs = now, False
+            if now in has_hours:           # صفُّ جدولٍ جديد = كتلة جديدة
+                cur, last = None, None
+        if in_refs or is_ref_row(row, cols):
+            in_refs = True
+            continue                       # مراجع الموضوع لا مواضيعه
         tool_txt = norm(join_items(tools, "raw")) if tools else ""
         if not (ARABIC.search(tool_txt) and not tool_txt.startswith(TOOL_SKIP)):
             tool_txt = ""
         v = title(join_items(texts, "raw"))
         if len(v) < 2 or v.startswith("المحتو"):
             v = ""
-        if hours:
-            cur = {"hours": int(hours[-1]["t"]), "title": v, "items": [],
-                   "levels": [], "tools": [tool_txt] if tool_txt else []}
-            blocks.append(cur)
-            last = ("title", 0)
-            continue
         if cur is None:
-            continue
+            if not (hours or v or tool_txt) or now not in has_hours:
+                continue
+            cur = {"hours": None, "title": "", "items": [], "levels": [],
+                   "tools": []}
+            blocks.append(cur)
+            last = None
+        if hours and cur["hours"] is None:
+            cur["hours"] = int(hours[-1]["t"])
         if tool_txt:
             cur["tools"].append(tool_txt)
         if not v:
@@ -829,8 +1017,8 @@ def parse_detail(rows):
             cur["title"], last = v, ("title", 0)
             continue
         if not marks and last is not None:
-            key, idx = last            # سطر ملتفٌّ: تكملةُ ما قبله لا بندٌ جديد
-            if key == "title":
+            k, idx = last              # سطر ملتفٌّ: تكملةُ ما قبله لا بندٌ جديد
+            if k == "title":
                 cur["title"] += " " + v
             else:
                 cur["items"][idx] += " " + v
@@ -839,21 +1027,32 @@ def parse_detail(rows):
         cur["items"].append(v)
         cur["levels"].append(lvl)
         last = ("items", len(cur["items"]) - 1)
+    # كتلةٌ بلا ساعات هي تتمّةُ كتلةٍ امتدّت إلى صفحةٍ تالية، فتُضمّ إلى سابقتها
+    out = []
     for blk in blocks:
+        if blk["hours"] is None and out:
+            prev = out[-1]
+            if prev["title"] and blk["title"]:
+                prev["items"].append(blk["title"])
+                prev["levels"].append(1)
+            elif blk["title"]:
+                prev["title"] = blk["title"]
+            prev["items"].extend(blk["items"])
+            prev["levels"].extend(blk["levels"])
+            prev["tools"].extend(blk["tools"])
+            continue
+        if blk["hours"] is None:
+            continue
+        out.append(blk)
+    for blk in out:
         seen, keep = set(), []
         for t in blk["tools"]:
             if t not in seen:
                 seen.add(t)
                 keep.append(t)
         blk["tools"] = keep
-    return blocks
+    return out
 
-
-def _key(t):
-    """مفتاح مقارنة العناوين: بلا تشكيل ولا ترقيم ولا فروق رسمِ الألف والياء."""
-    t = re.sub(r"[^\u0621-\u064a0-9A-Za-z]", "", t or "")
-    t = re.sub(r"[أإآ]", "ا", t)
-    return t.replace("ى", "ي").replace("ة", "ه")
 
 
 def match_blocks(units, blocks):
@@ -908,24 +1107,27 @@ def is_own(code, cfg):
 
 
 # ════════════════════════════ (١١) استخراج خطة ═════════════════════════════
-def extract_plan(cfg):
+def extract_plan(cfg, over=None):
     doc = fitz.open(cfg["pdf"])
     gm = doc_gid_text(doc)
+    trusted = trusted_fonts(doc, gm)
+    modes = space_mode(doc)
     npages = doc.page_count
     pages, lines_of = [], []
     for i in range(npages):
         pg = doc[i]
-        lines = page_lines(pg, kashida_x(pg), glyph_fix(pg, gm))
+        lines = page_lines(pg, kashida_x(pg),
+                           glyph_fix(pg, gm, trusted, over), modes)
         lines_of.append(lines)
         pages.append({"page": pg, "lines": lines})
 
     fw = {c["code"]: c for c in framework(lines_of, cfg["fwPages"])}
     starts = section_starts(lines_of, cfg["detailFirst"])
-    bounds = list(zip(starts, starts[1:] + [starts[-1] + 6]))
+    bounds = list(zip(starts, starts[1:] + [appendix_page(lines_of, starts[-1])]))
 
     courses, details, problems = [], [], []
     for a, b in bounds:
-        sec = section_lines(lines_of, a, b)
+        sec = section_lines(pages, a, b)
         code = head_code(sec)
         meta = fw.get(code)
         if meta is None:
@@ -1056,7 +1258,8 @@ def compare_shared(res_a, res_b):
 
 # ═══════════════════════════════════ main ══════════════════════════════════
 def main():
-    res = [extract_plan(cfg) for cfg in PLANS]
+    over = wrd_consensus([p["pdf"] for p in PLANS])
+    res = [extract_plan(cfg, over) for cfg in PLANS]
     qwa, alat = res
     kq, ka = qwa["cfg"]["key"], alat["cfg"]["key"]
     shared, same, conflicts = compare_shared(qwa, alat)
