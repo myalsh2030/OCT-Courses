@@ -1,9 +1,5 @@
 import {
-  CalendarDays,
-  Check,
   CircleAlert,
-  GraduationCap,
-  Info,
   LoaderCircle,
   LogIn,
   Settings,
@@ -95,10 +91,7 @@ export function TrainerLogin() {
   return (
     <div className="login-page">
       <header className="login-topbar">
-        <div className="login-brand">
-          <GraduationCap size={24} aria-hidden />
-          <span>المؤسسة العامة للتدريب التقني والمهني — الكلية التقنية</span>
-        </div>
+        <div className="login-brand" aria-hidden />
         <Link
           to="/admin"
           className="btn"
@@ -116,21 +109,12 @@ export function TrainerLogin() {
             <div className="avatar">
               <UserRound size={24} aria-hidden />
             </div>
+            <div className="login-college">الكلية التقنية بعنيزة</div>
             <h1>ملف المدرب وتوصيف المقرر</h1>
-            <p>
-              التحقق الأكاديمي المباشر
-              {term ? ` — ${termLabel(term)}` : ''}
-            </p>
+            {term && <p>{termLabel(term)}</p>}
           </div>
 
           <div className="login-body">
-            <div className="alert-banner info compact">
-              <Info size={18} aria-hidden />
-              <div className="alert-content">
-                <strong>دخول مباشر ومطمئن:</strong> لا حاجة لكلمة مرور ولا بريد إلكتروني؛ يتم
-                التحقق بمطابقة رقمك التدريبي برقم أي شعبة مسندة إليك في جدول رايات.
-              </div>
-            </div>
 
             {loadError && (
               <div className="alert-banner danger compact" role="alert">
@@ -167,16 +151,6 @@ export function TrainerLogin() {
                   required
                   disabled={busy}
                 />
-                <p className="form-hint">
-                  <Check
-                    size={13}
-                    aria-hidden
-                    style={{ verticalAlign: -2, color: 'var(--ui-accent-dark)' }}
-                  />{' '}
-                  <strong>تقبل الأصفار البادئة تلقائياً:</strong> إدخال{' '}
-                  <span className="num">13270</span> يطابق تماماً{' '}
-                  <span className="num">0013270</span>.
-                </p>
               </div>
 
               <div className="form-group">
@@ -189,51 +163,12 @@ export function TrainerLogin() {
                   type="text"
                   inputMode="numeric"
                   autoComplete="off"
-                  placeholder="مثال: 40213"
+                  placeholder="مثال: 10630"
                   value={refNo}
                   onChange={(e) => setRefNo(e.target.value)}
                   required
                   disabled={busy}
                 />
-                <p className="form-hint">
-                  أي رقم مرجعي لشعبة مسندة إليك في جدول هذا الفصل — وأيّها كان يفتح ملفك كاملاً.
-                </p>
-
-                <div className="schedule-guide-card">
-                  <div className="schedule-guide-title">
-                    <CalendarDays size={15} aria-hidden />
-                    <span>أين تجد الرقم المرجعي في جدولك التدريبي بنظام رايات؟</span>
-                  </div>
-                  <table className="mini-schedule-table">
-                    <thead>
-                      <tr>
-                        <th>رمز المقرر</th>
-                        <th>اسم المقرر</th>
-                        <th className="crn-head">الرقم المرجعي</th>
-                        <th>الوقت واليوم</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>منتج-101</td>
-                        <td>ورشة تأسيسية</td>
-                        <td className="crn-callout-cell">
-                          <span className="num">40213</span>
-                          <span className="crn-callout-tag">هذا هو الرقم</span>
-                        </td>
-                        <td>الأحد 08:00</td>
-                      </tr>
-                      <tr style={{ opacity: 0.7 }}>
-                        <td>مصيم-141</td>
-                        <td>أساسيات ميكانيكا الموائع</td>
-                        <td style={{ background: '#f0fdf4', fontWeight: 700, color: '#065f46' }}>
-                          <span className="num">41502</span>
-                        </td>
-                        <td>الاثنين 10:00</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
               </div>
 
               <button

@@ -88,11 +88,22 @@
   overflow: hidden;
 }
 
+/* ترويسة البطاقة بألوان الشعار: فيروزيّه الغالب مع أخضره الزيتي،
+   بدل الأسود الذي لا يمتّ لهوية المؤسسة بصلة. */
 .login-header {
-  background: var(--ui-bar);
+  background: linear-gradient(135deg, #186c60 0%, #24a89c 55%, #24b4b4 100%);
   color: #fff;
-  padding: 24px 28px;
+  padding: 22px 28px 24px;
   text-align: center;
+}
+
+/* اسم الكلية فوق عنوان الوثيقة — أصغر منه وأخفت، فهو نسبةٌ لا عنوان. */
+.login-college {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 6px;
 }
 .login-header .avatar {
   width: 46px;
