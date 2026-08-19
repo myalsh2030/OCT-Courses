@@ -1,0 +1,736 @@
+{
+ "source": "الخطة التفصيلية لتخصص تقنية الأجهزة والآلات الدقيقة - دبلوم كليات - نصفي.pdf — جدول الإطار المنهجي (ص٥–٧) وصفحات الوصف التفصيلي",
+ "specialty": "تقنية الأجهزة والآلات الدقيقة",
+ "department": "التقنية الإلكترونية",
+ "weeksPerSemester": 16,
+ "note": "مستخرج آلياً؛ الثابت المفروض: مجموع ساعات الوحدات = س.أ × ١٦",
+ "courses": [
+  {
+   "code": "اجدق-111",
+   "codeAr": "111 اجدق",
+   "codeEn": "EIMM 111",
+   "semester": 1,
+   "nameAr": "هندسة كهربائية (1)",
+   "nameEn": "Electric Enginering -1",
+   "prereqAr": [],
+   "crh": 3,
+   "l": 2,
+   "p": 2,
+   "t": 0,
+   "cth": 4,
+   "pageStart": 14,
+   "pageEnd": 18,
+   "units": [
+    {
+     "title": "مبادئ و مفاهيم أساسية في الكهرباء",
+     "hours": 5
+    },
+    {
+     "title": "الكميات الكهربائية",
+     "hours": 9
+    },
+    {
+     "title": "قانون أوم و القدرة الكهربائية",
+     "hours": 9
+    },
+    {
+     "title": "دوائر التوالي",
+     "hours": 9
+    },
+    {
+     "title": "دوائر التوازي",
+     "hours": 9
+    },
+    {
+     "title": "دوائر توالي و توازي",
+     "hours": 9
+    },
+    {
+     "title": "تحليل الدوائر الكهربائية",
+     "hours": 14
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": 64,
+   "expectedUnitsSum": 64
+  },
+  {
+   "code": "اجدق-112",
+   "codeAr": "112 اجدق",
+   "codeEn": "EIMM 112",
+   "semester": 2,
+   "nameAr": "هندسة كهربائية (2)",
+   "nameEn": "Electric Enginering -2",
+   "prereqAr": [
+    "111 اجدق"
+   ],
+   "crh": 3,
+   "l": 2,
+   "p": 2,
+   "t": 0,
+   "cth": 4,
+   "pageStart": 19,
+   "pageEnd": 22,
+   "units": [
+    {
+     "title": "مقدمة ومفاهيم أساسية في التيار و الجهد المتردد",
+     "hours": 20
+    },
+    {
+     "title": "العناصر الكهربائية في دوائر التيار المتردد",
+     "hours": 9
+    },
+    {
+     "title": "الارتباط المغناطيسي والحث المتبادل",
+     "hours": 4
+    },
+    {
+     "title": "دوائر التيار المتردد",
+     "hours": 15
+    },
+    {
+     "title": "نظريات و طرق تحليل دوائر التيار المتردد",
+     "hours": 16
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": 64,
+   "expectedUnitsSum": 64
+  },
+  {
+   "code": "اجدق-113",
+   "codeAr": "113 اجدق",
+   "codeEn": "EIMM 113",
+   "semester": 2,
+   "nameAr": "عناصر الكترونية و ضوئية",
+   "nameEn": "Electronic & Optical Devices",
+   "prereqAr": [
+    "111 اجدق"
+   ],
+   "crh": 2,
+   "l": 1,
+   "p": 2,
+   "t": 1,
+   "cth": 4,
+   "pageStart": 23,
+   "pageEnd": 29,
+   "units": [
+    {
+     "title": "ثنائي شبه موصل",
+     "hours": 7
+    },
+    {
+     "title": "الموحدات و دوائر التنعيم",
+     "hours": 7
+    },
+    {
+     "title": "ثنائي زينر",
+     "hours": 7
+    },
+    {
+     "title": "ثنائي الباعث للضوء",
+     "hours": 4
+    },
+    {
+     "title": "ترانزيستور ثنائي القطبية BJT",
+     "hours": 8
+    },
+    {
+     "title": "ترانزيستور التأثير المجالي FET و MOSFET",
+     "hours": 8
+    },
+    {
+     "title": "ترانزستور الضوئي Photo-transistor",
+     "hours": 8
+    },
+    {
+     "title": "الألياف البصرية",
+     "hours": 8
+    },
+    {
+     "title": "تطبيقات الألياف البصرية",
+     "hours": 4
+    },
+    {
+     "title": "تمارين و مراجعة",
+     "hours": 3
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": 64,
+   "expectedUnitsSum": 64
+  },
+  {
+   "code": "اجدق-121",
+   "codeAr": "121 اجدق",
+   "codeEn": "EIMM 121",
+   "semester": 2,
+   "nameAr": "دوائر رقمية",
+   "nameEn": "Digital Circuits",
+   "prereqAr": [],
+   "crh": 2,
+   "l": 1,
+   "p": 2,
+   "t": 1,
+   "cth": 4,
+   "pageStart": 30,
+   "pageEnd": 34,
+   "units": [
+    {
+     "title": "مفاهيم أساسية في الدوائر الرقمية",
+     "hours": 4
+    },
+    {
+     "title": "الأنظمة العددية",
+     "hours": 8
+    },
+    {
+     "title": "البوابات المنطقية",
+     "hours": 8
+    },
+    {
+     "title": "بناء و اختزال الدوائر المنطقية",
+     "hours": 12
+    },
+    {
+     "title": "الدوائر المنطقية التوافقية",
+     "hours": 12
+    },
+    {
+     "title": "الدوائر المنطقية التعاقبية",
+     "hours": 12
+    },
+    {
+     "title": "الذاكرات",
+     "hours": 8
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": 64,
+   "expectedUnitsSum": 64
+  },
+  {
+   "code": "اجدق-122",
+   "codeAr": "122 اجدق",
+   "codeEn": "EIMM 122",
+   "semester": 2,
+   "nameAr": "اساسيات البرمجة",
+   "nameEn": "Fundamentals of Programming",
+   "prereqAr": [
+    "101 حاسب"
+   ],
+   "crh": 1,
+   "l": 0,
+   "p": 2,
+   "t": 0,
+   "cth": 2,
+   "pageStart": 35,
+   "pageEnd": 37,
+   "units": [
+    {
+     "title": "مقدمة في علوم الحاسب",
+     "hours": 3
+    },
+    {
+     "title": "فهم ماهية برنامج الحاسب",
+     "hours": 3
+    },
+    {
+     "title": "معرفة لغات البرمجة المختلفة بشكل مبسط",
+     "hours": 9
+    },
+    {
+     "title": "مقدمة في لغة C",
+     "hours": 9
+    },
+    {
+     "title": "تطبيقات باستعمال لغة C",
+     "hours": 8
+    }
+   ],
+   "unitsSum": 32,
+   "declaredTotal": 32,
+   "expectedUnitsSum": 32
+  },
+  {
+   "code": "اجدق-131",
+   "codeAr": "131 اجدق",
+   "codeEn": "EIMM 131",
+   "semester": 2,
+   "nameAr": "مقدمة اشارات و نظم",
+   "nameEn": "Introduction to Signals & Systems",
+   "prereqAr": [
+    "121 رياض",
+    "111 اجدق"
+   ],
+   "crh": 2,
+   "l": 2,
+   "p": 0,
+   "t": 0,
+   "cth": 2,
+   "pageStart": 38,
+   "pageEnd": 41,
+   "units": [
+    {
+     "title": "الإشارات الأساسية والعمليات المطبقة عليها وتصنيفاتها",
+     "hours": 4
+    },
+    {
+     "title": "المعادلات التفاضلية الخطية من الرتبة الأولى وتطبيقاتها",
+     "hours": 5
+    },
+    {
+     "title": "المعادلات التفاضلية الخطية من الرتبة الثانية وتطبيقاتها",
+     "hours": 5
+    },
+    {
+     "title": "تحويلات لابلاس",
+     "hours": 8
+    },
+    {
+     "title": "تحويل فورييه",
+     "hours": 5
+    },
+    {
+     "title": "الاستجابة الترددية والمرشحات",
+     "hours": 5
+    }
+   ],
+   "unitsSum": 32,
+   "declaredTotal": 32,
+   "expectedUnitsSum": 32
+  },
+  {
+   "code": "اجدق-223",
+   "codeAr": "223 اجدق",
+   "codeEn": "EIMM 223",
+   "semester": 3,
+   "nameAr": "حاكمات دقيقة",
+   "nameEn": "Microcontrollers",
+   "prereqAr": [
+    "121 اجدق",
+    "122 اجدق"
+   ],
+   "crh": 2,
+   "l": 0,
+   "p": 4,
+   "t": 0,
+   "cth": 4,
+   "pageStart": 42,
+   "pageEnd": 45,
+   "units": [
+    {
+     "title": "مقدمة للبناء الهيكلي للحاسب",
+     "hours": 1
+    },
+    {
+     "title": "البناء الداخلي للمتحكم",
+     "hours": 1
+    },
+    {
+     "title": "البناء الخارجي للمتحكم",
+     "hours": 2
+    },
+    {
+     "title": "التدريب على الخوارزميات",
+     "hours": 10
+    },
+    {
+     "title": "التعرف على برنامج FLOWCODE",
+     "hours": 10
+    },
+    {
+     "title": "تطبيقات مختلفة علي الحاكمات الدقيقة",
+     "hours": 40
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": 64,
+   "expectedUnitsSum": 64
+  },
+  {
+   "code": "اجدق-241",
+   "codeAr": "241 اجدق",
+   "codeEn": "EIMM 241",
+   "semester": 3,
+   "nameAr": "قياسات و أجهزة",
+   "nameEn": "Measurements & Instrumentation",
+   "prereqAr": [
+    "112 اجدق"
+   ],
+   "crh": 2,
+   "l": 1,
+   "p": 2,
+   "t": 1,
+   "cth": 4,
+   "pageStart": 46,
+   "pageEnd": 51,
+   "units": [
+    {
+     "title": "مقدمه في القياسات الكهربائية والالكترونية",
+     "hours": 8
+    },
+    {
+     "title": "أجهزة قياس التيار المستمر والمتردد التماثلية",
+     "hours": 12
+    },
+    {
+     "title": "أجهزة قياس التيار المستمر والمتردد الرقمية",
+     "hours": 8
+    },
+    {
+     "title": "راسمات الإشارة وتطبيقاتها",
+     "hours": 12
+    },
+    {
+     "title": "قناطر القياس وتطبيقاتها",
+     "hours": 12
+    },
+    {
+     "title": "أجهزة قياس بعض الكميات الفيزيائية",
+     "hours": 12
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": 64,
+   "expectedUnitsSum": 64
+  },
+  {
+   "code": "اجدق-203",
+   "codeAr": "203 اجدق",
+   "codeEn": "EIMM 203",
+   "semester": 3,
+   "nameAr": "ورشة الكترونيات دقيقة",
+   "nameEn": "Microelectronics Workshop",
+   "prereqAr": [
+    "103 الكت"
+   ],
+   "crh": 2,
+   "l": 0,
+   "p": 4,
+   "t": 0,
+   "cth": 4,
+   "pageStart": 52,
+   "pageEnd": 55,
+   "units": [
+    {
+     "title": "مراجعة استعمال أجهزة القياس بانواعها",
+     "hours": 4
+    },
+    {
+     "title": "تطبيقات على المزمن 555",
+     "hours": 8
+    },
+    {
+     "title": "تطبيقات على مكبر العمليات 741",
+     "hours": 14
+    },
+    {
+     "title": "تطبيقات على مبدلات الاشارة",
+     "hours": 12
+    },
+    {
+     "title": "تطبيقات على الحاكم الدقيق PIC 16F84",
+     "hours": 17
+    },
+    {
+     "title": "العناصر الالكترونيه المسطحة SMD",
+     "hours": 9
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": 64,
+   "expectedUnitsSum": 64
+  },
+  {
+   "code": "اجدق-224",
+   "codeAr": "224 اجدق",
+   "codeEn": "EIMM 224",
+   "semester": 4,
+   "nameAr": "تصميم بواسطة الحاسب",
+   "nameEn": "Computer Aided Design",
+   "prereqAr": [
+    "113 اجدق",
+    "101 حاسب"
+   ],
+   "crh": 2,
+   "l": 0,
+   "p": 4,
+   "t": 0,
+   "cth": 4,
+   "pageStart": 56,
+   "pageEnd": 59,
+   "units": [
+    {
+     "title": "التعرف علي البرمجيات المختلفة التي تساعد في تصميم الدوائر الإلكترونيه",
+     "hours": 16
+    },
+    {
+     "title": "مهارات رسم الدوائر الإلكترونيه",
+     "hours": 16
+    },
+    {
+     "title": "تحليل دوائر رقمية وتماثلية وإجراء أعطال مختلفه عليها",
+     "hours": 16
+    },
+    {
+     "title": "فحص الدوائر الإلكترونيه وتشغيلها والتحكم بها وتحديد الأعطال وإصلاحها",
+     "hours": 16
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": 64,
+   "expectedUnitsSum": 64
+  },
+  {
+   "code": "اجدق-232",
+   "codeAr": "232 اجدق",
+   "codeEn": "EIMM 232",
+   "semester": 4,
+   "nameAr": "أنظمة تحكم",
+   "nameEn": "Control Systems",
+   "prereqAr": [
+    "112 اجدق",
+    "131 اجدق"
+   ],
+   "crh": 2,
+   "l": 1,
+   "p": 2,
+   "t": 1,
+   "cth": 4,
+   "pageStart": 60,
+   "pageEnd": 64,
+   "units": [
+    {
+     "title": "أساسيات هندسة و تكنولوجيا التحكم",
+     "hours": 12
+    },
+    {
+     "title": "تمثيل أنظمة التحكم",
+     "hours": 12
+    },
+    {
+     "title": "نظم التحكم الأساسية والاستجابة الزمنية",
+     "hours": 14
+    },
+    {
+     "title": "أنماط التحكم وتطبيقاته",
+     "hours": 19
+    },
+    {
+     "title": "تبسيط المخططات الصندوقية و مخططات التدفق",
+     "hours": 7
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": 64,
+   "expectedUnitsSum": 64
+  },
+  {
+   "code": "اجدق-204",
+   "codeAr": "204 اجدق",
+   "codeEn": "EIMM 204",
+   "semester": 4,
+   "nameAr": "ورشة صيانة اجهزة و آلات دقيقة",
+   "nameEn": "Instrumentation & Micromachines Maintenance Workshop",
+   "prereqAr": [
+    "203 اجدق"
+   ],
+   "crh": 2,
+   "l": 0,
+   "p": 4,
+   "t": 0,
+   "cth": 4,
+   "pageStart": 65,
+   "pageEnd": 69,
+   "units": [
+    {
+     "title": "السلامة في الورش الإلكترونية و التدريب على استخدام الاجهزه",
+     "hours": 2
+    },
+    {
+     "title": "التجهيزات الخاصة بورشة صيانة الأجهزة والالات الدقيقة",
+     "hours": 4
+    },
+    {
+     "title": "أساليب فك وتجميع أجزاء الأجهزة والالات الدقيقة",
+     "hours": 8
+    },
+    {
+     "title": "تعرف على العناصر الالكترونية و طريقة فحصها",
+     "hours": 8
+    },
+    {
+     "title": "تشخيص و اصلاح الأعطال على مستوى الأجهزة و الالات الدقيقة",
+     "hours": 8
+    },
+    {
+     "title": "تعرف على القطع الألكترونية المعطوبة من خلال النظر",
+     "hours": 4
+    },
+    {
+     "title": "تشخيص و اصلاح الأعطال في نظم التحكم في العمليات",
+     "hours": 8
+    },
+    {
+     "title": "توفير وقت الفحص في اكتشاف الأعطال",
+     "hours": 4
+    },
+    {
+     "title": "كيفية التسريع في اكتشاف الأعطال",
+     "hours": 4
+    },
+    {
+     "title": "تركيب الأجهزة الألكترونية",
+     "hours": 4
+    },
+    {
+     "title": "اجراء الصيانة الدورية لمكونات الأجهزة و الالات الدقيقة",
+     "hours": 10
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": 64,
+   "expectedUnitsSum": 64
+  },
+  {
+   "code": "اجدق-242",
+   "codeAr": "242 اجدق",
+   "codeEn": "EIMM 242",
+   "semester": 4,
+   "nameAr": "الكترونيات القياس",
+   "nameEn": "Eectronics Measurements",
+   "prereqAr": [
+    "223 الكت",
+    "242 الكت",
+    "241 اجدق"
+   ],
+   "crh": 2,
+   "l": 1,
+   "p": 2,
+   "t": 1,
+   "cth": 4,
+   "pageStart": 70,
+   "pageEnd": 74,
+   "units": [
+    {
+     "title": "القنطرة وتطبيقاتها في دوائر القياس",
+     "hours": 6
+    },
+    {
+     "title": "المكبرات",
+     "hours": 10
+    },
+    {
+     "title": "دوائر ضبط وتحسين اشارات خرج المبدلات",
+     "hours": 12
+    },
+    {
+     "title": "دوائر تحويل خصائص الاشارات",
+     "hours": 14
+    },
+    {
+     "title": "نظم قياس الكميات الفيزيائية",
+     "hours": 9
+    },
+    {
+     "title": "كاسبات الإشارة (DAQs) واستخدامها في قياس الكميات الفيزيائية",
+     "hours": 13
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": 64,
+   "expectedUnitsSum": 64
+  },
+  {
+   "code": "اجدق-233",
+   "codeAr": "233 اجدق",
+   "codeEn": "EIMM 233",
+   "semester": 3,
+   "nameAr": "ميكاترونيكس",
+   "nameEn": "Mechatronics",
+   "prereqAr": [
+    "255 اجطب"
+   ],
+   "crh": 2,
+   "l": 2,
+   "p": 0,
+   "t": 0,
+   "cth": 2,
+   "pageStart": 75,
+   "pageEnd": 79,
+   "units": [
+    {
+     "title": "مقدمة الميكاترونيك",
+     "hours": 3
+    },
+    {
+     "title": "نمذجة الأنظمة الكهربائية والميكانيكية",
+     "hours": 4
+    },
+    {
+     "title": "الحساسات والمشغلات المستعملة في الميكاترونيكس",
+     "hours": 4
+    },
+    {
+     "title": "المحركات",
+     "hours": 4
+    },
+    {
+     "title": "وحدات البرمجيات في أنظمة الميكاترونك",
+     "hours": 9
+    },
+    {
+     "title": "دراسة حالة",
+     "hours": 8
+    }
+   ],
+   "unitsSum": 32,
+   "declaredTotal": 32,
+   "expectedUnitsSum": 32
+  },
+  {
+   "code": "اجدق-291",
+   "codeAr": "291 اجدق",
+   "codeEn": "EIMM 291",
+   "semester": 4,
+   "nameAr": "مشروع",
+   "nameEn": "Project",
+   "prereqAr": [],
+   "crh": 2,
+   "l": 1,
+   "p": 2,
+   "t": 0,
+   "cth": 3,
+   "pageStart": null,
+   "pageEnd": null,
+   "units": [],
+   "unitsSum": 0,
+   "declaredTotal": null,
+   "expectedUnitsSum": 48,
+   "note": "لا صفحةَ وصفٍ تفصيلي لهذا المقرر في الخطة"
+  },
+  {
+   "code": "اجدق-299",
+   "codeAr": "299 اجدق",
+   "codeEn": "EIMM 299",
+   "semester": 5,
+   "nameAr": "التدريب التعاوني",
+   "nameEn": "Co-operative Training",
+   "prereqAr": [],
+   "crh": 2,
+   "l": null,
+   "p": null,
+   "t": null,
+   "cth": null,
+   "coop": true,
+   "pageStart": null,
+   "pageEnd": null,
+   "units": [],
+   "unitsSum": 0,
+   "declaredTotal": null,
+   "expectedUnitsSum": null,
+   "note": "لا صفحةَ وصفٍ تفصيلي لهذا المقرر في الخطة"
+  }
+ ]
+}

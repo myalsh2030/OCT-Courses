@@ -1,0 +1,8 @@
+# مخرجات البناء والاعتمادات
+app/node_modules/
+app/dist/
+app/print-check.pdf
+app/scripts/extract/__pycache__/
+
+# مخرجات التصدير (تُولَّد بالأمر export:zip)
+خطط-القسم-*.zip

@@ -1,0 +1,74 @@
+/* ═══════ الأساس المشترك — RTL وخطّا الواجهة والوثيقة ═══════ */
+
+/* خط الواجهة: IBM Plex Sans Arabic مضمَّن مع التطبيق (لا طلب خارجي)،
+   يُستعمل في القشرة والفهرس والأشرطة فقط. الوثيقة تبقى على خط النموذج
+   الرسمي حفاظاً على مطابقة المطبوع. */
+@import '@fontsource/ibm-plex-sans-arabic/400.css';
+@import '@fontsource/ibm-plex-sans-arabic/500.css';
+@import '@fontsource/ibm-plex-sans-arabic/600.css';
+@import '@fontsource/ibm-plex-sans-arabic/700.css';
+
+@font-face {
+  font-family: 'Sakkal Majalla';
+  src: local('Sakkal Majalla'), local('Majalla'), local('MajallaUI');
+}
+
+:root {
+  --bar: #6f6d6b;
+  --frame: #595959;
+  --panel-bg: #f4f4f4;
+  --band: #e6e6e6;
+  --cell: #d4d4d4;
+  --soft: #ededed;
+  --edge: #808080;
+  --line: #d0d0d0;
+  --ink: #454545;
+  --title: #6f625b;
+  --blue: #1b5aa6;
+  --red: #c00000;
+  --teal: #2aa39a;
+  --steel: #3c7d91;
+
+  /** خط الوثيقة — لا يُمسّ: به تُطابق المطبوعةُ النموذجَ المعتمد. */
+  --font-ar: 'Sakkal Majalla', 'Majalla UI', 'Traditional Arabic', serif;
+  /** خط الواجهة العصري — القشرة والفهرس والأشرطة والحوارات. */
+  --font-ui: 'IBM Plex Sans Arabic', 'Segoe UI', system-ui, sans-serif;
+  --font-ltr: 'Segoe UI', Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-ui);
+  color: var(--ink);
+  background: #ececed;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* الوثيقة جزيرةٌ بخطها الرسمي داخل واجهةٍ بخط عصري — على الشاشة وفي
+   الطباعة معاً، فلا يتسرب خط الواجهة إلى المطبوع. */
+.doc-root {
+  font-family: var(--font-ar);
+}
+
+/* الأرقام والبريد ومقاطع لاتينية داخل نص عربي */
+.ltr {
+  direction: ltr;
+  unicode-bidi: embed;
+  font-family: var(--font-ltr);
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}

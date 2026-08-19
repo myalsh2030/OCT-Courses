@@ -1,0 +1,1237 @@
+{
+ "source": "الخطة التفصيلية لتخصص تقنية الإنشاءات المعمارية - دبلوم كليات - نصفي.pdf — جدول الإطار المنهجي (ص٧–٨) وصفحات الوصف التفصيلي",
+ "specialty": "تقنية الإنشاءات المعمارية",
+ "department": "التقنية المدنية والمعمارية",
+ "weeksPerSemester": 16,
+ "note": "مستخرج آلياً؛ الثابت المفروض: مجموع ساعات الوحدات = س.أ × ١٦. حقل specialty يميّز مقررات التخصص (يعمر/يمدن ورياد المعمارية) من مقررات الثقافة العامة المشتركة، وhasDetail يميّز ما له صفحة وصف تفصيلي، وsafetyRaw نصّ السلامة كما ورد في الخطة.",
+ "courses": [
+  {
+   "code": "انجل-101",
+   "codeAr": "101 انجل",
+   "codeEn": "ENGL 101",
+   "semester": 1,
+   "nameAr": "لغة إنجليزية (1)",
+   "nameEn": "English Language -1",
+   "crh": 3,
+   "l": 3,
+   "p": 0,
+   "t": 1,
+   "cth": 4,
+   "prereqAr": [],
+   "hasDetail": false,
+   "pageStart": null,
+   "pageEnd": null,
+   "units": [],
+   "unitsSum": 0,
+   "declaredTotal": null,
+   "expectedUnitsSum": 64,
+   "safetyRaw": "",
+   "note": "لا صفحةَ وصفٍ تفصيلي لهذا المقرر في الخطة",
+   "specialty": false
+  },
+  {
+   "code": "حاسب-101",
+   "codeAr": "101 حاسب",
+   "codeEn": "ICMT 101",
+   "semester": 1,
+   "nameAr": "مقدمة تطبيقات الحاسب",
+   "nameEn": "Introduction to Computer Applications",
+   "crh": 2,
+   "l": 0,
+   "p": 4,
+   "t": 0,
+   "cth": 4,
+   "prereqAr": [],
+   "hasDetail": false,
+   "pageStart": null,
+   "pageEnd": null,
+   "units": [],
+   "unitsSum": 0,
+   "declaredTotal": null,
+   "expectedUnitsSum": 64,
+   "safetyRaw": "",
+   "note": "لا صفحةَ وصفٍ تفصيلي لهذا المقرر في الخطة",
+   "specialty": false
+  },
+  {
+   "code": "فيزي-101",
+   "codeAr": "101 فيزي",
+   "codeEn": "PHYS 101",
+   "semester": 1,
+   "nameAr": "الفيزياء",
+   "nameEn": "Physics",
+   "crh": 3,
+   "l": 2,
+   "p": 2,
+   "t": 0,
+   "cth": 4,
+   "prereqAr": [],
+   "hasDetail": false,
+   "pageStart": null,
+   "pageEnd": null,
+   "units": [],
+   "unitsSum": 0,
+   "declaredTotal": null,
+   "expectedUnitsSum": 64,
+   "safetyRaw": "",
+   "note": "لا صفحةَ وصفٍ تفصيلي لهذا المقرر في الخطة",
+   "specialty": false
+  },
+  {
+   "code": "رياض-121",
+   "codeAr": "121 رياض",
+   "codeEn": "MATH 121",
+   "semester": 1,
+   "nameAr": "الرياضيات",
+   "nameEn": "Mathematics",
+   "crh": 3,
+   "l": 3,
+   "p": 0,
+   "t": 1,
+   "cth": 4,
+   "prereqAr": [],
+   "hasDetail": false,
+   "pageStart": null,
+   "pageEnd": null,
+   "units": [],
+   "unitsSum": 0,
+   "declaredTotal": null,
+   "expectedUnitsSum": 64,
+   "safetyRaw": "",
+   "note": "لا صفحةَ وصفٍ تفصيلي لهذا المقرر في الخطة",
+   "specialty": false
+  },
+  {
+   "code": "عربي-101",
+   "codeAr": "101 عربي",
+   "codeEn": "ARAB 101",
+   "semester": 1,
+   "nameAr": "الكتابة الفنية",
+   "nameEn": "Technical Writing",
+   "crh": 2,
+   "l": 2,
+   "p": 0,
+   "t": 0,
+   "cth": 2,
+   "prereqAr": [],
+   "hasDetail": false,
+   "pageStart": null,
+   "pageEnd": null,
+   "units": [],
+   "unitsSum": 0,
+   "declaredTotal": null,
+   "expectedUnitsSum": 32,
+   "safetyRaw": "",
+   "note": "لا صفحةَ وصفٍ تفصيلي لهذا المقرر في الخطة",
+   "specialty": false
+  },
+  {
+   "code": "يمدن-101",
+   "codeAr": "101 يمدن",
+   "codeEn": "CCIV 101",
+   "semester": 1,
+   "nameAr": "السلامه المهنية",
+   "nameEn": "Occupational safety",
+   "crh": 2,
+   "l": 2,
+   "p": 0,
+   "t": 0,
+   "cth": 2,
+   "prereqAr": [],
+   "hasDetail": true,
+   "pageStart": 26,
+   "pageEnd": 32,
+   "units": [
+    {
+     "title": "السياسة العامة للسلامة المهنية",
+     "hours": 2
+    },
+    {
+     "title": "التدريب ونشر الوعي بأمور السلامة المهنية",
+     "hours": 2
+    },
+    {
+     "title": "تحليل وإدارة المخاطر",
+     "hours": 6
+    },
+    {
+     "title": "الأمن في الموقع",
+     "hours": 6
+    },
+    {
+     "title": "التحقيق في الحوادث وإعداد التقارير والإحصائيات",
+     "hours": 4
+    },
+    {
+     "title": "التفتيش الدوري على مواقع العمل لاكتشاف المخاطر",
+     "hours": 2
+    },
+    {
+     "title": "قواعد وإرشادات السلامة ونظم العمل الآمنة",
+     "hours": 2
+    },
+    {
+     "title": "معدات السلامة ومكافحة الحريق",
+     "hours": 2
+    },
+    {
+     "title": "الاسعافات الأولية والخدمات الطبية",
+     "hours": 2
+    },
+    {
+     "title": "السلامة والصحة المهنية وإجراء القياسات الخاصة بموقع العمل",
+     "hours": 2
+    },
+    {
+     "title": "البرامج المتخصصة في السلامة والصحة المهنية",
+     "hours": 2
+    }
+   ],
+   "unitsSum": 32,
+   "declaredTotal": 32,
+   "expectedUnitsSum": 32,
+   "safetyRaw": "الجلسة الصحية داخل قاعات التدريب ويكون الجسم في الوضع السليم عند نقل أو استخدام الأجهزة والمعدات.",
+   "specialty": true
+  },
+  {
+   "code": "يعمر-123",
+   "codeAr": "123 يعمر",
+   "codeEn": "CARC 123",
+   "semester": 1,
+   "nameAr": "رسم معماري (1)",
+   "nameEn": "Principle of Architecture Drawing",
+   "crh": 2,
+   "l": 1,
+   "p": 2,
+   "t": 0,
+   "cth": 3,
+   "prereqAr": [],
+   "hasDetail": true,
+   "pageStart": 14,
+   "pageEnd": 16,
+   "units": [
+    {
+     "title": "استخدام الأدوات الهندسية",
+     "hours": 3
+    },
+    {
+     "title": "مقاييس الرسم المعماري",
+     "hours": 5
+    },
+    {
+     "title": "مبادئ الإسقاط الهندسي",
+     "hours": 8
+    },
+    {
+     "title": "أنواع الخطوط المعمارية في الرسم",
+     "hours": 2
+    },
+    {
+     "title": "استخدام المصطلحات والرموز المعمارية في الرسم",
+     "hours": 2
+    },
+    {
+     "title": "مبادئ الرسم المعماري",
+     "hours": 17
+    },
+    {
+     "title": "مبادئ الإخراج المعماري",
+     "hours": 11
+    }
+   ],
+   "unitsSum": 48,
+   "declaredTotal": 48,
+   "expectedUnitsSum": 48,
+   "safetyRaw": "الجلسة الصحية داخل قاعات التدريب ويكون الجسم في الوضع السليم عند نقل أو استخدام الأجهزة والمعدات، واتباع تعليمات السلامة الواردة في كتيبات استخدامات الأجهزة ومعدات، ويستخدم الأدوات الهندسية لما خصصت له.",
+   "specialty": true
+  },
+  {
+   "code": "يعمر-124",
+   "codeAr": "124 يعمر",
+   "codeEn": "CARC 124",
+   "semester": 1,
+   "nameAr": "رسم بالحاسب (1)",
+   "nameEn": "Computer Drawing -1",
+   "crh": 2,
+   "l": 0,
+   "p": 4,
+   "t": 0,
+   "cth": 4,
+   "prereqAr": [],
+   "hasDetail": true,
+   "pageStart": 17,
+   "pageEnd": 20,
+   "units": [
+    {
+     "title": "Introduction & Display Commands •",
+     "hours": 7
+    },
+    {
+     "title": "Drawing & Editing •",
+     "hours": 20
+    },
+    {
+     "title": "Using Layers & Hatch Patterns •",
+     "hours": 11
+    },
+    {
+     "title": "Dimensioning & Creating and Editing Texts •",
+     "hours": 10
+    },
+    {
+     "title": "Model Space & Paper Space •",
+     "hours": 8
+    },
+    {
+     "title": "Plotting & Printing •",
+     "hours": 8
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": 64,
+   "expectedUnitsSum": 64,
+   "safetyRaw": "الجلسة الصحية داخل قاعات التدريب ويكون الجسم في الوضع السليم عند نقل أو استخدام الأجهزة والمعدات، واتباع تعليمات السلامة الواردة في كتيبات استخدامات الأجهزة ومعدات، ويستخدم الأدوات الهندسية لما خصصت له.",
+   "specialty": true
+  },
+  {
+   "code": "انجل-102",
+   "codeAr": "102 انجل",
+   "codeEn": "ENGL 102",
+   "semester": 2,
+   "nameAr": "اللغة الإنجليزية (2)",
+   "nameEn": "English Language -2",
+   "crh": 3,
+   "l": 3,
+   "p": 0,
+   "t": 1,
+   "cth": 4,
+   "prereqAr": [
+    "101 انجل"
+   ],
+   "hasDetail": false,
+   "pageStart": null,
+   "pageEnd": null,
+   "units": [],
+   "unitsSum": 0,
+   "declaredTotal": null,
+   "expectedUnitsSum": 64,
+   "safetyRaw": "",
+   "note": "لا صفحةَ وصفٍ تفصيلي لهذا المقرر في الخطة",
+   "specialty": false
+  },
+  {
+   "code": "رياد-101",
+   "codeAr": "101 رياد",
+   "codeEn": "ENTR 101",
+   "semester": 2,
+   "nameAr": "أساسيات ريادة الأعمال",
+   "nameEn": "Fundamental of Entrepreneurship",
+   "crh": 2,
+   "l": 2,
+   "p": 0,
+   "t": 0,
+   "cth": 2,
+   "prereqAr": [],
+   "hasDetail": false,
+   "pageStart": null,
+   "pageEnd": null,
+   "units": [],
+   "unitsSum": 0,
+   "declaredTotal": null,
+   "expectedUnitsSum": 32,
+   "safetyRaw": "",
+   "note": "لا صفحةَ وصفٍ تفصيلي لهذا المقرر في الخطة",
+   "specialty": false
+  },
+  {
+   "code": "يمدن-141",
+   "codeAr": "141 يمدن",
+   "codeEn": "CCIV 141",
+   "semester": 2,
+   "nameAr": "مساحة",
+   "nameEn": "Surveying",
+   "crh": 2,
+   "l": 1,
+   "p": 2,
+   "t": 0,
+   "cth": 3,
+   "prereqAr": [
+    "121 رياض"
+   ],
+   "hasDetail": true,
+   "pageStart": 21,
+   "pageEnd": 25,
+   "units": [
+    {
+     "title": "علم المساحة",
+     "hours": 2
+    },
+    {
+     "title": "قياس المسافات الأفقية",
+     "hours": 4
+    },
+    {
+     "title": "القياس بالأجهزة الالكترونية",
+     "hours": 4
+    },
+    {
+     "title": "قياس الزوايا والاتجاهات",
+     "hours": 4
+    },
+    {
+     "title": "الميزانية",
+     "hours": 4
+    },
+    {
+     "title": "تطبيقات مساحية",
+     "hours": 6
+    },
+    {
+     "title": "حساب المساحات",
+     "hours": 2
+    },
+    {
+     "title": "حساب حجوم وتسوية الأراضي",
+     "hours": 2
+    },
+    {
+     "title": "الخرائط المساحية واستعمالها",
+     "hours": 4
+    },
+    {
+     "title": "تحديد المواقع باستخدام نظام الاقمار الصناعية",
+     "hours": 4
+    },
+    {
+     "title": "التعريف بجميع أنواع أجهزة المساحة المستخدمة",
+     "hours": 4
+    },
+    {
+     "title": "مشروع تطبيقي للأعمال المساحية لإنشاء مبنى",
+     "hours": 8
+    }
+   ],
+   "unitsSum": 48,
+   "declaredTotal": 48,
+   "expectedUnitsSum": 48,
+   "safetyRaw": "الجلسة الصحية داخل قاعات التدريب ويكون الجسم في الوضع السليم عند نقل أو استخدام الأجهزة والمعدات، ولبس الخوذة الواقية والقفازات والملابس الملائمة للعمل..واتباع تعليمات السلامة الواردة في كتيبات استخدامات الأجهزة ومعدات، ويستخدم الأدوات الهندسية لما خصصت له.",
+   "specialty": true
+  },
+  {
+   "code": "يمدن-111",
+   "codeAr": "111 يمدن",
+   "codeEn": "CCIV 111",
+   "semester": 2,
+   "nameAr": "خواص واختبارات المواد",
+   "nameEn": "Properties & Testing Of Materials",
+   "crh": 3,
+   "l": 2,
+   "p": 2,
+   "t": 0,
+   "cth": 4,
+   "prereqAr": [],
+   "hasDetail": true,
+   "pageStart": 44,
+   "pageEnd": 50,
+   "units": [
+    {
+     "title": "الأحجار الطبيعية والركام",
+     "hours": 9
+    },
+    {
+     "title": "الأسمنت",
+     "hours": 9
+    },
+    {
+     "title": "ماء الخلط والمواد المضافة",
+     "hours": 4
+    },
+    {
+     "title": "الخرسانة",
+     "hours": 13
+    },
+    {
+     "title": "الطوب والبلوك",
+     "hours": 6
+    },
+    {
+     "title": "الجير والجبس",
+     "hours": 6
+    },
+    {
+     "title": "المواد المعدنية وغير المعدنية",
+     "hours": 12
+    },
+    {
+     "title": "الدهانات والعزل",
+     "hours": 5
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": 64,
+   "expectedUnitsSum": 64,
+   "safetyRaw": "الجلسة الصحية داخل قاعات التدريب ويكون الجسم في الوضع السليم عند نقل أو استخدام الأجهزة والمعدات، ولبس الخوذة الواقية والقفازات والملابس الملائمة للعمل..واتباع تعليمات السلامة الواردة في كتيبات استخدامات الأجهزة ومعدات.",
+   "specialty": true
+  },
+  {
+   "code": "يمدن-102",
+   "codeAr": "102 يمدن",
+   "codeEn": "CCIV102",
+   "semester": 2,
+   "nameAr": "ورش شدات وحديد تسليح",
+   "nameEn": "Steel & Formwork W/S",
+   "crh": 2,
+   "l": 0,
+   "p": 4,
+   "t": 0,
+   "cth": 4,
+   "prereqAr": [],
+   "hasDetail": true,
+   "pageStart": 33,
+   "pageEnd": 37,
+   "units": [
+    {
+     "title": "الوحدة الأولى: التعريف بالتقنية المدنية والمعمارية ومجالات عملها",
+     "hours": 3
+    },
+    {
+     "title": "الوحدة الثانية: أدوات و مواد الشدات الخشبية وحديد التسليح",
+     "hours": 3
+    },
+    {
+     "title": "الوحدة الثالثة: أعمال المحاور (التحويطة)",
+     "hours": 5
+    },
+    {
+     "title": "الوحدة الرابعة:القوا عد (نجارة + حديد تسليح)",
+     "hours": 8
+    },
+    {
+     "title": "الوحدة الخامسة:الميدات (نجارة + حديد تسليح)",
+     "hours": 8
+    },
+    {
+     "title": "الوحدة السادسة:الأعمدة (نجارة + حديد تسليح)",
+     "hours": 4
+    },
+    {
+     "title": "الوحدة السابعة:الأسقف والكمرات (نجارة + حديد تسليح)",
+     "hours": 9
+    },
+    {
+     "title": "الوحدة الثامنة:السلالم (نجارة + حديد تسليح)",
+     "hours": 5
+    },
+    {
+     "title": "الوحدة التاسعة:الحوائط الساندة (نجارة + حديد تسليح)",
+     "hours": 7
+    },
+    {
+     "title": "الوحدة العاشرة: أعمال الشدات المعدنية والمتقدمة",
+     "hours": 4
+    },
+    {
+     "title": "الوحدة الحادية عشر: أعمال طبقات الرصف والأرصفة و البردورة",
+     "hours": 4
+    },
+    {
+     "title": "الوحدة الثانية عشر:أعمال تمديد مواسير الصرف الصحي داخل خندق",
+     "hours": 4
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": 64,
+   "expectedUnitsSum": 64,
+   "safetyRaw": "الجلسة الصحية داخل قاعات التدريب ويكون الجسم في الوضع السليم عند نقل أو استخدام الأجهزة والمعدات، ولبس الخوذة الواقية والقفازات والملابس الملائمة للعمل..واتباع تعليمات السلامة الواردة في كتيبات استخدامات الأجهزة ومعدات، ويستخدم الأدوات الهندسية لما خصصت له.",
+   "specialty": true
+  },
+  {
+   "code": "يعمر-125",
+   "codeAr": "125 يعمر",
+   "codeEn": "CARC 125",
+   "semester": 2,
+   "nameAr": "رسم معماري (2)",
+   "nameEn": "Architecture Drawing-2",
+   "crh": 3,
+   "l": 2,
+   "p": 2,
+   "t": 0,
+   "cth": 4,
+   "prereqAr": [
+    "123 يعمر"
+   ],
+   "hasDetail": true,
+   "pageStart": 38,
+   "pageEnd": 40,
+   "units": [
+    {
+     "title": "الأدوات الهندسية واستخداماتها فى الرسم الحر",
+     "hours": 8
+    },
+    {
+     "title": "تقنيات الرسم اليدوى للأشكال الهندسية",
+     "hours": 18
+    },
+    {
+     "title": "رسم المناظير المعمارية يدويا",
+     "hours": 18
+    },
+    {
+     "title": "تقنيات الاخراج اليدوى للرسومات المعمارية",
+     "hours": 20
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": 64,
+   "expectedUnitsSum": 64,
+   "safetyRaw": "الجلسة الصحية داخل قاعات التدريب ويكون الجسم في الوضع السليم عند نقل أو استخدام الأجهزة والمعدات،واتباع تعليمات السلامة الواردة في كتيبات استخدامات الأجهزة ومعدات، ويستخدم الأدوات الهندسية لما خصصت له.",
+   "specialty": true
+  },
+  {
+   "code": "يعمر-126",
+   "codeAr": "126 يعمر",
+   "codeEn": "CARC 126",
+   "semester": 2,
+   "nameAr": "رسم بالحاسب (2)",
+   "nameEn": "Computer Drawing -2",
+   "crh": 2,
+   "l": 0,
+   "p": 4,
+   "t": 0,
+   "cth": 4,
+   "prereqAr": [
+    "124 يعمر"
+   ],
+   "hasDetail": true,
+   "pageStart": 41,
+   "pageEnd": 43,
+   "units": [
+    {
+     "title": "on drawing & editing techniques مراجعة أوامر الرسم في الأوتوكاد وتقنية التعديل Revision",
+     "hours": 10
+    },
+    {
+     "title": "التدرب على أساليب الطباعة Plotting",
+     "hours": 10
+    },
+    {
+     "title": "on a comprehensive workshop drawing تطبيق أوامر الأوتوكاد لرسم مساقط معمارية متكاملة في البعد الثنائي Application",
+     "hours": 44
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": 64,
+   "expectedUnitsSum": 64,
+   "safetyRaw": "الجلسة الصحية داخل قاعات التدريب ويكون الجسم في الوضع السليم عند نقل أو استخدام الأجهزة والمعدات، واتباع تعليمات السلامة الواردة في كتيبات استخدامات الأجهزة ومعدات، ويستخدم الأدوات الهندسية لما خصصت له.",
+   "specialty": true
+  },
+  {
+   "code": "انجل-103",
+   "codeAr": "103 انجل",
+   "codeEn": "ENGL 103",
+   "semester": 3,
+   "nameAr": "لغة إنجليزية (3)",
+   "nameEn": "English Language -3",
+   "crh": 3,
+   "l": 3,
+   "p": 0,
+   "t": 1,
+   "cth": 4,
+   "prereqAr": [
+    "102 انجل"
+   ],
+   "hasDetail": false,
+   "pageStart": null,
+   "pageEnd": null,
+   "units": [],
+   "unitsSum": 0,
+   "declaredTotal": null,
+   "expectedUnitsSum": 64,
+   "safetyRaw": "",
+   "note": "لا صفحةَ وصفٍ تفصيلي لهذا المقرر في الخطة",
+   "specialty": false
+  },
+  {
+   "code": "رياد-284",
+   "codeAr": "284 رياد",
+   "codeEn": "ENTR 284",
+   "semester": 3,
+   "nameAr": "ريادة الاعمال في مجال الهندسة المعمارية",
+   "nameEn": "Entrepreneurship in Architectural Engineering",
+   "crh": 2,
+   "l": 1,
+   "p": 2,
+   "t": 0,
+   "cth": 3,
+   "prereqAr": [
+    "101 رياد"
+   ],
+   "hasDetail": false,
+   "pageStart": null,
+   "pageEnd": null,
+   "units": [],
+   "unitsSum": 0,
+   "declaredTotal": null,
+   "expectedUnitsSum": 48,
+   "safetyRaw": "",
+   "note": "لا صفحةَ وصفٍ تفصيلي لهذا المقرر في الخطة",
+   "specialty": true
+  },
+  {
+   "code": "يعمر-227",
+   "codeAr": "227 يعمر",
+   "codeEn": "CARC 227",
+   "semester": 3,
+   "nameAr": "رسومات تنفيذية بالحاسب",
+   "nameEn": "Computer Working Drawing",
+   "crh": 2,
+   "l": 0,
+   "p": 4,
+   "t": 0,
+   "cth": 4,
+   "prereqAr": [
+    "124 يعمر"
+   ],
+   "hasDetail": true,
+   "pageStart": 51,
+   "pageEnd": 54,
+   "units": [
+    {
+     "title": "مكونات الرسومات التنفيذية والموقع العام",
+     "hours": 13
+    },
+    {
+     "title": "المساقط الأفقية",
+     "hours": 13
+    },
+    {
+     "title": "الواجهات",
+     "hours": 12
+    },
+    {
+     "title": "القطاعات",
+     "hours": 12
+    },
+    {
+     "title": "التفاصيل المعمارية",
+     "hours": 14
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": 64,
+   "expectedUnitsSum": 64,
+   "safetyRaw": "الجلسة الصحية داخل قاعات التدريب ويكون الجسم في الوضع السليم عند نقل أو استخدام الأجهزة والمعدات،واتباع تعليمات السلامة الواردة في كتيبات استخدامات الأجهزة ومعدات، ويستخدم الأدوات الهندسية لما خصصت له.",
+   "specialty": true
+  },
+  {
+   "code": "يعمر-229",
+   "codeAr": "229 يعمر",
+   "codeEn": "CARC 229",
+   "semester": 3,
+   "nameAr": "تطبيقات الحاسب والإظهار المعماري",
+   "nameEn": "Computer Application of Architecture and Presentation",
+   "crh": 2,
+   "l": 0,
+   "p": 4,
+   "t": 0,
+   "cth": 4,
+   "prereqAr": [
+    "124 يعمر"
+   ],
+   "hasDetail": true,
+   "pageStart": 55,
+   "pageEnd": 58,
+   "units": [
+    {
+     "title": "مقدمة عن النمذجة المعمارية في برنامج Rivet",
+     "hours": 4
+    },
+    {
+     "title": "التعرف على برنامج Rivet وكيفية استخدامه",
+     "hours": 12
+    },
+    {
+     "title": "معرفة كيفية تطبيق العناصر المعمارية على شكل مجموعات",
+     "hours": 8
+    },
+    {
+     "title": "التعرف على برامج الإظهار المعماري المختلفة واستخدام برنامج الفوتوشوب",
+     "hours": 8
+    },
+    {
+     "title": "إكساء وتعديل وعمل مواد والظلال على الرسومات المعمارية الأسطح وإضافة الأشكال المختلفة والصور والخلفيات وعمل الظل",
+     "hours": 20
+    },
+    {
+     "title": "تنفيذ مشروع معماري متكامل",
+     "hours": 12
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": 64,
+   "expectedUnitsSum": 64,
+   "safetyRaw": "الجلسة الصحية داخل قاعات التدريب ويكون الجسم في الوضع السليم عند نقل أو استخدام الأجهزة والمعدات، واتباع تعليمات السلامة الواردة في كتيبات استخدامات الأجهزة ومعدات، ويستخدم الأدوات الهندسية لما خصصت له.",
+   "specialty": true
+  },
+  {
+   "code": "يعمر-228",
+   "codeAr": "228 يعمر",
+   "codeEn": "CARC 228",
+   "semester": 3,
+   "nameAr": "رسم بالحاسب (3)",
+   "nameEn": "Computer Drawing -3",
+   "crh": 2,
+   "l": 1,
+   "p": 2,
+   "t": 0,
+   "cth": 3,
+   "prereqAr": [
+    "124 يعمر"
+   ],
+   "hasDetail": true,
+   "pageStart": 59,
+   "pageEnd": 63,
+   "units": [
+    {
+     "title": "Introduction to 3D Modelling •",
+     "hours": 5
+    },
+    {
+     "title": "Viewing a 3D Model •",
+     "hours": 2
+    },
+    {
+     "title": "The User Co-ordinate System (UCS) •",
+     "hours": 2
+    },
+    {
+     "title": "Adding Three Dimensional Surfaces (3DFACE & PFACE) •",
+     "hours": 2
+    },
+    {
+     "title": "Using 3D Objects Mesh Commands •",
+     "hours": 2
+    },
+    {
+     "title": "Surfaces of Revolution (REVSURF) •",
+     "hours": 2
+    },
+    {
+     "title": "EDGESURF, RULESURF, and TABSURF •",
+     "hours": 2
+    },
+    {
+     "title": "3D Editing Essentials •",
+     "hours": 2
+    },
+    {
+     "title": "Dynamic 3-D Displays (DVIEW) •",
+     "hours": 2
+    },
+    {
+     "title": "Practical Project •",
+     "hours": 2
+    },
+    {
+     "title": "تدريب المتدربين على كيفية تحويل شاشة الأوتوكاد في البعد الثالث",
+     "hours": 5
+    },
+    {
+     "title": "تطبيق قائمة SURFACES للكتل الهندسية البسيطة",
+     "hours": 2
+    },
+    {
+     "title": "تطبيق قائمة SOLIDS EDITING",
+     "hours": 2
+    },
+    {
+     "title": "مقدمة عن قائمة UCS",
+     "hours": 2
+    },
+    {
+     "title": "استخدام نظام الإحداثيات UCS في البعد الثالث",
+     "hours": 2
+    },
+    {
+     "title": "استخدام أوامر التعديل ثلاثية الأبعاد",
+     "hours": 2
+    },
+    {
+     "title": "مشروع معماري تفصيلي",
+     "hours": 10
+    }
+   ],
+   "unitsSum": 48,
+   "declaredTotal": 48,
+   "expectedUnitsSum": 48,
+   "safetyRaw": "الجلسة الصحية داخل قاعات التدريب ويكون الجسم في الوضع السليم عند نقل أو استخدام الأجهزة والمعدات،واتباع تعليمات السلامة الواردة في كتيبات استخدامات الأجهزة ومعدات، ويستخدم الأدوات الهندسية لما خصصت له.",
+   "specialty": true
+  },
+  {
+   "code": "يعمر-234",
+   "codeAr": "234 يعمر",
+   "codeEn": "CARC 234",
+   "semester": 3,
+   "nameAr": "تقنيات البناء",
+   "nameEn": "Construction Technology",
+   "crh": 3,
+   "l": 2,
+   "p": 2,
+   "t": 0,
+   "cth": 4,
+   "prereqAr": [],
+   "hasDetail": true,
+   "pageStart": 64,
+   "pageEnd": 67,
+   "units": [
+    {
+     "title": "أعمال البناء بالطوب والحجر",
+     "hours": 16
+    },
+    {
+     "title": "نظم الانشاء في المباني",
+     "hours": 16
+    },
+    {
+     "title": "أساليب البناء",
+     "hours": 16
+    },
+    {
+     "title": "أعمال العزل في المباني",
+     "hours": 16
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": 64,
+   "expectedUnitsSum": 64,
+   "safetyRaw": "الجلسة الصحية داخل قاعات التدريب ويكون الجسم في الوضع السليم عند نقل أو استخدام الأجهزة والمعدات، ولبس الخوذة الواقية والقفازات والملابس الملائمة للعمل..واتباع تعليمات السلامة الواردة في كتيبات استخدامات الأجهزة ومعدات، ويستخدم الأدوات لما خصصت له.",
+   "specialty": true
+  },
+  {
+   "code": "يعمر-282",
+   "codeAr": "282 يعمر",
+   "codeEn": "CARC 282",
+   "semester": 3,
+   "nameAr": "برنامج المشروع المعماري",
+   "nameEn": "Project Programming",
+   "crh": 2,
+   "l": 2,
+   "p": 0,
+   "t": 0,
+   "cth": 2,
+   "prereqAr": [
+    "126 يعمر"
+   ],
+   "hasDetail": true,
+   "pageStart": 68,
+   "pageEnd": 71,
+   "units": [
+    {
+     "title": "يختار المتدرب اعداد برنامج بحث المشروع في احد الموضوعات التالية",
+     "hours": 32,
+     "rows": [
+      "يختار المتدرب اعداد برنامج بحث المشروع في احد الموضوعات التالية",
+      "الرسم المعماري والإظهار بالحاسب",
+      "حصر الكميات واعداد المواصفات",
+      "إعداد رسومات الموقع (workshope) واقتراح أعمال التشطيبات المناسبة",
+      "إدارة المشروعات"
+     ]
+    }
+   ],
+   "unitsSum": 32,
+   "declaredTotal": 32,
+   "expectedUnitsSum": 32,
+   "safetyRaw": "الجلسة الصحية داخل قاعات التدريب ويكون الجسم في الوضع السليم عند نقل أو استخدام الأجهزة والمعدات، ولبس الخوذة الواقية والقفازات والملابس الملائمة للعمل..واتباع تعليمات السلامة الواردة في كتيبات استخدامات الأجهزة ومعدات، ويستخدم الأدوات لما خصصت له.",
+   "specialty": true
+  },
+  {
+   "code": "اسلك-201",
+   "codeAr": "201 اسلك",
+   "codeEn": "ETHS 201",
+   "semester": 4,
+   "nameAr": "السلوك الوظيفي والمستقبل المهني",
+   "nameEn": "Professional Ethics & Professional future",
+   "crh": 2,
+   "l": 2,
+   "p": 0,
+   "t": 0,
+   "cth": 2,
+   "prereqAr": [],
+   "hasDetail": false,
+   "pageStart": null,
+   "pageEnd": null,
+   "units": [],
+   "unitsSum": 0,
+   "declaredTotal": null,
+   "expectedUnitsSum": 32,
+   "safetyRaw": "",
+   "note": "لا صفحةَ وصفٍ تفصيلي لهذا المقرر في الخطة",
+   "specialty": false
+  },
+  {
+   "code": "اسلم-101",
+   "codeAr": "101 اسلم",
+   "codeEn": "ISLM 101",
+   "semester": 4,
+   "nameAr": "الدراسات الإسلامية",
+   "nameEn": "Islamic Studies",
+   "crh": 2,
+   "l": 2,
+   "p": 0,
+   "t": 0,
+   "cth": 2,
+   "prereqAr": [],
+   "hasDetail": false,
+   "pageStart": null,
+   "pageEnd": null,
+   "units": [],
+   "unitsSum": 0,
+   "declaredTotal": null,
+   "expectedUnitsSum": 32,
+   "safetyRaw": "",
+   "note": "لا صفحةَ وصفٍ تفصيلي لهذا المقرر في الخطة",
+   "specialty": false
+  },
+  {
+   "code": "يمدن-251",
+   "codeAr": "251 يمدن",
+   "codeEn": "CCIV 251",
+   "semester": 4,
+   "nameAr": "إدارة التشييد",
+   "nameEn": "Construction Management",
+   "crh": 2,
+   "l": 2,
+   "p": 0,
+   "t": 1,
+   "cth": 3,
+   "prereqAr": [],
+   "hasDetail": true,
+   "pageStart": 83,
+   "pageEnd": 88,
+   "units": [
+    {
+     "title": "مراحل المشروع",
+     "hours": 3
+    },
+    {
+     "title": "عقود التشييد",
+     "hours": 12
+    },
+    {
+     "title": "الادارة الفنية للمشروع",
+     "hours": 20
+    },
+    {
+     "title": "ادارة موارد المشروع",
+     "hours": 2
+    },
+    {
+     "title": "الرقابة على زمن المشروع وتحليل معدلات الاداء",
+     "hours": 2
+    },
+    {
+     "title": "تطبيقات الحاسب في مجال ادارة المشاريع",
+     "hours": 9
+    }
+   ],
+   "unitsSum": 48,
+   "declaredTotal": 48,
+   "expectedUnitsSum": 48,
+   "safetyRaw": "الجلسة الصحية داخل قاعات التدريب ويكون الجسم في الوضع السليم عند نقل أو استخدام الأجهزة والمعدات، واتباع تعليمات السلامة الواردة في كتيبات استخدامات الأجهزة ومعدات، ويستخدم الأدوات لما خصصت له.",
+   "specialty": true
+  },
+  {
+   "code": "يعمر-214",
+   "codeAr": "214 يعمر",
+   "codeEn": "CARC 214",
+   "semester": 4,
+   "nameAr": "كميات ومواصفات",
+   "nameEn": "Quantities and Specifications",
+   "crh": 3,
+   "l": 2,
+   "p": 2,
+   "t": 0,
+   "cth": 4,
+   "prereqAr": [
+    "121 رياض"
+   ],
+   "hasDetail": true,
+   "pageStart": 75,
+   "pageEnd": 82,
+   "units": [
+    {
+     "title": "مقدمة في حساب وحصر الكميات",
+     "hours": 8
+    },
+    {
+     "title": "حساب وحصر كميات وكتابة بنود الأعمال الإنشائية",
+     "hours": 10
+    },
+    {
+     "title": "تمارين لحصر الكميات وحساباتها وكتابة المواصفات للأعمال الإنشائية",
+     "hours": 16
+    },
+    {
+     "title": "حساب وحصر كميات وكتابة بنود أعمال التشطيبات",
+     "hours": 15
+    },
+    {
+     "title": "تمارين لأعمال التشطيبات",
+     "hours": 15
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": 64,
+   "expectedUnitsSum": 64,
+   "safetyRaw": "الجلسة الصحية داخل قاعات التدريب ويكون الجسم في الوضع السليم عند نقل أو استخدام الأجهزة والمعدات، ولبس الخوذة الواقية والقفازات والملابس الملائمة للعمل، واتباع تعليمات السلامة الواردة في كتيبات استخدامات الأجهزة ومعدات، ويستخدم الأدوات فيما خصصت له.",
+   "specialty": true
+  },
+  {
+   "code": "يعمر-262",
+   "codeAr": "262 يعمر",
+   "codeEn": "CARC 262",
+   "semester": 4,
+   "nameAr": "مجسمات معمارية",
+   "nameEn": "Architecture Modeling",
+   "crh": 2,
+   "l": 0,
+   "p": 4,
+   "t": 0,
+   "cth": 4,
+   "prereqAr": [
+    "124 يعمر"
+   ],
+   "hasDetail": true,
+   "pageStart": 72,
+   "pageEnd": 74,
+   "units": [
+    {
+     "title": "تعيين الأدوات والمعدات والخامات المستخدمة في إعداد المجسمات",
+     "hours": 12
+    },
+    {
+     "title": "تحديد مقاييس الرسم المستخدمة في إعداد المجسمات",
+     "hours": 12
+    },
+    {
+     "title": "دراسة المخططات المعمارية والتنفيذية",
+     "hours": 12
+    },
+    {
+     "title": "إعداد المجسم طبقا للرسومات والمخططات المتاحة",
+     "hours": 12
+    },
+    {
+     "title": "استخدام الأجهزة الحديثة - بالحاسب الآلي - في إعداد المجسمات",
+     "hours": 16
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": 64,
+   "expectedUnitsSum": 64,
+   "safetyRaw": "الجلسة الصحية داخل قاعات التدريب ويكون الجسم في الوضع السليم عند نقل أو استخدام الأجهزة والمعدات، واتباع تعليمات السلامة الواردة في كتيبات استخدامات الأجهزة ومعدات، ويستخدم الأدوات الهندسية لما خصصت له.",
+   "specialty": true
+  },
+  {
+   "code": "يعمر-272",
+   "codeAr": "272 يعمر",
+   "codeEn": "CARC 272",
+   "semester": 4,
+   "nameAr": "أنظمة المباني",
+   "nameEn": "Building Systems",
+   "crh": 2,
+   "l": 1,
+   "p": 2,
+   "t": 0,
+   "cth": 3,
+   "prereqAr": [],
+   "hasDetail": true,
+   "pageStart": 89,
+   "pageEnd": 92,
+   "units": [
+    {
+     "title": "الأعمال الصحية بالمبنى",
+     "hours": 14
+    },
+    {
+     "title": "أعمال التغذية بالمياه في المبنى",
+     "hours": 14
+    },
+    {
+     "title": "الأعمال الكهربائية بالمبنى",
+     "hours": 15
+    },
+    {
+     "title": "الأعمال الميكانيكية بالمبنى",
+     "hours": 5
+    }
+   ],
+   "unitsSum": 48,
+   "declaredTotal": 48,
+   "expectedUnitsSum": 48,
+   "safetyRaw": "الجلسة الصحية داخل قاعات التدريب ويكون الجسم في الوضع السليم عند نقل أو استخدام الأجهزة والمعدات، ولبس الخوذة الواقية والقفازات والملابس الملائمة للعمل، واتباع تعليمات السلامة الواردة في كتيبات استخدامات الأجهزة ومعدات، ويستخدم الأدوات لما خصصت له.",
+   "specialty": true
+  },
+  {
+   "code": "يعمر-281",
+   "codeAr": "281 يعمر",
+   "codeEn": "CARC 281",
+   "semester": 4,
+   "nameAr": "مشروع",
+   "nameEn": "Project",
+   "crh": 3,
+   "l": 1,
+   "p": 4,
+   "t": 1,
+   "cth": 6,
+   "prereqAr": [
+    "282 يعمر"
+   ],
+   "hasDetail": true,
+   "pageStart": 93,
+   "pageEnd": 97,
+   "units": [
+    {
+     "title": "الرسم المعماري والإظهار بالحاسب",
+     "hours": 96,
+     "rows": [
+      "الرسم المعماري والإظهار بالحاسب",
+      "حصر الكميات وإعداد المواصفات",
+      "إعداد رسومات الموقع (workshope) واقتراح أعمال التشطيبات المناسبة",
+      "إدارة المشروع"
+     ]
+    }
+   ],
+   "unitsSum": 96,
+   "declaredTotal": 96,
+   "expectedUnitsSum": 96,
+   "safetyRaw": "الجلسة الصحية داخل قاعات التدريب ويكون الجسم في الوضع السليم عند نقل أو استخدام الأجهزة والمعدات، ولبس الخوذة الواقية والقفازات والملابس الملائمة للعمل، اتباع تعليمات السلامة الواردة في كتيبات استخدامات الأجهزة ومعدات، ويستخدم الأدوات لما خصصت له.",
+   "specialty": true
+  },
+  {
+   "code": "يعمر-299",
+   "codeAr": "299 يعمر",
+   "codeEn": "CARC 299",
+   "semester": 5,
+   "nameAr": "التدريب التعاوني",
+   "nameEn": "Co-operative Training",
+   "crh": 2,
+   "l": null,
+   "p": null,
+   "t": null,
+   "cth": null,
+   "coop": true,
+   "prereqAr": [],
+   "hasDetail": false,
+   "pageStart": null,
+   "pageEnd": null,
+   "units": [],
+   "unitsSum": 0,
+   "declaredTotal": null,
+   "expectedUnitsSum": null,
+   "safetyRaw": "",
+   "note": "لا صفحةَ وصفٍ تفصيلي لهذا المقرر في الخطة",
+   "specialty": true
+  }
+ ]
+}

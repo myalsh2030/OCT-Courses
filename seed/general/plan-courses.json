@@ -1,0 +1,770 @@
+{
+ "source": "ملف المدرب وتوصيف المقرر/المواد العامة — عشر مواصفات مقرر رسمية",
+ "note": "مستخرج آلياً من ملفات المواصفات. الثوابت المفروضة: مح+عم+تم = س.أ، ومجموع ساعات الوحدات = س.أ×١٦. الرموز موحّدة على صيغة رايات.",
+ "courses": [
+  {
+   "code": "اسلم-101",
+   "sourceCode": "١٠١ اسلم",
+   "nameAr": "الدراسات الإسلامية",
+   "nameEn": "",
+   "file": "101اسلم - الدراسات الإسلامية.pdf",
+   "pages": 4,
+   "template": "classic",
+   "hasDetail": true,
+   "prerequisite": "",
+   "hours": {
+    "credit": 2,
+    "lecture": 2,
+    "practical": 0,
+    "tutorial": 0,
+    "contact": 2
+   },
+   "contactValid": true,
+   "cthDerived": false,
+   "unitsFrom": "المنهج التفصيلي",
+   "units": [
+    {
+     "title": "العقيدة الإسلامية",
+     "hours": 9
+    },
+    {
+     "title": "القيم الإسلامية",
+     "hours": 10
+    },
+    {
+     "title": "قضايا فكرية معاصرة",
+     "hours": 7
+    },
+    {
+     "title": "أخلاقيات المهنة",
+     "hours": 6
+    }
+   ],
+   "unitsSum": 32,
+   "declaredTotal": null,
+   "expected": 32,
+   "unitsValid": true,
+   "description": "يغطي المقرر الجوانب الرئيسية للعقيدة الإسلامية وما تمتاز به من خصائص ومميزات، ومدى أثرها على الفرد والمجتمع، وتصديها للانحرافات العقدية والفكرية بمنهج وسطي معتدل، ويبرز القيم الإسلامية السامية التي حثنا عليها شرعنا الحكيم من قيم عليا وقيم خلقية وقيم حضارية، ويتطرق لأهم القضايا الفكرية المعاصرة كحقوق الإنسان والعولمة والاستشراق، كما يبين أهمية أخلاقيات المهنة التي حثنا عليها الإسلام وأثرها على الفرد والمجتمع والتنمية، وتجاوز ما يناقضها من أخلاقيات مذمومة",
+   "generalObjective": "يهدف المقرر إلى حماية المتدرب من الانحرافات العقدية والفكرية والمفاهيم الخاطئة للجوانب التعبدية والأخلاقية، ورفع مستوى الوعي لديه تجاه القضايا الرئيسية للدين الإسلامي، وبناء التصورات والمفاهيم السليمة تجاه القيم والنظم والفكر.",
+   "detailedObjectives": [
+    "يًحدد خصائص العقيدة وآثارها على الفرد والمجتمع إجمالا.",
+    "يبرز مظاهر وصور وسطية العقيدة الإسلامية بين العقائد الأخرى.",
+    "يتعرف على قيم الإسلام السامية، ويكتسب ملكة النقد العلمي للقيم الوافدة.",
+    "يتعرف على قضايا فكرية معاصرة كحقوق الانسان والعولمة والاستشراق.",
+    "يتعرف على مفهوم الخلق والعمل، والأخلاق المهنية في الإسلام وكيفية تفعيلها في حياته وتجاوز ما يناقضها من الأخلاقيات المذمومة.",
+    "يكون ذو شخصية متزنة دينياً وفكرياً وسلوكياً وثقافياً وأخلاقيا، ً بما يساعد على حماية الوطن والمحافظة على وحدة المجتمع، والمساهمة في تنمية ورقي البلاد"
+   ],
+   "safetyRaw": []
+  },
+  {
+   "code": "حاسب-101",
+   "sourceCode": "101 حاسب",
+   "nameAr": "مقدمة تطبيقات الحاسب",
+   "nameEn": "",
+   "file": "101حاسب - مقدمة تطبيقات الحاسب.pdf",
+   "pages": 16,
+   "template": "hasb",
+   "hasDetail": true,
+   "prerequisite": "",
+   "hours": {
+    "credit": 2,
+    "lecture": 0,
+    "practical": 4,
+    "tutorial": 0,
+    "contact": 4
+   },
+   "contactValid": true,
+   "cthDerived": true,
+   "unitsFrom": "جدول الوحدات",
+   "units": [
+    {
+     "title": "الوحدة 1: استخدام Microsft Word 2013",
+     "hours": 3
+    },
+    {
+     "title": "الوحدة 2: إنشاء مستندات وعرضها",
+     "hours": 3
+    },
+    {
+     "title": "الوحدة 3: إدراج نص وتحريره",
+     "hours": 3
+    },
+    {
+     "title": "الوحدة 4: تنسيق النص",
+     "hours": 3
+    },
+    {
+     "title": "الوحدة 5: إدراج رسومات وتعديلها",
+     "hours": 3
+    },
+    {
+     "title": "الوحدة 6: البحث عن محتوى واستبداله",
+     "hours": 3
+    },
+    {
+     "title": "الوحدة 7: إنشاء القوائم وتعديلها",
+     "hours": 3
+    },
+    {
+     "title": "الوحدة 8: إنشاء الجداول وتعديلها",
+     "hours": 3
+    },
+    {
+     "title": "الوحدة 9: إنشاءارتباطات",
+     "hours": 3
+    },
+    {
+     "title": "الوحدة 10: تنسيق المستندات",
+     "hours": 3
+    },
+    {
+     "title": "الوحدة 11: حفظ المستندات وطباعتها",
+     "hours": 3
+    },
+    {
+     "title": "الوحدة 12: إدراج كائنات المحتوى وإدارتها",
+     "hours": 3
+    },
+    {
+     "title": "الوحدة 13: إدارج مراجع وإدارتها",
+     "hours": 3
+    },
+    {
+     "title": "الوحدة 14: إعداد عروض الشرائح وتقديمها",
+     "hours": 3
+    },
+    {
+     "title": "الوحدة 15: توزيع العروض التقديمية",
+     "hours": 3
+    },
+    {
+     "title": "الوحدة 16: مراجعة الاختبار",
+     "hours": 3
+    },
+    {
+     "title": "استخدام Microsoft Outlook 2013 وإدارة بينتة",
+     "hours": 8
+    },
+    {
+     "title": "تطبيقات الحوسبة السحابية Cloud computing applications",
+     "hours": 8
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": 64,
+   "expected": 64,
+   "unitsValid": true,
+   "description": "من خلال هذا المقرر يتم التدرب على التطبيقات الأساسية لبرامج المكتب من ما يكروسوفت، حيث يتم التعرف على برنامج معالجة النصوص(وورد)، ثم التدرب على برنامج الجداول الإلكترونية (اكسل)، وتطبيبق مهارات إعداد العوض التقديمية من خلال برنامج (بوربوينت)، وكيفية التعامل مع البريد الالكتروني من خلال برنامج (اوتلوك)، وتقدم هذه الحقيبه المهارات الأساسية اللازمة للمتدرب للتعامل مع تطبيقات الحوسبة السحابية وخدماتها.",
+   "generalObjective": "يهدف هذا المقرر إلى إكساب المتدرب في كليات التقنية والبرامج المماثلة لها، للمهارات الأساسية للتعامل مع أشهر برامج التطبيقات المكتبية من شركة مايكروسوفت MS_Office وتطبيقات الحوسبة السحابية.",
+   "detailedObjectives": [
+    "يقوم بتشغيل برنامج الوورد وإنشاء مستندات وعرضها",
+    "يدرج نص ورسومات ويحررها وينسقها ويعدلها ويبحث عن محتوى ويستبدله",
+    "ينشىء القوائم والجداول والارتباطات ويعدلها وينسق المستندات ويحفظها ويطبعها",
+    "يدرج كائنات المحتوى والمراجع ويديرها ويخصص وظائف البرنامج",
+    "يقوم بتشغيل برنامج الاكسل وإنشاء مصنف وحفظه",
+    "يقوم بتعبئة أوراق الأعمال والبيانات باستخدام الدالات",
+    "ينسق محتوى ورقة العمل ويطبع محتوى مصنف",
+    "ينشىء الصيغ ويستخدمها ويحسب البيانات باستخدام الدالات",
+    "يدير البيانات باستخدام الجداول ونشئ المخططات ويديرها",
+    "يبسط العرض التقديمي للبيانات ونشئ رسومات ويدرجها ويخصص وظائف البرنامج",
+    "يشغل برنامج البوربونت وينشىء عروض تقديمية ويحفظها",
+    "ينسق محتوى الشريحة ويدير الشرائح",
+    "يعرض الصور والأشكال ورسومات تخطيطية مهنية والجداول والمخططات على الشرائح",
+    "تشغيل مقاطع صوتية وفيديو وتكوين الرسوم المتحركة ونسق وقوالب عروض تقديمية",
+    "يقوم بتشغيل برنامج الأوتولوك وإدارة بيئته",
+    "إدارة الرسائل والمواعيد وجهات الاتصال والمجموعات",
+    "التعرف على تطبيقات الحوسبة السحابية واستخدام التخزين السحابي",
+    "التطبيقات المكتبية ورسم المخططات واستخدام خرائط النماذج ونشرها في تطبيقات الحوسبة السحابية"
+   ],
+   "safetyRaw": [
+    "اشتراطات وإجراءات السلامة للتدرب على المقرر ويشمل ذلك الممارس (المتدرب والمدرب) والجهاز والأدوات والبيئية",
+    "التقييد بتعليمات سلامة المكان",
+    "التقيد بتعليمات السلامة الواردة في كتيبات المواصفات المرفقة بأجهزة الحاسب",
+    "اتباع قواعد وتعليمات الجلسة الصحية.",
+    "التأكد من تناسب فولتية كهرباء أجهزة العرض مع الكهرباء وذلك عند وصلها",
+    "حفظ أجهزة العرض في أماكنها المخصصة عند الإنتهاء من استخدامها",
+    "المحافظة على سلامة الأقراص بحفظها في أماكنها الخاصة",
+    "الاحتفاظ بنسخ احتياطية من الملفات."
+   ]
+  },
+  {
+   "code": "رياض-101",
+   "sourceCode": "رياض ١٠١",
+   "nameAr": "الرياضيات",
+   "nameEn": "",
+   "file": "101رياض - الرياضيات.pdf",
+   "pages": 2,
+   "template": "classic",
+   "hasDetail": true,
+   "prerequisite": "",
+   "hours": {
+    "credit": 3,
+    "lecture": 3,
+    "practical": 0,
+    "tutorial": 1,
+    "contact": 4
+   },
+   "contactValid": true,
+   "cthDerived": false,
+   "unitsFrom": "المنهج التفصيلي",
+   "units": [
+    {
+     "title": "المجموعات",
+     "hours": 10
+    },
+    {
+     "title": "العمليات الحسابية على الأعداد النسبية والحقيقية",
+     "hours": 10
+    },
+    {
+     "title": "كثيرات الحدود",
+     "hours": 10
+    },
+    {
+     "title": "المصفوفات والمحددات",
+     "hours": 10
+    },
+    {
+     "title": "المعادلات",
+     "hours": 12
+    },
+    {
+     "title": "الهندسة المستوية والفراغية",
+     "hours": 12
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": null,
+   "expected": 64,
+   "unitsValid": true,
+   "description": "يشمل هذا المقرر الموضوعات التي يحتاجها المتدرب في مجال التخصص مثل: المجموعات – التعابير الجبرية – كثيرات الحدود – المحددات و المصفوفات – حل المعادلات من الدرجة الأولى و الثانية وحل مجموعة المعادلات الخطية (إلى ثلاث مجاهيل) – الهندسة المستوية و الفراغية.",
+   "generalObjective": "يهدف هذا المقرر إلى اكتساب المتدرب المهارات الأساسية لعدد من الموضوعات التي تؤهله لفهم المقررات التخصصية.",
+   "detailedObjectives": [
+    "الإلمام بمفهوم المجموعات و خصائصها و العمليات عليها",
+    "التمييز بين المجموعات العددية و القدرة على إجراء العمليات الحسابية عليها",
+    "الإلمام بمفهوم كثيرات الحدود و القدرة على تبسيطها و تحليلها واختصار الكسور الجبرية",
+    "التعامل مع المصفوفات و المحددات و المقدرة على استعمالها",
+    "القدرة على حل المعادلات من الدرجة الأولى والثانية و مجموعة المعادلات الخطية ذات مجهولين أو ثلاثة",
+    "الإلمام بكيفية حساب المساحات و المحيطات و الأحجام لأشكال هندسية مستوية وفارغة"
+   ],
+   "safetyRaw": []
+  },
+  {
+   "code": "عربي-101",
+   "sourceCode": "١٠١ عربي",
+   "nameAr": "الكتابة الفنية",
+   "nameEn": "",
+   "file": "101عربي - الكتابة الفنية.pdf",
+   "pages": 3,
+   "template": "classic",
+   "hasDetail": true,
+   "prerequisite": "",
+   "hours": {
+    "credit": 2,
+    "lecture": 2,
+    "practical": 0,
+    "tutorial": 0,
+    "contact": 2
+   },
+   "contactValid": true,
+   "cthDerived": false,
+   "unitsFrom": "المنهج التفصيلي",
+   "units": [
+    {
+     "title": "مهارة التواصل",
+     "hours": 2
+    },
+    {
+     "title": "مهارة القراءة",
+     "hours": 2
+    },
+    {
+     "title": "مهارة الكتابة",
+     "hours": 4
+    },
+    {
+     "title": "الكتابة الإبداعية",
+     "hours": 6
+    },
+    {
+     "title": "الكتابة الوظيفية",
+     "hours": 6
+    },
+    {
+     "title": "السيرة الذاتية",
+     "hours": 4
+    },
+    {
+     "title": "محضر الاجتماع",
+     "hours": 4
+    },
+    {
+     "title": "التلخيص",
+     "hours": 4
+    }
+   ],
+   "unitsSum": 32,
+   "declaredTotal": null,
+   "expected": 32,
+   "unitsValid": true,
+   "description": "يسعى هذا المقرر إلى تدريب متدربي الكليات التقنية على كيفية التواصل وإتقانه وإكسابهم المعارف الضرورية للكتابة وبناء شخصياتهم الواعية للقراءة الصحيحة القادرة على فهم النصوص وتحليلها ومن ثم الكتابة الإبداعية والوظيفية التي تساعدهم في حياتهم",
+   "generalObjective": "تهيئة المتدرب وتدريبه ليكون قادراً على ممارسة المهارات الكتابية والقرائية بشكل صحيح.",
+   "detailedObjectives": [
+    "يتعرف على مهارات التواصل في الحياة.",
+    "يتعرف على مهارة القراءة والفهم والتحليل المساعدة في الكتابة الصحيحة.",
+    "يتعرف على نمطي الكتابة الإبداعية والوظيفية.",
+    "يمارس الكتابة الإبداعية والوظيفية."
+   ],
+   "safetyRaw": []
+  },
+  {
+   "code": "فيزي-101",
+   "sourceCode": "PHYS 101",
+   "nameAr": "الفيزياء",
+   "nameEn": "Physics",
+   "file": "101فيزي - الفيزياء.pdf",
+   "pages": 7,
+   "template": "phys",
+   "hasDetail": true,
+   "prerequisite": "---",
+   "hours": {
+    "credit": 3,
+    "lecture": 2,
+    "practical": 2,
+    "tutorial": 0,
+    "contact": 4
+   },
+   "contactValid": true,
+   "cthDerived": false,
+   "unitsFrom": "المنهج التفصيلي",
+   "units": [
+    {
+     "title": "1st Unit: Measurements, Scalar and Vector Quantities",
+     "hours": 14
+    },
+    {
+     "title": "2nd Unit: Motion, Force, Work and Energy",
+     "hours": 14
+    },
+    {
+     "title": "3rd Unit: Thermal Physics",
+     "hours": 12
+    },
+    {
+     "title": "4th Unit: Electrostatics",
+     "hours": 12
+    },
+    {
+     "title": "5th Unit: The Electric Current and Resistance",
+     "hours": 12
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": null,
+   "expected": 64,
+   "unitsValid": true,
+   "description": "This course is designed even correspond with the training requirements of the specialized departments in colleges. The course contains the basic concepts in the measure science and provides a simple concept about the scalar and vector quantities. Also, it contains the scientific and applied concept of the motion in one dimension (on a straight line), force, work and energy. Also, the course is designed to give the students a basic knowledge in the thermal physics, electrostatics and electric current. Moreover, the student can able understanding theoretical concepts by using the simple laws.",
+   "generalObjective": "The course enables students to gain the theoretical and practical background in physics.",
+   "detailedObjectives": [
+    "know units of physical quantities in SI",
+    "recognize between the scalar and vector quantities",
+    "apply laws of Newton mechanics in the motion on a straight line",
+    "apply work and energy laws",
+    "apply the basic concepts and laws of the thermal characteristics in the calculation of temperature and heat quantity for material",
+    "apply the basic concepts for the electrostatic and electric current",
+    "implement the practical experiments",
+    "use the previous concepts in the field of his major"
+   ],
+   "safetyRaw": [
+    "Must provide extinguisher and fire detection device",
+    "Follow all instruction given by the trainer",
+    "Always use the appropriate safety tools in the laboratory (safety goggles, lab coat and gloves)",
+    "Don't eat food or drink in the laboratory and leave the work area clean",
+    "Wash the hands well after leaving the laboratory",
+    "المملكة العربية السعودية",
+    "القسم المؤسسة العامة للتدريب التقني مقررات عامة",
+    "الدراسات العامة والمهني ومتطلبات كلية",
+    "الإدارة العامة للمناهج"
+   ],
+   "nameArSource": "SS01"
+  },
+  {
+   "code": "رياض-121",
+   "sourceCode": "رياض ١٢١",
+   "nameAr": "الرياضيات",
+   "nameEn": "",
+   "file": "121رياض - الرياضيات.pdf",
+   "pages": 4,
+   "template": "classic",
+   "hasDetail": true,
+   "prerequisite": "",
+   "hours": {
+    "credit": 3,
+    "lecture": 3,
+    "practical": 0,
+    "tutorial": 1,
+    "contact": 4
+   },
+   "contactValid": true,
+   "cthDerived": false,
+   "unitsFrom": "المنهج التفصيلي",
+   "units": [
+    {
+     "title": "الوحدة الأولى: كثيرات الحدود",
+     "hours": 8
+    },
+    {
+     "title": "الوحدة الثانية: المصفوفات والمحددات",
+     "hours": 8
+    },
+    {
+     "title": "الوحدة الثالثة: المعادلات",
+     "hours": 10
+    },
+    {
+     "title": "الوحدة الرابعة: النهايات والاتصال",
+     "hours": 10
+    },
+    {
+     "title": "الوحدة الخامسة: الاشتقاق والتفاضل",
+     "hours": 14
+    },
+    {
+     "title": "الوحدة السادسة: التكامل",
+     "hours": 14
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": null,
+   "expected": 64,
+   "unitsValid": true,
+   "description": "يمثل وثيقة اساسية ومدخل للمتدرب بدبلومات التقنية الإلكترونية، والتقنية الكهربائية، والتقنية الميكانيكية و تقنية الاتصالات إلى بعض المهارات الأساسية وفق مهارات القرن الواحد و العشرين ويتناول عدد من الموضوعات ومنها كثيرات الحدود، المصفوفات والمحددات، المعادلات، و التفاضل و التكامل.",
+   "generalObjective": "إكساب المتدرب المعارف و المهارات العقلية كمهارات التفكير المنطقي وحل المشكلات و اتخاذ القرار وتمكينة من استخدام الحاسب الألي و البرامج الرياضية لمعالجة النماذج الرياضية بما يؤهلة لفهم المقررات التخصصية وفق معايير الجودة وبما يخدم متطلبات سوق العمل.",
+   "detailedObjectives": [
+    "يجري العمليات الحسابية على كثيرات الحدود.",
+    "يجري العمليات على المصفوفات.",
+    "يحسب المحددات.",
+    "يحل المعادلات.",
+    "يحسب النهايات.",
+    "يدرس اتصال الدوال.",
+    "يحل المسائل باستخدام التفاضل.",
+    "يوظف طرق حساب التكامل في التطبيقات الرياضية."
+   ],
+   "safetyRaw": [
+    "المحافظة على السلامة العامة في البيئة المحيطة.",
+    "الالتزام بالإرشادات الخاصة بالحالات الطارئة.",
+    "المحافظة على ممتلكات المؤسسة من أدوات وتجهيزات.",
+    "ترك القاعة التدريبية نظيفة ومرتبة.",
+    "الإبلاغ عن أي أعطال.",
+    "المملكة العربية السعودية",
+    "القسم المؤسسة العامة للتدريب التقني مقررات عامة",
+    "الدراسات العامة والمهني ومتطلبات كلية",
+    "الإدارة العامة للمناهج"
+   ]
+  },
+  {
+   "code": "انجل-101",
+   "sourceCode": "ENGL 101",
+   "nameAr": "لغة إنجليزية -1",
+   "nameEn": "English Language 1",
+   "file": "ENGL101 - English Language 1.pdf",
+   "pages": 4,
+   "template": "engl",
+   "hasDetail": true,
+   "prerequisite": "None",
+   "hours": {
+    "credit": 3,
+    "lecture": 3,
+    "practical": 0,
+    "tutorial": 1,
+    "contact": 4
+   },
+   "contactValid": true,
+   "cthDerived": false,
+   "unitsFrom": "المنهج التفصيلي",
+   "units": [
+    {
+     "title": "Unit 1: Check up",
+     "hours": 8
+    },
+    {
+     "title": "Unit 2: Parts (1)",
+     "hours": 8
+    },
+    {
+     "title": "Review Unit A",
+     "hours": 4
+    },
+    {
+     "title": "Unit 3: Parts (2)",
+     "hours": 8
+    },
+    {
+     "title": "Unit 4: Movement",
+     "hours": 8
+    },
+    {
+     "title": "Review Unit B",
+     "hours": 4
+    },
+    {
+     "title": "Unit 5: Flow",
+     "hours": 8
+    },
+    {
+     "title": "Unit 6: Materials",
+     "hours": 8
+    },
+    {
+     "title": "Review Unit C",
+     "hours": 4
+    },
+    {
+     "title": "Final Exam",
+     "hours": 4
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": null,
+   "expected": 64,
+   "unitsValid": true,
+   "description": "This course provides trainees with a solid foundation of basic sentence form and function. It concentrates on grammatical structures, vocabulary expressions often used in technical and professional contexts.",
+   "generalObjective": "The course aims to consolidate student’s previous knowledge of English, and bring it up to a pre‐ intermediate level which enables them continue courses related to their particular majors.",
+   "detailedObjectives": [],
+   "safetyRaw": [
+    "The interns must follow the instructions of safety.",
+    "The interns must follow the Islamic ethics in maintaining the cleanliness and safety of the place.",
+    "المملكة العربية السعودية",
+    "القسم المؤسسة العامة للتدريب التقني مقررات عامة",
+    "الدراسات العامة والمهني ومتطلبات كلية",
+    "الإدارة العامة للمناهج"
+   ],
+   "nameArSource": "SS01"
+  },
+  {
+   "code": "انجل-102",
+   "sourceCode": "ENGL 102",
+   "nameAr": "لغة إنجليزية (2)",
+   "nameEn": "English Language 2",
+   "file": "ENGL102 - English Language 2.pdf",
+   "pages": 4,
+   "template": "engl",
+   "hasDetail": true,
+   "prerequisite": "ENGL 101",
+   "hours": {
+    "credit": 3,
+    "lecture": 3,
+    "practical": 0,
+    "tutorial": 1,
+    "contact": 4
+   },
+   "contactValid": true,
+   "cthDerived": false,
+   "unitsFrom": "المنهج التفصيلي",
+   "units": [
+    {
+     "title": "Unit 7: Specifications",
+     "hours": 8
+    },
+    {
+     "title": "Unit 8: Reporting",
+     "hours": 8
+    },
+    {
+     "title": "Review Unit D",
+     "hours": 4
+    },
+    {
+     "title": "Unit 9: Troubleshooting",
+     "hours": 8
+    },
+    {
+     "title": "Unit 10: Safety",
+     "hours": 8
+    },
+    {
+     "title": "Review Unit E",
+     "hours": 4
+    },
+    {
+     "title": "Unit 11: Cause and effect",
+     "hours": 8
+    },
+    {
+     "title": "Unit 12: Checking and confirming",
+     "hours": 8
+    },
+    {
+     "title": "Review Unit F",
+     "hours": 4
+    },
+    {
+     "title": "Final Exam",
+     "hours": 4
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": null,
+   "expected": 64,
+   "unitsValid": true,
+   "description": "This course provides trainees with the core language and skills they need to communicate successfully in their specializations. This includes the technical concepts, topics, illustrations, and grammatical structures. It helps trainees build knowledge and confidence in using English in technical and vocational contexts.",
+   "generalObjective": "The course aims to consolidate student’s previous knowledge of English, and bring it up to a certain level that enables them continue courses related to their particular majors.",
+   "detailedObjectives": [],
+   "safetyRaw": [
+    "The interns must follow the instructions of safety.",
+    "The interns must follow the Islamic ethics in maintaining the cleanliness and safety of the place.",
+    "المملكة العربية السعودية",
+    "القسم المؤسسة العامة للتدريب التقني مقررات عامة",
+    "الدراسات العامة والمهني ومتطلبات كلية",
+    "الإدارة العامة للمناهج"
+   ],
+   "nameArSource": "SS01"
+  },
+  {
+   "code": "انجل-103",
+   "sourceCode": "ENGL 103",
+   "nameAr": "لغة إنجليزية (3)",
+   "nameEn": "English Language 3",
+   "file": "ENGL103 - English Language 3.pdf",
+   "pages": 5,
+   "template": "engl",
+   "hasDetail": true,
+   "prerequisite": "ENGL 102",
+   "hours": {
+    "credit": 3,
+    "lecture": 3,
+    "practical": 0,
+    "tutorial": 1,
+    "contact": 4
+   },
+   "contactValid": true,
+   "cthDerived": false,
+   "unitsFrom": "المنهج التفصيلي",
+   "units": [
+    {
+     "title": "Unit 1: Action",
+     "hours": 8
+    },
+    {
+     "title": "Unit 2: Work",
+     "hours": 8
+    },
+    {
+     "title": "Review Unit A",
+     "hours": 4
+    },
+    {
+     "title": "Unit 3: Comparison",
+     "hours": 8
+    },
+    {
+     "title": "Unit 4: Processes",
+     "hours": 8
+    },
+    {
+     "title": "Review Unit B",
+     "hours": 4
+    },
+    {
+     "title": "Unit 5: Descriptions",
+     "hours": 8
+    },
+    {
+     "title": "Unit 6: Procedures",
+     "hours": 8
+    },
+    {
+     "title": "Review Unit C",
+     "hours": 4
+    },
+    {
+     "title": "Final Exam",
+     "hours": 4
+    }
+   ],
+   "unitsSum": 64,
+   "declaredTotal": null,
+   "expected": 64,
+   "unitsValid": true,
+   "description": "This course provides trainees with the core language and skills they need to communicate successfully in their specializations. This includes the technical concepts, topics, illustrations, and grammatical structures. It helps trainees build knowledge and confidence in using English in technical and vocational contexts.",
+   "generalObjective": "The course aims to consolidate student’s previous knowledge of English, and bring it up to a pre‐ intermediate level which enables them continue courses related to their particular majors.",
+   "detailedObjectives": [],
+   "safetyRaw": [
+    "The interns must follow the instructions of safety.",
+    "The interns must follow the Islamic ethics in maintaining the cleanliness and safety of the place.",
+    "المملكة العربية السعودية",
+    "القسم المؤسسة العامة للتدريب التقني مقررات عامة",
+    "الدراسات العامة والمهني ومتطلبات كلية",
+    "الإدارة العامة للمناهج"
+   ],
+   "nameArSource": "SS01"
+  },
+  {
+   "code": "اسلك-201",
+   "sourceCode": "201 اسلك",
+   "nameAr": "السلوك الوظيفي والمستقبل المهني",
+   "nameEn": "",
+   "file": "السلوك الوظيفي والمستقبل المهني.pdf",
+   "pages": 4,
+   "template": "slk",
+   "hasDetail": true,
+   "prerequisite": "",
+   "hours": {
+    "credit": 2,
+    "lecture": 2,
+    "practical": 0,
+    "tutorial": 0,
+    "contact": 2
+   },
+   "contactValid": true,
+   "cthDerived": false,
+   "unitsFrom": "جدول الوحدات",
+   "units": [
+    {
+     "title": "السلوك الوظيفي والتطوير المهني",
+     "hours": 9
+    },
+    {
+     "title": "مهارات البحث العلمي",
+     "hours": 5
+    },
+    {
+     "title": "التخطيط وإدارة الوقت",
+     "hours": 4
+    },
+    {
+     "title": "مهارات الاتصال",
+     "hours": 4
+    },
+    {
+     "title": "مهارات التفكير",
+     "hours": 5
+    },
+    {
+     "title": "الذكاء الانساني والاصطناعي",
+     "hours": 5
+    }
+   ],
+   "unitsSum": 32,
+   "declaredTotal": 32,
+   "expected": 32,
+   "unitsValid": true,
+   "description": "يتضمن هذا المقرر مجموعة من المعارف والمهارات المرتبطة بالسلوك الوظيفي والمستقبل المهني، ومهارات البحث العلمي وخطوات تطبيقها، والتخطيط الجيد وتوظيف أساليب إدارة الوقت وطرق الاستذكار الفعال، إلى جانب مهارات الاتصال ووسائل الاتصال الرقمي، ومستويات ومهارات التفكير، فضلا عن الذكاء الانساني والاصطناعي وأنواع الذكاءات المتعددة.",
+   "generalObjective": "يهدف هذا المقرر إلى إكساب المتدربين المعارف والمهارات الأساسية التي تمكنه من فهم طبيعة السلوك الوظيفي وأنواعه.",
+   "detailedObjectives": [
+    "يحدد المقصود بالسلوك الوظيفي وأنواعه وأهمية دراسته.",
+    "يطبق مهارات وأخلاقيات البحث العلمي.",
+    "يشرح مفهوم التخطيط وأنواعه.",
+    "يطبق أساليب إدارة الوقت.",
+    "يعرف الاتصال وأنواعه وعناصره.",
+    "يطبق مهارات التفكير بمستوياته وأنماطه.",
+    "يحدد مفهوم الذكاء الإنساني والذكاءات المتعددة.",
+    "يوضح مفهوم الذكاء الاصطناعي ومجالاته."
+   ],
+   "safetyRaw": [
+    "الالتزام بتعليمات سلامة المكان.",
+    "الالتزام بالأخلاق الإسلامية في المحافظة على نظافة وسلامة المكان."
+   ]
+  }
+ ]
+}

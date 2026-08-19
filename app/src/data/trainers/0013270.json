@@ -1,0 +1,24 @@
+{
+  "id": "0013270",
+  "trainerNo": "0013270",
+  "name": "م/ محمد يوسف الشبيلي",
+  "email": "myalsh@tvtc.gov.sa",
+  "whatsapp": "0581163695",
+  "building": "06",
+  "office": "1350610108",
+  "channels": {
+    "email": true,
+    "officeHours": true,
+    "whatsapp": true,
+    "other": false,
+    "otherValue": ""
+  },
+  "officeHours": [
+    { "day": "الأحد", "from": "", "to": "" },
+    { "day": "الأثنين", "from": "10 : 00", "to": "12 : 00" },
+    { "day": "الثلاثاء", "from": "", "to": "" },
+    { "day": "الاربعاء", "from": "10 : 00", "to": "12 : 00" },
+    { "day": "الخميس", "from": "", "to": "" }
+  ],
+  "updatedAt": "2026-01-31"
+}

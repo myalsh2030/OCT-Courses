@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة إدارة النظام وتحديث الفصول — ملف المدرب وتوصيف المقرر</title>
+  <link rel="stylesheet" href="design.css">
+  <style>
+    /* لمسات خاصة بصفحة الإدارة */
+    .admin-grid-two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 900px) {
+      .admin-grid-two {
+        grid-template-columns: 1fr;
+      }
+    }
+    .package-export-box {
+      background: linear-gradient(135deg, #f0faf9 0%, #e0f2f1 100%);
+      border: 2px solid var(--ui-accent-border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      text-align: center;
+      margin-top: 10px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .package-export-box .btn.large-action {
+      background: var(--ui-accent-dark);
+      color: #ffffff;
+      font-size: 17px;
+      padding: 12px 32px 14px;
+      box-shadow: 0 4px 14px rgba(31, 125, 118, 0.35);
+    }
+    .package-export-box .btn.large-action:hover {
+      background: var(--ui-accent);
+      transform: translateY(-1px);
+    }
+    .package-note {
+      color: #374151;
+      font-size: 14px;
+      font-weight: 500;
+      max-width: 620px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body class="app-shell">
+
+  <!-- ═══════════ الشريط العلوي (Topbar) ═══════════ -->
+  <header class="topbar">
+    <div class="topbar-brand">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+        <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+      </svg>
+      <span>إدارة الخطط والشعب — قسم التقنية الميكانيكية</span>
+      <span class="topbar-badge" title="صلاحية مدير النظام والمشرف الأكاديمي">مدير النظام</span>
+    </div>
+
+    <div class="grow"></div>
+
+    <nav class="topbar-actions" aria-label="تنقل لوحة الإدارة">
+      <a href="trainer-home.html" class="topbar-link" title="الانتقال إلى معاينة واجهة المدرب">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        <span>معاينة واجهة المدرب</span>
+      </a>
+
+      <a href="trainer-login.html" class="topbar-link" title="صفحة تسجيل دخول المدربين">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+          <polyline points="10 17 15 12 10 7"/>
+          <line x1="15" y1="12" x2="3" y2="12"/>
+        </svg>
+        <span>شاشة الدخول</span>
+      </a>
+    </nav>
+  </header>
+
+  <!-- ═══════════ المحتوى الرئيسي ═══════════ -->
+  <main class="main-content">
+
+    <!-- شريط معلومات النظام والحفظ التلقائي -->
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; flex-wrap: wrap; gap: 10px;">
+      <div>
+        <h1 style="font-size: 20px; font-weight: 700; color: var(--ui-ink);">مركز إدارة الجداول والبيانات الأكاديمية</h1>
+        <p style="font-size: 13.5px; color: var(--ui-ink-light);">تحديث جدول الشعب (SS01)، مقارنة الفروق، دمج النسخ الاحتياطية، وتصدير حزم النشر</p>
+      </div>
+
+      <div class="save-state saved" id="autoSaveIndicator" title="حالة الحفظ التلقائي للتغييرات">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span>حُفظت التغييرات تلقائياً (14:40)</span>
+      </div>
+    </div>
+
+    <!-- ═══════════ اللوحة الأولى: رفع تقرير الشعب وحفظه لكل فصل تدريبي ═══════════ -->
+    <section class="ui-panel">
+      <header>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+          <polyline points="10 9 9 9 8 9"/>
+        </svg>
+        <span class="header-title">
+          تحديث تقرير الشعب التدريبية (SS01)
+          <span class="header-subtitle">— استيراد تقرير رايات ومقارنة الفروق تلقائياً</span>
+        </span>
+        <span class="counter" title="الفصل التدريبي الحالي المكتشف">الفصل الثاني 1447هـ</span>
+      </header>
+
+      <div class="panel-body">
+        <!-- منطقة إفلات الملف -->
+        <div class="dropzone" id="ss01Dropzone" title="انقر أو اسحب ملف SS01.csv المصدّر من رايات">
+          <div class="dropzone-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/>
+              <line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+          </div>
+          <div class="dropzone-title">اسحب تقرير جدول الشعب (SS01) بصيغة CSV هنا، أو انقر للاستعراض</div>
+          <p class="dropzone-hint">
+            الملف المعتمد من رايات يحتوي أعمدة: المقرر، رقم المدرب، اسم المدرب، الرقم المرجعي، الفصل التدريبي، ونوع الشعبة.
+          </p>
+          <button class="btn primary" type="button" onclick="document.getElementById('csvFileInput').click()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+              <polyline points="13 2 13 9 20 9"/>
+            </svg>
+            اختيار ملف CSV من الجهاز
+          </button>
+          <input type="file" id="csvFileInput" accept=".csv,text/csv" style="display: none;">
+        </div>
+
+        <!-- بطاقة تلخيص الفصل المكتشف بعد القراءة -->
+        <div style="margin-top: 24px;">
+          <h2 style="font-size: 15.5px; font-weight: 700; margin-bottom: 10px; color: var(--ui-ink); display: flex; align-items: center; gap: 8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--ui-accent-dark);">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            ملخص التقرير المرفوع (تم التحليل والمطابقة)
+          </h2>
+
+          <div class="metrics-grid">
+            <div class="metric-card highlight">
+              <span class="metric-label" title="الفصل التدريبي المستخرج من حقل الفصل في التقرير">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                الفصل التدريبي
+              </span>
+              <span class="metric-value">144720</span>
+              <span style="font-size: 12px; color: var(--ui-accent-dark); font-weight: 600;">الفصل التدريبي الثاني 1447هـ</span>
+            </div>
+
+            <div class="metric-card">
+              <span class="metric-label" title="إجمالي الشعب المكتشفة في التقرير">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                إجمالي الشعب
+              </span>
+              <span class="metric-value">48</span>
+              <span style="font-size: 12px; color: var(--ui-ink-light);">شعبة تدريبية (نظري/عملي)</span>
+            </div>
+
+            <div class="metric-card">
+              <span class="metric-label" title="عدد المدربين المسندين في التقرير">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                عدد المدربين
+              </span>
+              <span class="metric-value">12</span>
+              <span style="font-size: 12px; color: var(--ui-ink-light);">مدرباً مسجلاً بالقسم</span>
+            </div>
+
+            <div class="metric-card">
+              <span class="metric-label" title="التخصصات والأقسام المشمولة">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                التخصصات المشمولة
+              </span>
+              <span class="metric-value">2</span>
+              <span style="font-size: 12px; color: var(--ui-ink-light);">صيانة ميكانيكية + تصنيع</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══════════ جدول الفروق (Diff Table) ═══════════ -->
+        <div style="margin-top: 28px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+            <div>
+              <h2 style="font-size: 16px; font-weight: 700; color: var(--ui-ink);">
+                جدول فروق التحديث الأكاديمي
+              </h2>
+              <p style="font-size: 13px; color: var(--ui-ink-light);">
+                مقارنة محتوى التقرير المرفوع مع النسخة المحفوظة مسبقاً للفصل 144720
+              </p>
+            </div>
+
+            <div style="display: flex; gap: 8px;">
+              <button class="btn" title="تصدير جدول الفروق لملف Excel">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                تصدير الفروق
+              </button>
+              <button class="btn primary" onclick="triggerAutoSaveAnimation()" title="اعتماد وحفظ هذه التغييرات رسمياً في قاعدة البيانات">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                اعتماد وحفظ تحديثات الفصل
+              </button>
+            </div>
+          </div>
+
+          <!-- أدوات التصفية النشطة بنص أبيض ممتلئ -->
+          <div class="filter-bar" role="tablist" aria-label="تصفية نوع الفروق">
+            <button class="chip active" data-filter="all" onclick="filterDiffTable('all', this)" title="عرض كافة الصفوف والفروق">
+              <span>الكل</span>
+              <span class="chip-count">48</span>
+            </button>
+            <button class="chip" data-filter="add" onclick="filterDiffTable('add', this)" title="شعب جديدة أُضيفت في هذا الفصل">
+              <span style="color: #15803d; font-weight: bold;">+</span>
+              <span>شعب جديدة</span>
+              <span class="chip-count">4</span>
+            </button>
+            <button class="chip" data-filter="assign" onclick="filterDiffTable('assign', this)" title="شعب كانت غير مسندة وأُسندت لمدرب">
+              <span style="color: #1d4ed8; font-weight: bold;">✓</span>
+              <span>إسناد مدرب جديد</span>
+              <span class="chip-count">5</span>
+            </button>
+            <button class="chip" data-filter="change" onclick="filterDiffTable('change', this)" title="شعب تم تغيير مدربها الحالي">
+              <span style="color: #b45309; font-weight: bold;">⇄</span>
+              <span>تغيير مدرب</span>
+              <span class="chip-count">3</span>
+            </button>
+            <button class="chip" data-filter="del" onclick="filterDiffTable('del', this)" title="شعب حُذفت أو أُلغيت من الجدول">
+              <span style="color: #b91c1c; font-weight: bold;">✕</span>
+              <span>شعب محذوفة</span>
+              <span class="chip-count">2</span>
+            </button>
+            <button class="chip" data-filter="same" onclick="filterDiffTable('same', this)" title="شعب مطابقة للنسخة السابقة دون أي تعديل">
+              <span>=</span>
+              <span>مطابقة دون تغيير</span>
+              <span class="chip-count">34</span>
+            </button>
+          </div>
+
+          <!-- جدول البيانات المتجاوب -->
+          <div class="table-responsive">
+            <table class="data-table" id="diffDataTable">
+              <thead>
+                <tr>
+                  <th style="width: 110px;" title="الرقم المرجعي للشعبة في رايات (CRN)">الرقم المرجعي</th>
+                  <th style="width: 100px;" title="رمز المقرر حسب الخطة">رمز المقرر</th>
+                  <th title="اسم المقرر المعتمد">اسم المقرر</th>
+                  <th style="width: 80px;" title="رقم الشعبة">الشعبة</th>
+                  <th style="width: 90px;" title="نوع التدريب">النوع</th>
+                  <th title="المدرب في النسخة المحفوظة السابقة">المدرب السابق</th>
+                  <th title="المدرب في التقرير المرفوع الجديد">المدرب في التقرير الجديد</th>
+                  <th style="width: 150px; text-align: center;" title="نوع التغيير المكتشف">حالة الفرق</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- 1. شعبة جديدة -->
+                <tr class="diff-row diff-add" data-type="add">
+                  <td class="num"><strong>40218</strong></td>
+                  <td><span class="badge">MMEC 101</span></td>
+                  <td><strong>ورشة تأسيسية</strong></td>
+                  <td>شعبة 3</td>
+                  <td>عملي</td>
+                  <td><span class="old-val">— (غير موجودة)</span></td>
+                  <td><span class="new-val">م/ محمد يوسف الشبيلي</span></td>
+                  <td style="text-align: center;">
+                    <span class="badge success" title="شعبة تدريبية جديدة مضافة">
+                      + شعبة جديدة
+                    </span>
+                  </td>
+                </tr>
+
+                <!-- 2. شعبة جديدة أخرى -->
+                <tr class="diff-row diff-add" data-type="add">
+                  <td class="num"><strong>41510</strong></td>
+                  <td><span class="badge">MMIN 141</span></td>
+                  <td><strong>أساسيات ميكانيكا الموائع</strong></td>
+                  <td>شعبة 2</td>
+                  <td>نظري/عملي</td>
+                  <td><span class="old-val">— (غير موجودة)</span></td>
+                  <td><span class="new-val">م/ طلال بن حمد العبيد</span></td>
+                  <td style="text-align: center;">
+                    <span class="badge success" title="شعبة تدريبية جديدة مضافة">
+                      + شعبة جديدة
+                    </span>
+                  </td>
+                </tr>
+
+                <!-- 3. إسناد مدرب جديد -->
+                <tr class="diff-row diff-assign" data-type="assign">
+                  <td class="num"><strong>41505</strong></td>
+                  <td><span class="badge">MMEC 141</span></td>
+                  <td><strong>قياسات</strong></td>
+                  <td>شعبة 2</td>
+                  <td>نظري/عملي</td>
+                  <td><span class="old-val">غير مسند (شاغر)</span></td>
+                  <td><span class="new-val">م/ عادل عبدالعزيز الفريهيدي</span></td>
+                  <td style="text-align: center;">
+                    <span class="badge info" title="تم تعيين مدرب للشعبة بعد أن كانت شاغرة">
+                      ✓ إسناد مدرب
+                    </span>
+                  </td>
+                </tr>
+
+                <!-- 4. تغيير مدرب -->
+                <tr class="diff-row diff-change" data-type="change">
+                  <td class="num"><strong>42101</strong></td>
+                  <td><span class="badge">MMIN 261</span></td>
+                  <td><strong>آلات دوارة (١)</strong></td>
+                  <td>شعبة 1</td>
+                  <td>عملي</td>
+                  <td><span class="old-val">م/ طلال بن حمد العبيد</span></td>
+                  <td><span class="new-val">م/ محمد يوسف الشبيلي</span></td>
+                  <td style="text-align: center;">
+                    <span class="badge warning" title="انتقلت الشعبة من مدرب لآخر">
+                      ⇄ تغيير مدرب
+                    </span>
+                  </td>
+                </tr>
+
+                <!-- 5. تغيير مدرب 2 -->
+                <tr class="diff-row diff-change" data-type="change">
+                  <td class="num"><strong>43210</strong></td>
+                  <td><span class="badge">MMIN 253</span></td>
+                  <td><strong>صيانة النظم الميكانيكية</strong></td>
+                  <td>شعبة 1</td>
+                  <td>نظري/عملي</td>
+                  <td><span class="old-val">م/ علي حمد العبيد</span></td>
+                  <td><span class="new-val">م/ احمد محمد السمنان</span></td>
+                  <td style="text-align: center;">
+                    <span class="badge warning" title="انتقلت الشعبة من مدرب لآخر">
+                      ⇄ تغيير مدرب
+                    </span>
+                  </td>
+                </tr>
+
+                <!-- 6. شعبة ملغاة / محذوفة -->
+                <tr class="diff-row diff-del" data-type="del">
+                  <td class="num"><strong>40312</strong></td>
+                  <td><span class="badge">MMEC 131</span></td>
+                  <td><strong>الرسم الهندسي</strong></td>
+                  <td>شعبة 4</td>
+                  <td>عملي</td>
+                  <td><span class="old-val">م/ اسامه ابراهيم السلطان</span></td>
+                  <td><span style="color: #c00000; font-weight: 700;">✕ تم إلغاء الشعبة</span></td>
+                  <td style="text-align: center;">
+                    <span class="badge danger" title="الشعبة لم تعد موجودة في تقرير رايات الجديد">
+                      ✕ شعبة محذوفة
+                    </span>
+                  </td>
+                </tr>
+
+                <!-- 7. صف مطابقة دون تغيير -->
+                <tr class="diff-row diff-same" data-type="same">
+                  <td class="num">40213</td>
+                  <td><span class="badge">MMEC 101</span></td>
+                  <td>ورشة تأسيسية</td>
+                  <td>شعبة 1</td>
+                  <td>عملي</td>
+                  <td>م/ محمد يوسف الشبيلي</td>
+                  <td>م/ محمد يوسف الشبيلي</td>
+                  <td style="text-align: center;">
+                    <span class="badge" title="بيانات الشعبة والمدرب مطابقة تماماً">مطابقة =</span>
+                  </td>
+                </tr>
+
+                <!-- 8. صف مطابقة دون تغيير -->
+                <tr class="diff-row diff-same" data-type="same">
+                  <td class="num">40214</td>
+                  <td><span class="badge">MMEC 101</span></td>
+                  <td>ورشة تأسيسية</td>
+                  <td>شعبة 2</td>
+                  <td>عملي</td>
+                  <td>م/ محمد يوسف الشبيلي</td>
+                  <td>م/ محمد يوسف الشبيلي</td>
+                  <td style="text-align: center;">
+                    <span class="badge" title="بيانات الشعبة والمدرب مطابقة تماماً">مطابقة =</span>
+                  </td>
+                </tr>
+
+                <!-- 9. صف مطابقة دون تغيير -->
+                <tr class="diff-row diff-same" data-type="same">
+                  <td class="num">42205</td>
+                  <td><span class="badge">MMIN 252</span></td>
+                  <td>صيانة العناصر الميكانيكية (٢)</td>
+                  <td>شعبة 1</td>
+                  <td>عملي</td>
+                  <td>م/ عادل عبدالعزيز الفريهيدي</td>
+                  <td>م/ عادل عبدالعزيز الفريهيدي</td>
+                  <td style="text-align: center;">
+                    <span class="badge" title="بيانات الشعبة والمدرب مطابقة تماماً">مطابقة =</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ═══════════ قائمة الفصول المحفوظة سابقاً ═══════════ -->
+        <div style="margin-top: 32px; border-top: 1px solid var(--ui-line-subtle); padding-top: 24px;">
+          <h2 style="font-size: 16px; font-weight: 700; margin-bottom: 12px; color: var(--ui-ink); display: flex; align-items: center; gap: 8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--ui-accent-dark);">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            أرشيف الفصول التدريبية المحفوظة في النظام
+          </h2>
+
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th style="width: 140px;">رمز الفصل</th>
+                  <th>مسمى الفصل التدريبي</th>
+                  <th style="width: 180px;">تاريخ آخر تحديث</th>
+                  <th style="width: 110px;">عدد الشعب</th>
+                  <th style="width: 110px;">عدد المدربين</th>
+                  <th style="width: 130px; text-align: center;">الحالة</th>
+                  <th style="width: 160px; text-align: center;">إجراءات</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background: #f0faf9;">
+                  <td class="num"><strong>144720</strong></td>
+                  <td><strong>الفصل التدريبي الثاني 1447هـ</strong></td>
+                  <td>2026-08-19 (اليوم 14:40)</td>
+                  <td class="num">48 شعبة</td>
+                  <td class="num">12 مدرباً</td>
+                  <td style="text-align: center;">
+                    <span class="badge complete" title="الفصل النشط حالياً في كافة شاشات المنظومة">الفصل الحالي (نشط)</span>
+                  </td>
+                  <td style="text-align: center;">
+                    <button class="btn primary" style="padding: 3px 10px; font-size: 13px;" title="العمل على بيانات هذا الفصل">
+                      عرض التقرير
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="num">144710</td>
+                  <td>الفصل التدريبي الأول 1447هـ</td>
+                  <td>2025-12-28 (10:15)</td>
+                  <td class="num">46 شعبة</td>
+                  <td class="num">11 مدرباً</td>
+                  <td style="text-align: center;">
+                    <span class="badge" title="فصل محفوظ ومؤرشف">مؤرشف</span>
+                  </td>
+                  <td style="text-align: center;">
+                    <button class="btn" style="padding: 3px 10px; font-size: 13px;" title="استعراض بيانات الفصل التدريبي الأول">
+                      استعراض الأرشيف
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="num">144630</td>
+                  <td>الفصل التدريبي الثالث 1446هـ</td>
+                  <td>2025-06-15 (09:30)</td>
+                  <td class="num">42 شعبة</td>
+                  <td class="num">10 مدربين</td>
+                  <td style="text-align: center;">
+                    <span class="badge" title="فصل محفوظ ومؤرشف">مؤرشف</span>
+                  </td>
+                  <td style="text-align: center;">
+                    <button class="btn" style="padding: 3px 10px; font-size: 13px;" title="استعراض بيانات الفصل التدريبي الثالث">
+                      استعراض الأرشيف
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ اللوحة الثانية: استقبال نسخ المدربين الاحتياطية ═══════════ -->
+    <section class="ui-panel" style="margin-top: 32px;">
+      <header>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        <span class="header-title">
+          استقبال ودمج نسخ المدربين الاحتياطية
+          <span class="header-subtitle">— تجميع ملفات JSON المرسلة من المدربين ودمج خططهم</span>
+        </span>
+        <span class="counter" title="عدد النسخ المرفوعة في جلسة الإدارة الحالية">5 نسخ مستلمة</span>
+      </header>
+
+      <div class="panel-body">
+        <div class="alert-banner info">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          <div class="alert-content">
+            <div class="alert-title">آلية دمج ملفات المدربين</div>
+            <p>
+              يقوم المدربون بتصدير نسخهم الاحتياطية (ملفات JSON) وإرسالها لرئيس القسم أو المشرف. ارفع الملفات هنا ليتم فحص محتواها ودمج الساعات المكتبية ومصادر التعلم والبيانات الناقصة المكتملة في قاعدة البيانات الموحدة.
+            </p>
+          </div>
+        </div>
+
+        <!-- منطقة رفع نسخ المدربين -->
+        <div class="dropzone" style="padding: 22px 16px; margin-bottom: 20px;" title="اسحب ملفات نسخ المدربين (JSON)">
+          <div class="dropzone-icon" style="width: 40px; height: 40px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <path d="M3 15h6"/>
+              <path d="M6 12v6"/>
+            </svg>
+          </div>
+          <div style="font-size: 15px; font-weight: 700; color: var(--ui-ink);">
+            رفع ملفات النسخ الاحتياطية للمدربين (.json)
+          </div>
+          <p class="dropzone-hint" style="font-size: 12.5px;">
+            يمكنك تحديد عدة ملفات دفعة واحدة لدمج بيانات عدة مدربين في آن واحد
+          </p>
+          <button class="btn primary" type="button">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/>
+              <line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+            استعراض ملفات النسخ الاحتياطية
+          </button>
+        </div>
+
+        <!-- جدول النسخ المستلمة وحالة الدمج -->
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th style="width: 110px;">رقم المدرب</th>
+                <th>اسم المدرب</th>
+                <th style="width: 170px;">التخصص</th>
+                <th style="width: 120px;">الفصل التدريبي</th>
+                <th style="width: 160px;">تاريخ النسخة</th>
+                <th style="width: 140px; text-align: center;">حالة الدمج</th>
+                <th style="width: 180px; text-align: center;">الإجراءات</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- مدرب 1: مدمج بنجاح -->
+              <tr>
+                <td class="num">0013270</td>
+                <td><strong>م/ محمد يوسف الشبيلي</strong></td>
+                <td>تقنية الصيانة الميكانيكية</td>
+                <td class="num">144720</td>
+                <td>2026-08-19 14:10</td>
+                <td style="text-align: center;">
+                  <span class="badge complete" title="تم دمج كافة الخطط وبيانات التواصل بنجاح">
+                    ✓ مدمج بنجاح
+                  </span>
+                </td>
+                <td style="text-align: center;">
+                  <button class="btn" style="padding: 3px 8px; font-size: 12.5px;" title="معاينة التعديلات المدمجة">معاينة</button>
+                  <button class="btn" style="padding: 3px 8px; font-size: 12.5px;" title="تنزيل الملف الأصلي">تنزيل JSON</button>
+                </td>
+              </tr>
+
+              <!-- مدرب 2: جاهز للدمج -->
+              <tr style="background: #fefdf8;">
+                <td class="num">0006697</td>
+                <td><strong>م/ عادل عبدالعزيز الفريهيدي</strong></td>
+                <td>تقنية الصيانة الميكانيكية</td>
+                <td class="num">144720</td>
+                <td>2026-08-19 13:45</td>
+                <td style="text-align: center;">
+                  <span class="badge info" title="الملف صالح وجاهز للاعتماد والدمج في القاعدة المركزية">
+                    جاهز للدمج
+                  </span>
+                </td>
+                <td style="text-align: center;">
+                  <button class="btn primary" style="padding: 3px 10px; font-size: 12.5px;" title="دمج تعديلات المدرب الآن">دمج البيانات</button>
+                  <button class="btn" style="padding: 3px 8px; font-size: 12.5px;" title="معاينة التعديلات">معاينة</button>
+                </td>
+              </tr>
+
+              <!-- مدرب 3: جاهز للدمج -->
+              <tr style="background: #fefdf8;">
+                <td class="num">0013415</td>
+                <td><strong>م/ طلال بن حمد العبيد</strong></td>
+                <td>تقنية الصيانة الميكانيكية</td>
+                <td class="num">144720</td>
+                <td>2026-08-19 11:20</td>
+                <td style="text-align: center;">
+                  <span class="badge info" title="الملف صالح وجاهز للاعتماد والدمج">
+                    جاهز للدمج
+                  </span>
+                </td>
+                <td style="text-align: center;">
+                  <button class="btn primary" style="padding: 3px 10px; font-size: 12.5px;" title="دمج تعديلات المدرب الآن">دمج البيانات</button>
+                  <button class="btn" style="padding: 3px 8px; font-size: 12.5px;" title="معاينة التعديلات">معاينة</button>
+                </td>
+              </tr>
+
+              <!-- مدرب 4: تضارب إصدارات -->
+              <tr style="background: #fff8f8;">
+                <td class="num">0012907</td>
+                <td><strong>م/ اسامه ابراهيم السلطان</strong></td>
+                <td>تقنية التصنيع الميكانيكي</td>
+                <td class="num">144720</td>
+                <td>2026-08-18 16:00</td>
+                <td style="text-align: center;">
+                  <span class="badge warning" title="يوجد تعديل أحدث مسجل في الخادم لنفس المقرر">
+                    تضارب إصدارات (يحتاج مراجعة)
+                  </span>
+                </td>
+                <td style="text-align: center;">
+                  <button class="btn danger" style="padding: 3px 8px; font-size: 12.5px;" title="حل التضارب واختيار النسخة المعتمدة">حل التضارب</button>
+                  <button class="btn" style="padding: 3px 8px; font-size: 12.5px;" title="معاينة الفروق">مقارنة</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ القسم الثالث: الزر الختامي البارز لإنتاج حزمة البيانات ═══════════ -->
+    <div class="package-export-box">
+      <div style="background: #1f7d76; color: #ffffff; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(31, 125, 118, 0.3);">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+          <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+          <line x1="12" y1="22.08" x2="12" y2="12"></line>
+        </svg>
+      </div>
+
+      <h2 style="font-size: 19px; font-weight: 700; color: #134e4a;">
+        إنتاج الحزمة الأكاديمية الموحدة للفصل التدريبي
+      </h2>
+
+      <button class="btn primary large-action" id="generatePackageBtn" onclick="generatePackage()" title="توليد وتنزيل ملف الحزمة الكامل الجاهز للنشر">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        إنتاج حزمة البيانات
+      </button>
+
+      <!-- الشرح المشترط نصياً بسطر واحد أسفل الزر -->
+      <p class="package-note">
+        تُنتج الحزمة كملف أرشيف موحّد يحتوي كل التوصيفات وخطط المدربين المعتمدة لتسليمها لمن ينشرها على الخادم الأكاديمي أو المنصة.
+      </p>
+
+      <!-- إشعار نجاح الإنتاج (يظهر تفاعلياً) -->
+      <div id="packageSuccessAlert" class="alert-banner success" style="display: none; width: 100%; max-width: 580px; margin-top: 10px; text-align: right;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        <div class="alert-content">
+          <div class="alert-title">تم إنتاج الحزمة بنجاح: <span class="ltr">department-data-144720.zip</span></div>
+          <p style="font-size: 13px;">الحزمة جاهزة للتسليم؛ تحتوي على 48 شعبة و 16 توصيفاً مفصلاً وبيانات 12 مدرباً.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ═══════════ سكربت تفاعلي خفيف لعرض الحالات ═══════════ -->
+  <script>
+    // تصفية جدول الفروق
+    function filterDiffTable(filterType, buttonEl) {
+      // تحديث مظهر الأزرار (المحدد ممتلئ بنص أبيض)
+      document.querySelectorAll('.filter-bar .chip').forEach(chip => {
+        chip.classList.remove('active', 'on');
+      });
+      buttonEl.classList.add('active', 'on');
+
+      // تصفية الصفوف
+      const rows = document.querySelectorAll('#diffDataTable tbody tr');
+      rows.forEach(row => {
+        if (filterType === 'all') {
+          row.style.display = '';
+        } else {
+          const rowType = row.getAttribute('data-type');
+          row.style.display = (rowType === filterType) ? '' : 'none';
+        }
+      });
+    }
+
+    // محاكاة مؤشر الحفظ التلقائي
+    function triggerAutoSaveAnimation() {
+      const indicator = document.getElementById('autoSaveIndicator');
+      indicator.className = 'save-state saving';
+      indicator.innerHTML = `
+        <svg class="spin" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="12" y1="2" x2="12" y2="6"></line>
+          <line x1="12" y1="18" x2="12" y2="22"></line>
+          <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
+          <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
+          <line x1="2" y1="12" x2="6" y2="12"></line>
+          <line x1="18" y1="12" x2="22" y2="12"></line>
+          <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line>
+          <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
+        </svg>
+        <span>يحفظ التغييرات في الفصل 144720...</span>
+      `;
+
+      setTimeout(() => {
+        indicator.className = 'save-state saved';
+        indicator.innerHTML = `
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>حُفظت التغييرات بنجاح</span>
+        `;
+      }, 700);
+    }
+
+    // محاكاة إنتاج حزمة البيانات
+    function generatePackage() {
+      const btn = document.getElementById('generatePackageBtn');
+      const alert = document.getElementById('packageSuccessAlert');
+      const originalText = btn.innerHTML;
+
+      btn.innerHTML = `
+        <svg class="spin" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 2a10 10 0 0 1 10 10"></path>
+        </svg>
+        جاري تجميع حزمة البيانات...
+      `;
+      btn.disabled = true;
+
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+        alert.style.display = 'flex';
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

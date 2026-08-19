@@ -1,0 +1,95 @@
+{
+  "source": "خطة تقنية الصيانة الميكانيكية.pdf — الإطار المنهجي موزعاً على الفصول (ص ٥–٦)، إصدار ١٤٤٦هـ / 2024G",
+  "department": "التقنية الميكانيكية",
+  "specialty": "تقنية الصيانة الميكانيكية",
+  "weeksPerSemester": 16,
+  "totals": { "crh": 71, "l": 41, "p": 56, "t": 4, "cth": 101, "contactHours": 1616 },
+  "courses": [
+    {
+      "code": "MMEC 101", "codeAr": "١٠١ منتج", "semester": 1,
+      "nameAr": "ورشة تأسيسية", "nameEn": "Preparatory Workshop",
+      "prereqAr": [], "crh": 2, "l": 0, "p": 4, "t": 0, "cth": 4,
+      "note": "خانة الساعات المعتمدة في خطة الصيانة مكتوبة «P2»؛ واعتُمد ٢ لأنه ما في خطة التصنيع لنفس المقرر وما في نظام رايات (٢٠٢٦-٠٨-٠٢)"
+    },
+    {
+      "code": "MMEC 141", "codeAr": "١٤١ منتج", "semester": 1,
+      "nameAr": "قياسات", "nameEn": "Measurements",
+      "prereqAr": [], "crh": 3, "l": 2, "p": 2, "t": 0, "cth": 4
+    },
+    {
+      "code": "MMEC 131", "codeAr": "١٣١ منتج", "semester": 2,
+      "nameAr": "الرسم الهندسي", "nameEn": "Engineering Drawing",
+      "prereqAr": [], "crh": 2, "l": 0, "p": 4, "t": 0, "cth": 4
+    },
+    {
+      "code": "MMEC 145", "codeAr": "١٤٥ منتج", "semester": 2,
+      "nameAr": "علم المواد", "nameEn": "Materials Science",
+      "prereqAr": [], "crh": 3, "l": 2, "p": 2, "t": 0, "cth": 4
+    },
+    {
+      "code": "MMEC 121", "codeAr": "١٢١ منتج", "semester": 2,
+      "nameAr": "أساسيات التحكم النيوماتي والهيدروليكي",
+      "nameEn": "Fundamentals of Pneumatic and Hydraulic Control",
+      "prereqAr": ["١٠١ فيزي"], "crh": 3, "l": 2, "p": 2, "t": 0, "cth": 4
+    },
+    {
+      "code": "MMIN 141", "codeAr": "١٤١ مصيم", "semester": 2,
+      "nameAr": "أساسيات ميكانيكا الموائع", "nameEn": "Basics of Fluid Mechanics",
+      "prereqAr": ["١٠١ فيزي"], "crh": 3, "l": 2, "p": 2, "t": 0, "cth": 4
+    },
+    {
+      "code": "MMIN 151", "codeAr": "١٥١ مصيم", "semester": 2,
+      "nameAr": "صيانة العناصر الميكانيكية (١)",
+      "nameEn": "Maintenance of Mechanical Elements -1",
+      "prereqAr": ["١٠١ منتج", "١٤١ منتج"], "crh": 3, "l": 1, "p": 4, "t": 0, "cth": 5
+    },
+    {
+      "code": "MMIN 171", "codeAr": "١٧١ مصيم", "semester": 3,
+      "nameAr": "تقنية ورش ولحام", "nameEn": "Workshop Technology & Welding",
+      "prereqAr": ["١٠١ منتج", "١٤١ منتج"], "crh": 3, "l": 1, "p": 4, "t": 0, "cth": 5
+    },
+    {
+      "code": "MMIN 252", "codeAr": "٢٥٢ مصيم", "semester": 3,
+      "nameAr": "صيانة العناصر الميكانيكية (٢)",
+      "nameEn": "Maintenance of Mechanical Elements -2",
+      "prereqAr": ["١٥١ مصيم"], "crh": 3, "l": 1, "p": 4, "t": 0, "cth": 5
+    },
+    {
+      "code": "MMIN 261", "codeAr": "٢٦١ مصيم", "semester": 3,
+      "nameAr": "آلات دوارة (١)", "nameEn": "Rotating Machinery -1",
+      "prereqAr": ["١٤١ مصيم", "١٥١ مصيم"], "crh": 4, "l": 2, "p": 4, "t": 0, "cth": 6
+    },
+    {
+      "code": "MMEC 233", "codeAr": "٢٣٣ منتج", "semester": 4,
+      "nameAr": "الرسم بمساعدة الحاسب CAD", "nameEn": "CAD: Computer Aided Drawing",
+      "prereqAr": ["١٣١ منتج"], "crh": 2, "l": 0, "p": 4, "t": 0, "cth": 4
+    },
+    {
+      "code": "MMIN 221", "codeAr": "٢٢١ مصيم", "semester": 4,
+      "nameAr": "كهرباء وإلكترونيات الآلات الميكانيكية",
+      "nameEn": "Electricity & Electronics of Mechanical Machines",
+      "prereqAr": ["١٠١ فيزي"], "crh": 2, "l": 1, "p": 2, "t": 0, "cth": 3
+    },
+    {
+      "code": "MMIN 262", "codeAr": "٢٦٢ مصيم", "semester": 4,
+      "nameAr": "آلات دوارة (٢)", "nameEn": "Rotating Machinery -2",
+      "prereqAr": ["٢٦١ مصيم"], "crh": 4, "l": 2, "p": 4, "t": 0, "cth": 6
+    },
+    {
+      "code": "MMIN 253", "codeAr": "٢٥٣ مصيم", "semester": 4,
+      "nameAr": "صيانة النظم الميكانيكية", "nameEn": "Maintenance of Mechanical Systems",
+      "prereqAr": ["١٠١ منتج", "١٤١ منتج"], "crh": 3, "l": 1, "p": 4, "t": 0, "cth": 5
+    },
+    {
+      "code": "MMIN 264", "codeAr": "٢٦٤ مصيم", "semester": 4,
+      "nameAr": "الاهتزازات والاتزان", "nameEn": "Machinery Vibration",
+      "prereqAr": ["٢٦١ مصيم"], "crh": 2, "l": 1, "p": 2, "t": 0, "cth": 3
+    },
+    {
+      "code": "MMIN 299", "codeAr": "٢٩٩ مصيم", "semester": 5,
+      "nameAr": "التدريب التعاوني", "nameEn": "Co-operative Training",
+      "prereqAr": [], "crh": 2, "l": null, "p": null, "t": null, "cth": null,
+      "coop": true
+    }
+  ]
+}

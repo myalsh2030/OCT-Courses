@@ -1,0 +1,1263 @@
+{
+ "source": "ملف المدرب وتوصيف المقرر/المواد العامة — المنهج التفصيلي",
+ "note": "المواضيع كما وردت في المواصفات بلا تحرير. لا مواصفة من العشر تفرد قائمةً للمحتوى العملي، فحقل practical فارغ.",
+ "courses": [
+  {
+   "code": "اسلم-101",
+   "nameAr": "الدراسات الإسلامية",
+   "nameEn": "",
+   "cth": 2,
+   "language": "ar",
+   "detailBlocks": 14,
+   "detailHoursSum": 32,
+   "verified": true,
+   "units": [
+    {
+     "hours": 3,
+     "title": "العقيدة الإسلامية",
+     "theory": [
+      "مفهوم العقيدة الإسلامية وأركانها."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 2,
+     "title": "العقيدة الإسلامية",
+     "theory": [
+      "خصائص العقيدة الإسلامية."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 2,
+     "title": "العقيدة الإسلامية",
+     "theory": [
+      "أثر العقيدة على الفرد والمجتمع."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 2,
+     "title": "العقيدة الإسلامية",
+     "theory": [
+      "وسطية العقيدة بين الغلو والانحلال."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 2,
+     "title": "القيم الإسلامية",
+     "theory": [
+      "مفهوم القيم وأنواعها. تدرس كل قيمة من حيث: المراد بها، ومعيارها، ومصدر الإلزام بها، وآثارها على الفرد والمجتمع والإنسانية."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 3,
+     "title": "القيم الإسلامية",
+     "theory": [
+      "القيم العليا في الإسلام ( الحق-العدل-الإحسان)."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 3,
+     "title": "القيم الإسلامية",
+     "theory": [
+      "القيم الخلقية في الإسلام ( الصدق-الوفاء-الأمانة )."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 2,
+     "title": "القيم الإسلامية",
+     "theory": [
+      "القيم الحضارية في الإسلام (الاستخلاف-السلام- الجمال )."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 3,
+     "title": "قضايا فكرية معاصرة",
+     "theory": [
+      "حقوق الإنسان، تعريف حقوق الإنسان، مصادر الحق بين الإسلام والنظم الوضعية، حقوق الإنسان في الإسلام ومنها حق الحرية وحق العدل والمساواة ( تعريفها وضوابطها)."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 2,
+     "title": "قضايا فكرية معاصرة",
+     "theory": [
+      "الاستشراق: التعريف، النشأة، الأهداف، الوسائل، ووسائل مواجهة الاستشراق."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 2,
+     "title": "قضايا فكرية معاصرة",
+     "theory": [
+      "العولمة: تعريفها، وأهدافها، ومظاهرها، والموقف منها."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 2,
+     "title": "أخلاقيات المهنة",
+     "theory": [
+      "مفهوم أخلاقيات المهنة وأهميتها.",
+      "أثر أخلاقيات المهنة في تحقيق التنمية."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 2,
+     "title": "أخلاقيات المهنة",
+     "theory": [
+      "مقومات أخلاقيات المهنة: الدين – الضمير - المصلحة-الأنظمة اللوائح.",
+      "الضوابط الشرعية للمهنة في الإسلام."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 2,
+     "title": "أخلاقيات المهنة",
+     "theory": [
+      "الأخلاق المهنية في الإسلام (أخلاق محمودة- أخلاق مذمومة).",
+      "طرق تعزيز الأخلاق المحمودة وطرق علاج الأخلاق المذمومة."
+     ],
+     "practical": []
+    }
+   ]
+  },
+  {
+   "code": "حاسب-101",
+   "nameAr": "مقدمة تطبيقات الحاسب",
+   "nameEn": "",
+   "cth": 4,
+   "language": "ar",
+   "detailBlocks": 18,
+   "detailHoursSum": 64,
+   "verified": true,
+   "units": [
+    {
+     "hours": 3,
+     "title": "الوحدة 1: استخدام Microsft Word 2013",
+     "theory": [
+      "منح أوامر من الشريط ومن شريط أدوات الوصول السريع",
+      "إدراة Word من عرض Backstage",
+      "تخصيص خيارات البرنامج الدروس:"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 3,
+     "title": "الوحدة 2: إنشاء مستندات وعرضها",
+     "theory": [
+      "إنشاء مستندات جديدة فارغة",
+      "إنشاء مستندات جديدة باستخدام قوالب",
+      "فتح ملفات غير أصلية Word",
+      "فتح ملفات PDF في Word لتحريرها",
+      "التنقل في مستند",
+      "تغيير طرق عرض المستند",
+      "تغيير مستويات التكبير",
+      "تقسيم النافذة",
+      "إظهار رموز التنسيق أو إخفاؤها",
+      "تخصيص خيارات البرامج الدروس:",
+      "الدرس: إنشاء المستندات وفتحها"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 3,
+     "title": "الوحدة 3: إدراج نص وتحريره",
+     "theory": [
+      "إدخال النص في مستند",
+      "إدراج الرموز والأحرف الخاصة",
+      "لصق نص وإضافته",
+      "إدراج النص والرموز باستخدام التصحيح التلقائي",
+      "تحديد النص.",
+      "قص المحتوى ونسخه وحذفه الدروس:",
+      "الدروس 4: إدراج النص"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 3,
+     "title": "الوحدة 4: تنسيق النص",
+     "theory": [
+      "تطبيق التنسيق الأساسي.",
+      "تنسيق النص باستخدام نسخ التنسيق",
+      "إنشاء WordArt",
+      "تطبيق الأنماط على النص الدروس:"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 3,
+     "title": "الوحدة 5: إدراج رسومات وتعديلها",
+     "theory": [
+      "إدراج الصور من جهاز الكمبيوتر الخاص بك",
+      "إدراج الصور من الويب",
+      "تعديل خصائص الصور ( اللون والحجم والشكل )",
+      "إدراج أشكال بسيطة",
+      "تعديل الأشكال",
+      "تطبيق \"أنماط سريعة \" على الصور",
+      "تطبيق تأثيرات فنية",
+      "إدراج رسومات Smart Art",
+      "تعديل SmarArt (اللون والحجم والشكل )",
+      "وضع الأشكال والصور",
+      "إلتفاف النص حول الأشكال والصور الدروس:",
+      "الدرس 10: إدراج الصور وتعديلها",
+      "الدرس 11: تنسيق الصور",
+      "الدرس 12: إدراج الأشكال وتعديلها"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 3,
+     "title": "الوحدة 6: البحث عن محتوى واستبداله",
+     "theory": [
+      "البحث عن نص",
+      "الانتقال إلى مواقع وعناصر خاصة",
+      "البحث عن نص واستبداله",
+      "تنسيق النص عن طريق استخدام الأمر \"استبدال \" الدروس:",
+      "الدرس 16: البحث عن المحتوى"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 3,
+     "title": "الوحدة 7: إنشاء القوائم وتعديلها",
+     "theory": [
+      "إنشاء قوائم ذات تعداد نقطي ورقمي وقوائم متعددة المستويات",
+      "تعديل بنية القائمة",
+      "تعديل أحرف التعداد النقطي",
+      "تعديل مخططات الأرقام الدروس:",
+      "الدرس 19: إنشاء قوائم"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 3,
+     "title": "الوحدة 8: إنشاء الجداول وتعديلها",
+     "theory": [
+      "إنشاء الجداوةل الأساسية",
+      "تحويل النص إلى جداول",
+      "تعيين خيارات الاحتواء التلقائي",
+      "إدراج جداول سابقة التنسيق",
+      "تنسيق الجداول",
+      "فزر بيانات الجدول",
+      "تعديل بنية الجدول",
+      "تحويل الجداول إلى نص",
+      "استخدام بيانات الجدول في الصيغ الدروس:"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 3,
+     "title": "الوحدة 9: إنشاءارتباطات",
+     "theory": [
+      "إنشاء الإشارات المرجعية",
+      "إدراج ارتباطات تشعبية الدروس:",
+      "الدرس 25: إنشاء ارتباطات داخلية"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 3,
+     "title": "الوحدة 10: تنسيق المستندات",
+     "theory": [
+      "تغيير سمات المستند",
+      "تغيير مجموعات أنماط المستندات",
+      "إدراج رؤوس وتذييلات بسيطة",
+      "إدراج أرقام الصفحات",
+      "تكوين خلفيات الصفحة",
+      "تعديل إعداد الصفحة",
+      "إدارة فواصل الصفحة",
+      "إنشاء أقسام المستند الدروس:",
+      "الدرس 27: العمل باستخدام السمات",
+      "الدرس 28",
+      "الدرس 29: إضافة عناصر الصفحة"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 3,
+     "title": "الوحدة 11: حفظ المستندات وطباعتها",
+     "theory": [
+      "حفظ المستندات بتنسيقات غير قياسية",
+      "الحفاظ على التوافق مع الإصدارات السابقة",
+      "حفظ الملفات في مواقع بعيدة",
+      "تعديل خصائص المستند",
+      "حماية المستندات باستخدام كلمات المرور",
+      "تكوين المستندات للطباعة الدروس:",
+      "الدرس 33: حفظ المستندات",
+      "الدرس 34: إدارة خصائص المستند"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 3,
+     "title": "الوحدة 12: إدراج كائنات المحتوى وإدارتها",
+     "theory": [
+      "إداراج خصائص المستند",
+      "إدارج حقول مضمنه",
+      "إدارج مربعات نص",
+      "إدراج أجزاء سريعة",
+      "تنظيم كتل الإنشاء",
+      "تخصيص كتل الإنشاء الدروس:",
+      "الدرس 37: التحديث التلقائي للمحتوى"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 3,
+     "title": "الوحدة 13: إدارج مراجع وإدارتها",
+     "theory": [
+      "إدارج الحواشي السفلية والتعليقات الختامية",
+      "إدارة مواقع الحواشي السفلية",
+      "تكوين تنسيقات التعلقيات الختامية",
+      "تعديل ترقيم الحواشي السفلية",
+      "إدارج اقتباسات وعناصر نائية",
+      "تغيير نمط الاقتباس",
+      "إدارج مراجع",
+      "إضافة تسميات توضيحية",
+      "تعيين خيارات التسميات التوضيحية الدروس:"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 3,
+     "title": "الوحدة 14: إعداد عروض الشرائح وتقديمها",
+     "theory": [
+      "إنشاء عروض شرائح مخصص",
+      "تكوين خيارات عرض شر ائح مخصص",
+      "التموين على التوقيت",
+      "تكوين دقة عرض الشرائح عناصر الوحدة:",
+      "المشروع: تكوين عرض شرائح",
+      "الاختبار الدروس:",
+      "الدرس: إنشاء عروض الشرائح 38"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 3,
+     "title": "الوحدة 15: توزيع العروض التقديمية",
+     "theory": [
+      "عروض تدقيق تقديمية",
+      "التحقق من مشكلات إمكانية الوصول",
+      "التحقق من مشكلات التوافق",
+      "تعيين إعداد طباعة نشرة",
+      "طباعة المحددات من العروض التقديمية",
+      "طباعة ملاحظات المحاضر",
+      "إزالة بيانات تعريف العرض التقديمي",
+      "وضع علامة كنهائي",
+      "ضغط الوسائط",
+      "تضمين الخطوط",
+      "تقييد الأوذنات",
+      "تشفير عروض تقديمية باستخدام كلمة المرور الدروس:",
+      "الدروس 41",
+      "الدرس: 42: طباعة العروض التقديمية"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 3,
+     "title": "الوحدة 16: مراجعة الاختبار",
+     "theory": [],
+     "practical": []
+    },
+    {
+     "hours": 8,
+     "title": "استخدام Microsoft Outlook 2013 وإدارة بينتة",
+     "theory": [
+      "الوحدة 1: تحصيص إعدادت Outlook",
+      "تخصيص مظهر نافذة البرنامج",
+      "تكوين خيارات البرنامج",
+      "تعيين الإعدادات الافتراضية للرسائل الصادرة",
+      "إنشاء التواقيع التلقائية وتعيينها",
+      "تكوين الخيارات لعدة الحسابات الوحدة2: التشغيل التلقائي في Outlook",
+      "الرد تلقائيا على الرسائل",
+      "معالجة الرسائل تلقائيا",
+      "إنشاء الخطوات السريعة وإدارتها الوحدة 3: طباعة المعلومات وحفظها Outlook",
+      "عرض الرسائل والمرفقات وحفظها",
+      "طباعة عناصر Outlook الوحدة 4: البحث في Outlook",
+      "البحث عن العناصر",
+      "استخدام المجلدات البحث"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 8,
+     "title": "تطبيقات الحوسبة السحابية Cloud computing applications",
+     "theory": [
+      "الوحدة 1: مقدمية",
+      "مفهوم تقنية الحوسبة السحابية",
+      "متطلبات الحوسبة السحابية ومميزاتها وعيوبها",
+      "نماذج الخدمات المقدمة من مزودي خدمات الحوسبة السحابية وأمثلة عليها الوحدة 2: التخزين السحابي",
+      "القرض السحابي من مزودي خدمات التخزين السحابي",
+      "مقارنة المميزات من مزودي خدمات التخزين السحابي",
+      "التسجيل في أحد مواقع مزودي خدمات التخزين السحابي",
+      "التعرف على واجهة الموقع",
+      "رفع الملفات إلى القرص السحابي",
+      "تنزيل الملفات من القرص السحابي",
+      "إدارة الملفات بالقرص السحابي",
+      "مشاركة الملفات بالقرص السحابي",
+      "حذف الملفات من القرص السحابي الوحدة 2: التطبيقات المكتبية في الحوسبة السحابية 1-المستندات في تطبيقات الحوسبة السحابية",
+      "إنشاء مستند جديد وإعادة تسميته",
+      "التعرف على واجهة التطبيق",
+      "التعامل مع شريط الأدوات",
+      "الكتابة واجراء التنسيقات للنص.",
+      "التعامل مع قائمة إدارج",
+      "حفظ المستند.",
+      "تنزيل المستند بالصيغ المختلفة من السحابة.",
+      "رفع مستند على السحابة 2-العروض التقديميةفي تطبيقات الحوسبة السحابية",
+      "إنشاء عرض جديد وإعادة تسميته",
+      "التعرف على واجهة التطبيق",
+      "التعامل مع شريط الأدوات",
+      "إضافة شرائح جديدة",
+      "إعداد العرض وتنسيق تصميم العرض",
+      "الكتابة وإجراء التنسيقات للنص.",
+      "التعامل مع الجداول",
+      "إجراء العرض",
+      "تنزيل العرض من السحابة بالصيغ المختلفة.",
+      "رفع عرض تقديمي على السحابة. 3-أوراق العملفي تطبيقات الحوسبة السحابية",
+      "إنشاء مصنف جديد وإعادة تسميته",
+      "التعرف على واجهة التطبيق",
+      "التعامل مع شريط الأدوات",
+      "إضافة أوراق عمل جديدة",
+      "إعداد ورقة العمل وتنسيق الخلايا",
+      "تنزيل المصنف من السحابة بالصيغ المختلفة.",
+      "رفع مصنف على السحابة الوحدة3: رسم المخططات واستخدام الخرائط في تطبيقات الحوسبة السحابية",
+      "إنشاء مخطط جديد وإعادة تسميته",
+      "التعرف على واجهة تطبيق المخططات",
+      "التعامل مع شريط الأودات",
+      "رسم الأشكال الأساسية وتنسيقها",
+      "التعامل مع قائمة إدارج وقائمة جداول",
+      "حفظ وتنزيل المخطط من السحابة بالصيغ المختلفة.",
+      "التعرف على واجهة تطبيق الخرائط",
+      "التعامل مع الأدوات الأساسية في التطبيق",
+      "تحديد المسارات وحفظها",
+      "التحكم بطبقات الرسم",
+      "طباعة الخرائط الوحدة 4: النماذج ونشرها في تطبيقات الحوسبة السحابية",
+      "إنشاء نموذج جديد وإعادة تسميته",
+      "التعرف على واجهة التطبيق",
+      "التعرف على أنواع الأسئلة والتعامل معها",
+      "إضافة سؤال جديد",
+      "إضافة قسم جديد",
+      "إعداد النموذج وتنسيقه",
+      "التحكم بطريقة الاستجابة للنموذج",
+      "نشر النموذج",
+      "تحليل النتائج",
+      "تحرير النتائج في مصنف",
+      "تنزيل المصنف من السحابة بالصيغ المختلفة. الوحدة 5: مراجعة الاختبار"
+     ],
+     "practical": []
+    }
+   ]
+  },
+  {
+   "code": "رياض-101",
+   "nameAr": "الرياضيات",
+   "nameEn": "",
+   "cth": 4,
+   "language": "ar",
+   "detailBlocks": 6,
+   "detailHoursSum": 64,
+   "verified": true,
+   "units": [
+    {
+     "hours": 10,
+     "title": "المجموعات",
+     "theory": [
+      "مفهوم المجموعة وخصائصها",
+      "المجموعة الجزئية والمجموعة الشاملة والمجموعة الخالية",
+      "العمليات على المجموعات (الاتحاد، التقاطع، الفرق، الفرق التناظري)",
+      "متمم المجموعة وقانون ديمورغان",
+      "المجموعات العددية و رموزها"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 10,
+     "title": "العمليات الحسابية على الأعداد النسبية والحقيقية",
+     "theory": [
+      "العمليات الحسابية على الأعداد النسبية (الجمع، الطرح، الضرب، القسمة)",
+      "العمليات الحسابية على الأعداد الحقيقية (الجمع، الطرح، الضرب، القسمة)",
+      "تقريب الأعداد العشرية"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 10,
+     "title": "كثيرات الحدود",
+     "theory": [
+      "تعرف كثيرات الحدود",
+      "العمليات الحسابية على كثيرات الحدود (الجمع، الطرح، الضرب، القسمة)",
+      "تحليل كثيرات الحدود من الدرجة الثانية",
+      "اختصار الكسور الجبرية"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 10,
+     "title": "المصفوفات والمحددات",
+     "theory": [
+      "مفهوم المصفوفة وأنواعها",
+      "العمليات الحسابية على المصفوفات",
+      "حساب المحددات ( 2x2 و 3x3 )",
+      "حساب مقلوب المصفوفة 2x2"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 12,
+     "title": "المعادلات",
+     "theory": [
+      "حل المعادلات من الدرجة الأولى",
+      "حل المعادلات من الدرجة الثانية باستخدام القانون العام",
+      "حل مجموعة المعدلات الخطية باستخدام المصفوفات"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 12,
+     "title": "الهندسة المستوية والفراغية",
+     "theory": [
+      "تعريف الأشكال الهندسية المستوية (مثلث – دائرة – الأشكال الرباعية)",
+      "تعريف الأشكال الهندسية الفراغية (المكعبة – الأسطوانية – البيضوية – المخروطية)",
+      "قوانين حساب المحيط و المساحة و الحجم."
+     ],
+     "practical": []
+    }
+   ]
+  },
+  {
+   "code": "عربي-101",
+   "nameAr": "الكتابة الفنية",
+   "nameEn": "",
+   "cth": 2,
+   "language": "ar",
+   "detailBlocks": 8,
+   "detailHoursSum": 32,
+   "verified": true,
+   "units": [
+    {
+     "hours": 2,
+     "title": "مهارة التواصل",
+     "theory": [
+      "مفهوم اللغة",
+      "وظيفتها",
+      "مفهوم التواصل",
+      "مفهوم المهارة",
+      "أركان الموقف اللغوي ( المرسل، الرسالة، الوسيلة، المتلقي \" المستقبل\" )"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 2,
+     "title": "مهارة القراءة",
+     "theory": [
+      "مفهومها",
+      "أهميتها",
+      "أهدافها",
+      "نماذج من النصوص التراثية والحديثة للدراسة والتحليل (٣نصوص)"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 4,
+     "title": "مهارة الكتابة",
+     "theory": [
+      "مفهوم الكتابة",
+      "أهميتها",
+      "مقوماتها"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 6,
+     "title": "الكتابة الإبداعية",
+     "theory": [
+      "المقالة تعريفها أنواعها خصائصها كيف تكتب مقالة",
+      "اليوميات والمذكرات تعريفهما الفرق بينهما خصائصهما نماذج منها"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 6,
+     "title": "الكتابة الوظيفية",
+     "theory": [
+      "كتابة المعروض والرد عليه ( تعريفه، أجزاؤه وعناصره، خصائصه)",
+      "التقرير تعريفه. أهدافه. مجالاته. خطوات إعداده ( مقدمة، صلب الموضوع وتحليله، النتائج والتوصيات، الملاحق)."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 4,
+     "title": "السيرة الذاتية",
+     "theory": [
+      "مفهومها",
+      "السيرة الذاتية الشخصية",
+      "السيرة الذاتية الغيرية",
+      "السيرة الأكاديمية كتابتها و ( نماذج منها )"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 4,
+     "title": "محضر الاجتماع",
+     "theory": [
+      "تعريفه",
+      "الغرض منه",
+      "خطوات كتابته",
+      "صفاته",
+      "نماذج منه"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 4,
+     "title": "التلخيص",
+     "theory": [
+      "تعريفه",
+      "أهميته",
+      "خطواته"
+     ],
+     "practical": []
+    }
+   ]
+  },
+  {
+   "code": "فيزي-101",
+   "nameAr": "الفيزياء",
+   "nameEn": "Physics",
+   "cth": 4,
+   "language": "en",
+   "detailBlocks": 5,
+   "detailHoursSum": 64,
+   "verified": true,
+   "units": [
+    {
+     "hours": 14,
+     "title": "1st Unit: Measurements, Scalar and Vector Quantities",
+     "theory": [
+      "Introduction",
+      "Chapter One: Measurements",
+      "(1-1) Physical Quantities",
+      "(1-1-1) Base Quantities",
+      "(1-1-2) Derived Quantities",
+      "(1-2) Systems of Measurement",
+      "(1-3) Prefixes of SI Units",
+      "(1-4) Conversion between Units",
+      "Chapter Two: Scalar and Vector Quantities",
+      "(2-1) Scalar Quantities",
+      "(2-2) Vector Quantities",
+      "(2-3) Vectors Addition",
+      "(2-3-1) Graphical Method",
+      "(2-3-2) Cosine Law Method",
+      "(2-4) Properties of Vector Addition",
+      "(2-5) Vectors Analysis",
+      "(2-6) Vectors Product",
+      "(2-6-1) Scalar Product (Dot Product)",
+      "(2-6-2) Vector Product (Cross Product)",
+      "(3) Examples and Problems"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 14,
+     "title": "2nd Unit: Motion, Force, Work and Energy",
+     "theory": [
+      "(1) Introduction",
+      "(2) Rectilinear Motion",
+      "(2-1) Distance and Displacement",
+      "(2-2) Average Velocity",
+      "(2-3) Instantaneous Velocity",
+      "(2-4) Average Acceleration",
+      "(2-5) Instantaneous Acceleration",
+      "(3) The Laws of Motion",
+      "(4) Newton's Laws of Motion",
+      "(4-1) Newton's First Law",
+      "(4-2) Newton's Second Law",
+      "(4-3) Newton's Third Law",
+      "(5) Friction",
+      "(6) Work",
+      "(6-1) Concept of Work",
+      "(6-2) Work done by a Constant Force",
+      "(7) Energy",
+      "(7-1) Kinetic Energy",
+      "(7-2) Potential Energy",
+      "(7-3) Conservation of Energy",
+      "(8) Examples and Problems"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 12,
+     "title": "3rd Unit: Thermal Physics",
+     "theory": [
+      "(1) Introduction",
+      "(2) Temperature",
+      "(3) Temperatures Scales",
+      "(3-1) Celsius Scale ( ̊C)",
+      "(3-2) Kelvin Scale (K)",
+      "(3-3) Fahrenheit Scale ( F) ̊",
+      "(3-4) Equations of Convert Temperatures",
+      "(4) Quantity of Heat",
+      "(5) Difference between Temperature and Quantity of Heat",
+      "(6) Specific Heat",
+      "(7) Latent Heat",
+      "(8) The Concept of Thermal Equilibrium",
+      "(9) Methods of the Heat Transfer",
+      "(10) Examples and Problems"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 12,
+     "title": "4th Unit: Electrostatics",
+     "theory": [
+      "(1) Introduction",
+      "(2) The Electric Charge",
+      "(3) Coulomb's Law",
+      "(4) The Electric Field",
+      "(4-1) The Electric Field of a Point Charge",
+      "(4-2) The Electric Field Lines",
+      "(5) Potential Difference and the Electric Potential",
+      "(6) The Electric Capacitor (Condenser)",
+      "(6-1) Capacitance of the Capacitor",
+      "(6-2) Parallel – Plate Capacitor",
+      "(6-3) Connecting of Capacitors",
+      "(6-3-1) Capacitors in Series",
+      "(6-3-2) Capacitors in Parallel",
+      "(6-4) The Stored Energy in a Capacitor",
+      "(7) Examples and Problems"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 12,
+     "title": "5th Unit: The Electric Current and Resistance",
+     "theory": [
+      "(1) Introduction",
+      "(2) The Electric Current",
+      "(3) The Current Density",
+      "(4) Drift Velocity",
+      "(5) Types of The Electric Current:",
+      "(5-1) The Direct Current (DC)",
+      "(5-2) The Alternating Current (AC)",
+      "(6) Ohm's Law and Resistance",
+      "(6-1) Ohm's Law",
+      "(6-2) Resistance",
+      "(6-2-1) Resistance and Temperature",
+      "(6-2-2) Conductivity",
+      "(6-2-3) Resistivity",
+      "(6-3) Connecting of Resistors",
+      "(6-3-1) Resistors in Series",
+      "(6-3-2) Resistors in Parallel",
+      "(7) The Electric Energy and Power",
+      "(8) Ammeters and Voltammeters",
+      "(9) Examples and Problems"
+     ],
+     "practical": []
+    }
+   ]
+  },
+  {
+   "code": "رياض-121",
+   "nameAr": "الرياضيات",
+   "nameEn": "",
+   "cth": 4,
+   "language": "ar",
+   "detailBlocks": 6,
+   "detailHoursSum": 64,
+   "verified": true,
+   "units": [
+    {
+     "hours": 8,
+     "title": "الوحدة الأولى: كثيرات الحدود",
+     "theory": [
+      "تعريف كثيرات الحدود",
+      "العمليات على كثيرات الحدود",
+      "تحليل كثيرات الحدود",
+      "اختصار الكسور الجبرية"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 8,
+     "title": "الوحدة الثانية: المصفوفات والمحددات",
+     "theory": [
+      "الفصل الأول المصفوفات",
+      "تعريف المصفوفة",
+      "العمليات على المصفوفات",
+      "المصفوفات الخاصة الفصل الثاني المحددات",
+      "تعريف المحدد",
+      "حساب محدد من الرتبة ٢×٢",
+      "حساب محدد من الرتبة ٣×٣",
+      "حساب مقلوب مصفوفة"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 10,
+     "title": "الوحدة الثالثة: المعادلات",
+     "theory": [
+      "حل المعادلات من الدرجة الأولى",
+      "حل المعادلات من الدرجة الثانية",
+      "المعادلات الخطية"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 10,
+     "title": "الوحدة الرابعة: النهايات والاتصال",
+     "theory": [
+      "الفصل الأول: النهايات",
+      "تعريف النهايات",
+      "حساب النهاية من اليمين واليسار",
+      "حالات عدم التعيين وكيفية إزالتها الفصل الثاني: الاتصال",
+      "الاتصال عند نقطة",
+      "خواص الدوال المتصلة"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 14,
+     "title": "الوحدة الخامسة: الاشتقاق والتفاضل",
+     "theory": [
+      "الفصل الأول: الاشتقاق",
+      "التفسير الهندسي لمفهوم المشتقة.",
+      "تعريف المشتقة",
+      "القواعد العامة للاشتقاق",
+      "قوانين اشتقاق الدوال المشهورة",
+      "الإشتقاق الضمني",
+      "المشتقات ذات الرتب العليا الفصل الثاني: التفاضل",
+      "التفاضل",
+      "بعض تطبيقات التفاضل"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 14,
+     "title": "الوحدة السادسة: التكامل",
+     "theory": [
+      "الدوال الأصلية و التكامل",
+      "التكامل الغير محدود",
+      "تكامل الدوال المشهورة",
+      "التكامل المحدود"
+     ],
+     "practical": []
+    }
+   ]
+  },
+  {
+   "code": "انجل-101",
+   "nameAr": "لغة إنجليزية -1",
+   "nameEn": "English Language 1",
+   "cth": 4,
+   "language": "en",
+   "detailBlocks": 10,
+   "detailHoursSum": 64,
+   "verified": true,
+   "units": [
+    {
+     "hours": 8,
+     "title": "Unit 1: Check up",
+     "theory": [
+      "1.1 Basics: meeting people, using forms, following instructions",
+      "1.2 Letters & numbers: exchanging info, using forms, units of measurement",
+      "1.3 Dates & time: numbers, travel arrangements"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 8,
+     "title": "Unit 2: Parts (1)",
+     "theory": [
+      "2.1 Naming: identifying parts",
+      "2.2 Assembling: using checklists, identifying what you need for a job, using an instruction manual",
+      "2.3 Ordering: using voicemail, ordering by phone, introducing yourself and others"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 4,
+     "title": "Review Unit A",
+     "theory": [
+      "Trainees will review and practice form,",
+      "meaning, and use of the instructional",
+      "content of units 1 & 2."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 8,
+     "title": "Unit 3: Parts (2)",
+     "theory": [
+      "3.1 Tools: describing components, using a",
+      "product review",
+      "3.2 Functions: Saying what things do,",
+      "describing a product, talking about people’s",
+      "jobs",
+      "3.3 Locations: saying where things are"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 8,
+     "title": "Unit 4: Movement",
+     "theory": [
+      "4.1 Directions: describing direction of movement",
+      "4.2 Instructions: using an instruction manual",
+      "4.3 Actions: using an instruction manual, giving and following instruction, explaining what happens"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 4,
+     "title": "Review Unit B",
+     "theory": [
+      "Trainees will review and practice",
+      "form, meaning, and use of the",
+      "instructional content of units 3 & 4."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 8,
+     "title": "Unit 5: Flow",
+     "theory": [
+      "5.1 Heating system: explaining fluid",
+      "movement around a system, using a",
+      "flow chart",
+      "5.2 Electrical circuit: explaining how an",
+      "electrical circuit works",
+      "5.3 Cooling system: explaining how",
+      "cooling systems work, describing",
+      "everyday routine"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 8,
+     "title": "Unit 6: Materials",
+     "theory": [
+      "6.1 Materials testing:",
+      "giving a demonstration, explaining",
+      "what you’re doing",
+      "6.2 Properties: describing the properties",
+      "f materials.",
+      "6.3 Buying: using a customer call",
+      "form, buying and selling",
+      "by phone, checking, starting a",
+      "phone call."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 4,
+     "title": "Review Unit C",
+     "theory": [
+      "Trainees will review and practice form,",
+      "meaning, and use of the instructional",
+      "content of units 5 & 6."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 4,
+     "title": "Final Exam",
+     "theory": [],
+     "practical": []
+    }
+   ]
+  },
+  {
+   "code": "انجل-102",
+   "nameAr": "لغة إنجليزية (2)",
+   "nameEn": "English Language 2",
+   "cth": 4,
+   "language": "en",
+   "detailBlocks": 10,
+   "detailHoursSum": 64,
+   "verified": true,
+   "units": [
+    {
+     "hours": 8,
+     "title": "Unit 7: Specifications",
+     "theory": [
+      "7.1 Dimensions: specifying dimensions,",
+      "using a specifications chart",
+      "7.2 Quantities: specifying materials,",
+      "buying materials for a job, using a",
+      "materials checklist",
+      "7.3 Future projects: describing plans for",
+      "the future, using a Gantt chart"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 8,
+     "title": "Unit 8: Reporting",
+     "theory": [
+      "8.1 Recent incidents: taking an",
+      "emergency call, explaining what has",
+      "happened, checking on progress",
+      "8.2 Damage and loss: reporting damage,",
+      "dealing with a customer",
+      "8.3 Past event: discussing past events,",
+      "phoning a repair shop"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 4,
+     "title": "Review Unit D",
+     "theory": [
+      "Trainees will review and practice form,",
+      "meaning, and use of the instructional",
+      "content of units 7 & 8."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 8,
+     "title": "Unit 9: Troubleshooting",
+     "theory": [
+      "9.1 Operation: Explaining how things work, explaining what things do",
+      "9.2 Hotline: Listening to an automated phone message, using a service hotline, taking a customer through a problem and solution",
+      "9.3 User guide: Using a flow chart, using a troubleshooting guide"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 8,
+     "title": "Unit 10: Safety",
+     "theory": [
+      "10.1 Rules and warnings: Following safety rules, Giving and following warnings, Using safety signs.",
+      "10.2 Safety hazards: Giving and following warnings, Noticing safety hazards, Reporting safety hazards.",
+      "10.3 Investigations: Investigation an accident, Reporting an accident, giving, accepting and turning down an invitation."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 4,
+     "title": "Review Unit E",
+     "theory": [
+      "Trainees will review and practice form,",
+      "meaning, and use of the instructional",
+      "content of units 9& 10."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 8,
+     "title": "Unit 11: Cause and effect",
+     "theory": [
+      "11.1 Pistons and Valves: Expressing causation, permission and prevention, explaining how a four‐stage cycle works",
+      "11.2 Switches and relays: Explaining how a relay circuit works, Giving an oral presentation,",
+      "11.3 Rotors and turbine: Explaining how a wind turbine works, Giving an oral presentation, making suggestions"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 8,
+     "title": "Unit 12: Checking and confirming",
+     "theory": [
+      "12.1 Data: Describing specifications, expressing approximation, checking that data is correct",
+      "12.2 Instructions: Flowing spoken instructions, confirming actions, describing results of actions",
+      "12.3 Progress: Describing maintenance work, checking progress with a Gantt chart"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 4,
+     "title": "Review Unit F",
+     "theory": [
+      "Trainees will review and practice form,",
+      "meaning, and use of the instructional",
+      "content of units 11 & 12."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 4,
+     "title": "Final Exam",
+     "theory": [],
+     "practical": []
+    }
+   ]
+  },
+  {
+   "code": "انجل-103",
+   "nameAr": "لغة إنجليزية (3)",
+   "nameEn": "English Language 3",
+   "cth": 4,
+   "language": "en",
+   "detailBlocks": 10,
+   "detailHoursSum": 64,
+   "verified": true,
+   "units": [
+    {
+     "hours": 8,
+     "title": "Unit 1: Action",
+     "theory": [
+      "1.1 Teamwork: describing a series of actions, giving a series of instructions",
+      "1.2 Training: Reporting jobs in progress, reporting jobs completed",
+      "2.3 Method: discussing how things work, describing method"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 8,
+     "title": "Unit 2: Work",
+     "theory": [
+      "2.1 Routines: describing Routines, explaining future plans, job descriptions",
+      "2.2 Plans: stating plans and intentions, arranging a meeting by phone, writing emails.",
+      "2.3 New Job: talking about your CV, job adverts and interviews."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 4,
+     "title": "Review Unit A",
+     "theory": [
+      "Trainees will review and practice form,",
+      "meaning, and use of the instructional",
+      "content of units 1 & 2."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 8,
+     "title": "Unit 3: Comparison",
+     "theory": [
+      "3.1 Limits: Explaining dimension limits, comparing two items",
+      "3.2 products: Asking, offering and checking specifying requirements",
+      "3.3 Equipment: Comparing three or more items, collaborative problem solving , reporting on a meeting"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 8,
+     "title": "Unit 4: Processes",
+     "theory": [
+      "4.1 Infrastructure: Describing a process",
+      "4.2 Manufacturing: Expressing purpose, Describing two parallel processes",
+      "4.3 Communications: Describing a process"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 4,
+     "title": "Review Unit B",
+     "theory": [
+      "Trainees will review and practice form,",
+      "meaning, and use of the instructional",
+      "content of units 3& 4."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 8,
+     "title": "Unit 5: Descriptions",
+     "theory": [
+      "5.1 Uses: Describing use of function",
+      "5.2 Appearance: Describing shape and appearance",
+      "5.3 Definitions: Giving a definition"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 8,
+     "title": "Unit 6: Procedures",
+     "theory": [
+      "6.1 Safety: Describe safety hazards, Explaining safety procedures, expressing necessity",
+      "6.2 Emergency: Brainstorming, recommending action",
+      "6.3 Directions: Giving directions to a location, following directions"
+     ],
+     "practical": []
+    },
+    {
+     "hours": 4,
+     "title": "Review Unit C",
+     "theory": [
+      "Trainees will review and practice form,",
+      "meaning, and use of the instructional",
+      "content of units 5 & 6."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 4,
+     "title": "Final Exam",
+     "theory": [],
+     "practical": []
+    }
+   ]
+  },
+  {
+   "code": "اسلك-201",
+   "nameAr": "السلوك الوظيفي والمستقبل المهني",
+   "nameEn": "",
+   "cth": 2,
+   "language": "ar",
+   "detailBlocks": 6,
+   "detailHoursSum": 32,
+   "verified": true,
+   "units": [
+    {
+     "hours": 9,
+     "title": "السلوك الوظيفي والتطوير المهني",
+     "theory": [
+      "مفهوم السلوك الوظيفي. أهمية دراسة السلوك الوظيفي وأهدافه. أنواع سلوك الفرد الوظيفي داخل المنشآت مفهوم مناخ العمل. مفهوم الرضا الوظيفي. العوامل المؤثرة في مناخ العمل. تحليل العمل. أهداف تحليل العمل. المقصود بالمستقبل المهني. التخطيط للمستقبل المهني. مفهوم الميول المهنية. طرق اكتشاف الميول المهنية.",
+      "الفرق بين التوجيه المهني، الاختيار المهني، التدريب المهني."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 5,
+     "title": "مهارات البحث العلمي",
+     "theory": [
+      "مفهوم البحث العلمي. خطوات البحث العلمي. مهارات البحث العلمي. استخدام تقنيات البحث العلمي في حل المشكلات. المكتبات الرقمية ومحركات البحث وطرق استخدامها. أخلاقيات البحث العلمي."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 4,
+     "title": "التخطيط وإدارة الوقت",
+     "theory": [
+      "مفهوم التخطيط وأنواعه. مفهوم واستراتيجيات إدارة الوقت. التعامل مع الضغوط."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 4,
+     "title": "مهارات الاتصال",
+     "theory": [
+      "مفهوم وأنواع الاتصال. عناصر ومعوقات الاتصال. مفهوم الاتصال الرقمي. وسائل الاتصال الرقمي."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 5,
+     "title": "مهارات التفكير",
+     "theory": [
+      "مفهوم ومستويات التفكير خصائص وأنماط التفكير. مهارات التفكير. أساليب تعليم التفكير التفكير الابداعي والناقد."
+     ],
+     "practical": []
+    },
+    {
+     "hours": 5,
+     "title": "الذكاء الانساني والاصطناعي",
+     "theory": [
+      "مفهوم الذكاء الانساني مفهوم وانواع الذكاءات المتعددة. الذكاء والمهنة. مفهوم وأنواع الذكاء الاصطناعي. مجالات تطبيق الذكاء الاصطناعي في العمل."
+     ],
+     "practical": []
+    }
+   ]
+  }
+ ]
+}
