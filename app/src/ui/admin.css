@@ -1,0 +1,333 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   صفحة الأدمن — منقولة عن النموذج المعتمد (design/admin.html + design.css)
+
+   كل قاعدة هنا مقصورة على `.admin-page` عمداً: أسماء مثل `.badge.warning`
+   و`.chip` معرَّفة أصلاً لواجهة المدرب (shell.css و trainer.css)، وإطلاق
+   تعريفٍ ثانٍ لها يغيّر شاشاتٍ ليست من هذا العمل.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.admin-page {
+  --diff-add-bg: #eafaf1;
+  --diff-assign-bg: #eef4fb;
+  --diff-change-bg: #fef8eb;
+  --diff-del-bg: #fdecec;
+}
+
+.admin-page .admin-main {
+  max-width: 1180px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+}
+
+.admin-page .admin-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.admin-page .admin-head h1 { font-size: 20px; font-weight: 700; color: var(--ui-ink); }
+.admin-page .admin-head p { font-size: 13.5px; color: #666; }
+
+/* اللوحة المعنونة: العرض الكامل داخل حاوية الصفحة لا 1100 بكسل */
+.admin-page .ui-panel { max-width: none; margin: 0 0 24px; }
+.admin-page .ui-panel > header { padding: 11px 18px; font-size: 16.5px; }
+.admin-page .ui-panel > header svg { color: #bbf0ec; flex-shrink: 0; }
+.admin-page .ui-panel > header .header-title { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.admin-page .ui-panel > header .header-subtitle { font-size: 13px; color: #d1d5db; font-weight: 400; }
+.admin-page .ui-panel > .panel-body { padding: 20px; }
+
+.admin-page .section-title {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--ui-ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.admin-page .section-title svg { color: var(--ui-accent-dark); flex-shrink: 0; }
+.admin-page .section-note { font-size: 13px; color: #666; }
+.admin-page .section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+/* أسماء الأصناف هنا مسبوقة بـ`admin-`: `block` و`sign` معرّفان أصلاً
+   في `render/document.css` بـ`display:flex`، وهو محمَّل في الصفحة نفسها. */
+.admin-page .admin-block { margin-top: 28px; }
+.admin-page .admin-block.divided { border-top: 1px solid #eaeaea; padding-top: 24px; margin-top: 32px; }
+
+/* ═══════════ مؤشر الحفظ التلقائي (قرصٌ لا نصٌّ عائم) ═══════════ */
+
+.admin-page .save-state {
+  background: #fff;
+  border: 1px solid #eaeaea;
+  padding: 3px 12px 4px;
+  border-radius: 999px;
+  font-size: 13.5px;
+}
+.admin-page .save-state.saving { background: #fef8eb; border-color: #f8dfaa; }
+.admin-page .save-state.saved { background: #eef7f6; border-color: #bce4e1; }
+.admin-page .save-state.error { background: #fdecec; border-color: #f5baba; }
+
+/* ═══════════ منطقة الإفلات ═══════════ */
+
+.admin-page .dropzone {
+  border: 2px dashed #a0aec0;
+  border-radius: 10px;
+  padding: 32px 20px;
+  text-align: center;
+  background: #fafafa;
+  transition: border-color 0.2s, background 0.2s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.admin-page .dropzone:hover,
+.admin-page .dropzone.dragover { border-color: var(--ui-accent); background: #f0faf9; }
+.admin-page .dropzone.compact { padding: 22px 16px; }
+.admin-page .dropzone-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--ui-accent);
+  background: #e0f2f1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.admin-page .dropzone.compact .dropzone-icon { width: 40px; height: 40px; }
+.admin-page .dropzone-title { font-size: 16px; font-weight: 700; color: var(--ui-ink); }
+.admin-page .dropzone.compact .dropzone-title { font-size: 15px; }
+.admin-page .dropzone-hint { font-size: 13.5px; color: #888; max-width: 520px; line-height: 1.6; }
+
+/* ═══════════ بطاقات الملخّص ═══════════ */
+
+.admin-page .metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+  margin: 18px 0 0;
+}
+.admin-page .metric-card {
+  background: #f8fafc;
+  border: 1px solid var(--ui-line);
+  border-radius: 6px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.admin-page .metric-card.highlight { background: #f0faf9; border-color: #bfe0de; }
+.admin-page .metric-label {
+  font-size: 13px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.admin-page .metric-label svg { flex-shrink: 0; }
+.admin-page .metric-value { font-size: 22px; font-weight: 700; color: var(--ui-ink); }
+.admin-page .metric-card.highlight .metric-value { color: var(--ui-accent-dark); }
+.admin-page .metric-foot { font-size: 12px; color: #666; line-height: 1.5; }
+.admin-page .metric-card.highlight .metric-foot { color: var(--ui-accent-dark); font-weight: 600; }
+
+/* ═══════════ شرائح التصفية — النشطة ممتلئة بنص أبيض ═══════════ */
+
+.admin-page .filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.admin-page .filter-bar .chip { padding: 4px 14px 6px; font-size: 14.5px; }
+.admin-page .filter-bar .chip:disabled { opacity: 0.5; cursor: default; }
+.admin-page .filter-bar .chip .diff-sign { display: inline; font-weight: 700; }
+.admin-page .filter-bar .chip.on .diff-sign { color: #fff; }
+.admin-page .sign-add { color: #15803d; }
+.admin-page .sign-assign { color: #1d4ed8; }
+.admin-page .sign-change { color: #b45309; }
+.admin-page .sign-del { color: #b91c1c; }
+.admin-page .sign-same { color: #666; }
+
+/* ═══════════ الجداول ═══════════ */
+
+.admin-page .table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 6px;
+  border: 1px solid var(--ui-line);
+  background: #fff;
+}
+.admin-page .data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: right;
+  font-size: 14px;
+}
+.admin-page .data-table th {
+  background: #f1f3f5;
+  color: var(--ui-ink);
+  font-weight: 700;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--ui-line);
+  white-space: nowrap;
+  text-align: right;
+}
+.admin-page .data-table td {
+  padding: 9px 14px;
+  border-bottom: 1px solid #eaeaea;
+  vertical-align: middle;
+}
+.admin-page .data-table tr:last-child td { border-bottom: none; }
+.admin-page .data-table td.center,
+.admin-page .data-table th.center { text-align: center; }
+.admin-page .data-table tr.active-row { background: #f0faf9; }
+
+.admin-page .diff-add { background-color: var(--diff-add-bg); }
+.admin-page .diff-assign { background-color: var(--diff-assign-bg); }
+.admin-page .diff-change { background-color: var(--diff-change-bg); }
+.admin-page .diff-del { background-color: var(--diff-del-bg); }
+.admin-page .diff-same { background-color: #fff; }
+.admin-page .diff-same:hover { background-color: #f9f9f9; }
+
+.admin-page .old-val {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 13px;
+}
+.admin-page .new-val { font-weight: 600; }
+.admin-page .gone { color: #c00000; font-weight: 700; }
+
+/* ═══════════ الشارات ═══════════ */
+
+.admin-page .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 9px 3px;
+  border-radius: 999px;
+  border: 1px solid var(--ui-line);
+  background: #f4f4f5;
+  color: #666;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+.admin-page .badge.success { background: #eafaf1; border-color: #a3e9b9; color: #1e7e34; }
+.admin-page .badge.info { background: #eef4fb; border-color: #b9d5f7; color: #1b5aa6; }
+.admin-page .badge.warning { background: #fef8eb; border-color: #f8dfaa; color: #b7791f; }
+.admin-page .badge.danger { background: #fdecec; border-color: #f5baba; color: #c00000; }
+.admin-page .badge.complete { background: #1e7e34; border-color: #1e7e34; color: #fff; }
+.admin-page .badge.code { font-family: 'Segoe UI', Arial, sans-serif; }
+
+.admin-page .row-note { font-size: 12px; color: #666; line-height: 1.5; margin-top: 2px; }
+.admin-page .row-actions { display: inline-flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+.admin-page .row-actions .btn { padding: 3px 10px; font-size: 12.5px; }
+.admin-page .table-foot {
+  font-size: 12.5px;
+  color: #666;
+  padding: 8px 4px 0;
+}
+
+/* ═══════════ صندوق إنتاج الحزمة ═══════════ */
+
+.admin-page .package-box {
+  background: linear-gradient(135deg, #f0faf9 0%, #e0f2f1 100%);
+  border: 2px solid #bfe0de;
+  border-radius: 14px;
+  padding: 28px 24px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.admin-page .package-icon {
+  background: var(--ui-accent-dark);
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(31, 125, 118, 0.3);
+}
+.admin-page .package-box h2 { font-size: 19px; font-weight: 700; color: #134e4a; }
+.admin-page .btn.large-action {
+  background: var(--ui-accent-dark);
+  border-color: var(--ui-accent-dark);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  padding: 12px 32px 14px;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(31, 125, 118, 0.35);
+}
+.admin-page .btn.large-action:hover:not(:disabled) {
+  background: var(--ui-accent);
+  border-color: var(--ui-accent);
+  color: #fff;
+}
+.admin-page .package-note {
+  color: #374151;
+  font-size: 14px;
+  font-weight: 500;
+  max-width: 640px;
+  line-height: 1.7;
+}
+.admin-page .package-progress { width: 100%; max-width: 580px; display: flex; flex-direction: column; gap: 6px; }
+.admin-page .progress-track {
+  height: 10px;
+  background: #cfe9e6;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.admin-page .progress-fill {
+  height: 100%;
+  background: var(--ui-accent-dark);
+  border-radius: 999px;
+  transition: width 0.2s linear;
+}
+.admin-page .progress-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 13px;
+  color: #134e4a;
+  font-weight: 600;
+}
+.admin-page .package-box .alert-banner {
+  width: 100%;
+  max-width: 640px;
+  text-align: right;
+  margin-bottom: 0;
+}
+
+/* ═══════════ الطباعة ═══════════ */
+
+@media print {
+  .admin-page .dropzone,
+  .admin-page .filter-bar,
+  .admin-page .package-box,
+  .admin-page .row-actions,
+  .admin-page .btn { display: none !important; }
+  .admin-page .admin-main { padding: 0; max-width: none; }
+  .admin-page .table-responsive { overflow: visible !important; }
+  .admin-page .data-table { font-size: 11px; }
+  .admin-page .data-table td, .admin-page .data-table th { padding: 4px 6px; }
+}

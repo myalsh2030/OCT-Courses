@@ -6,7 +6,7 @@ export const DB_NAME = 'tvtc-course-files';
  * رقم إصدار المخزن. يُزاد عند إضافة مجموعة أو فهرس جديد،
  * فيتولّى `onupgradeneeded` إنشاء الناقص دون فقد البيانات القائمة.
  */
-export const DB_VERSION = 3;
+export const DB_VERSION = 4;
 
 export const COLLECTIONS = {
   /** النسخة الأصلية لكل مقرر (المرجع الذي لا يُعدَّل). */
@@ -21,6 +21,12 @@ export const COLLECTIONS = {
   assignments: { indexes: ['courseId', 'trainerNo'] },
   /** إعدادات عامة (القسم، التخصص، رئيس القسم، هوية المعدِّل). */
   settings: { indexes: [] },
+  /**
+   * لقطات تقرير الشعب (SS01) التي رفعها الأدمن — لقطة واحدة لكل فصل
+   * على جهازه، تُقارَن بها الرفعة التالية وتُبنى منها حزمة الفصل.
+   * لا تُنشر ولا تغادر الجهاز؛ صفحة الأدمن وحدها تكتب فيها وتقرأ منها.
+   */
+  ss01Terms: { indexes: ['savedAt'] },
 } as const satisfies Record<string, CollectionSchema>;
 
 export type CollectionName = keyof typeof COLLECTIONS;

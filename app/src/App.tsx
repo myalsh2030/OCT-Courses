@@ -1,5 +1,5 @@
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { AdminPlaceholder } from './ui/AdminPlaceholder';
+import { AdminPage } from './ui/AdminPage';
 import { AppShell } from './ui/AppShell';
 import { CourseView } from './ui/CourseView';
 import { PrintAll } from './ui/PrintAll';
@@ -12,8 +12,8 @@ import { TrainerLogin } from './ui/TrainerLogin';
  * مباشرة دون إعداد خادم لإعادة الكتابة.
  *
  * `/` دخول المدرب، وكل ما تحت `RequireSession` محميّ: لوحته ووثائق
- * مقرراته وطباعتها الجماعية. و`/admin` مسارٌ محجوز لشاشة الأدمن التي
- * لم تُبنَ بعد، وأي مسار مجهول يعود إلى الدخول.
+ * مقرراته وطباعتها الجماعية. و`/admin` صفحة الأدمن: أداةٌ محلية لا تعرض
+ * إلا ما يرفعه صاحبها في جلسته، وأي مسار مجهول يعود إلى الدخول.
  */
 export default function App() {
   return (
@@ -31,7 +31,7 @@ export function AppRoutes() {
   return (
     <Routes>
       <Route index element={<TrainerLogin />} />
-      <Route path="admin" element={<AdminPlaceholder />} />
+      <Route path="admin" element={<AdminPage />} />
       <Route element={<RequireSession />}>
         <Route element={<AppShell />}>
           <Route path="home" element={<TrainerHome />} />
