@@ -78,6 +78,104 @@ export function parseCsv(text: string): string[][] {
 const REQUIRED_HEADERS = ['المقرر', 'رقم المدرب', 'اسم المدرب', 'الرقم المرجعي'] as const;
 
 /**
+ * صفٌ من التقرير كما ورد — لقاءٌ واحد لشعبة، لا شعبة كاملة: تتكرر الشعبة
+ * بصفوف حين تلتقي في أكثر من يوم أو قاعة. ورايات يكتب «-» في خانتي المدرب
+ * حين لا مدرب للشعبة، فالحقل يبقى كما ورد ويطبّعه من يستهلكه.
+ */
+export interface SS01Row {
+  term: string;
+  /** القسم الأكاديمي كما في التقرير (التقنية الميكانيكية، الدراسات العامة…). */
+  department: string;
+  rayatCode: string;
+  courseName: string;
+  ref: string;
+  type: string;
+  day: string;
+  time: string;
+  building: string;
+  room: string;
+  capacity: string;
+  enrolled: string;
+  remaining: string;
+  trainerNo: string;
+  trainerName: string;
+}
+
+export interface SS01RowsResult {
+  ok: boolean;
+  rows: SS01Row[];
+  term: string;
+  message?: string;
+}
+
+/** أسماء الأعمدة العربية في تقرير رايات — الموضع الوحيد الذي يعرفها. */
+const COLUMNS: Record<keyof SS01Row, string> = {
+  term: 'الفصل التدريبي',
+  department: 'القسم',
+  rayatCode: 'المقرر',
+  courseName: 'اسم المقرر',
+  ref: 'الرقم المرجعي',
+  type: 'نوع الشعبة',
+  day: 'اليوم',
+  time: 'الوقت',
+  building: 'مبنى',
+  room: 'قاعة',
+  capacity: 'سعة',
+  enrolled: 'مسجلين',
+  remaining: 'متبقي',
+  trainerNo: 'رقم المدرب',
+  trainerName: 'اسم المدرب',
+};
+
+/**
+ * القراءة الخام للتقرير: صفٌ مُسمّى الحقول لكل سطر بيانات، بلا تصفية ولا
+ * تجميع. عليها يقوم `parseSS01` (روابط مقرر ↔ مدرب) وتقوم حزمة التعمية
+ * (`bundle.ts`)، فلا يوجد في المشروع إلا قارئ واحد لهذا التقرير.
+ * الأعمدة الغائبة تعود فارغة، والأعمدة الأربعة الأساسية شرطُ قبول الملف.
+ */
+export function readSS01Rows(text: string): SS01RowsResult {
+  const fail = (message: string): SS01RowsResult => ({ ok: false, rows: [], term: '', message });
+
+  const raw = parseCsv(text);
+  if (raw.length < 2) return fail('الملف فارغ أو ليس ملف CSV صالحاً.');
+
+  const header = raw[0].map((h) => h.trim());
+  for (const required of REQUIRED_HEADERS) {
+    if (header.indexOf(required) === -1) {
+      return fail(`ليس تقرير SS01: عمود «${required}» غير موجود في الترويسة.`);
+    }
+  }
+
+  const at = {} as Record<keyof SS01Row, number>;
+  for (const [field, label] of Object.entries(COLUMNS) as [keyof SS01Row, string][]) {
+    at[field] = header.indexOf(label);
+  }
+
+  const rows = raw.slice(1).map((r) => {
+    const cell = (field: keyof SS01Row) => (at[field] === -1 ? '' : (r[at[field]] ?? '').trim());
+    return {
+      term: cell('term'),
+      department: cell('department'),
+      rayatCode: cell('rayatCode'),
+      courseName: cell('courseName'),
+      ref: cell('ref'),
+      type: cell('type'),
+      day: cell('day'),
+      time: cell('time'),
+      building: cell('building'),
+      room: cell('room'),
+      capacity: cell('capacity'),
+      enrolled: cell('enrolled'),
+      remaining: cell('remaining'),
+      trainerNo: cell('trainerNo'),
+      trainerName: cell('trainerName'),
+    } satisfies SS01Row;
+  });
+
+  return { ok: true, rows, term: rows.find((r) => r.term)?.term ?? '' };
+}
+
+/**
  * يحلّل نص تقرير SS01 ويعيد روابط المقررات المعروفة.
  * @param knownByRayat خريطة `رمز رايات ← معرّف المقرر` للمقررات المضمّنة.
  */
@@ -94,59 +192,40 @@ export function parseSS01(
     message,
   });
 
-  const rows = parseCsv(text);
-  if (rows.length < 2) return empty('الملف فارغ أو ليس ملف CSV صالحاً.');
-
-  const header = rows[0].map((h) => h.trim());
-  const col = (name: string) => header.indexOf(name);
-  for (const required of REQUIRED_HEADERS) {
-    if (col(required) === -1) {
-      return empty(`ليس تقرير SS01: عمود «${required}» غير موجود في الترويسة.`);
-    }
-  }
-
-  const iTerm = col('الفصل التدريبي');
-  const iCode = col('المقرر');
-  const iName = col('اسم المقرر');
-  const iRef = col('الرقم المرجعي');
-  const iType = col('نوع الشعبة');
-  const iTrainerNo = col('رقم المدرب');
-  const iTrainerName = col('اسم المدرب');
+  const read = readSS01Rows(text);
+  if (!read.ok) return empty(read.message ?? 'تعذر تحليل الملف.');
 
   const byKey = new Map<string, SS01Assignment>();
   const unknown = new Set<string>();
   let term = '';
 
-  for (const r of rows.slice(1)) {
-    const rayatCode = (r[iCode] ?? '').trim();
-    const trainerNo = (r[iTrainerNo] ?? '').trim();
-    if (!rayatCode || !trainerNo) continue;
-    term ||= (r[iTerm] ?? '').trim();
+  for (const row of read.rows) {
+    if (!row.rayatCode || !row.trainerNo) continue;
+    term ||= row.term;
 
-    const courseId = knownByRayat.get(rayatCode);
+    const courseId = knownByRayat.get(row.rayatCode);
     if (!courseId) {
-      unknown.add(rayatCode);
+      unknown.add(row.rayatCode);
       continue;
     }
 
-    const key = `${courseId}|${trainerNo}`;
+    const key = `${courseId}|${row.trainerNo}`;
     let assignment = byKey.get(key);
     if (!assignment) {
       assignment = {
         id: key,
         courseId,
-        rayatCode,
-        courseName: (r[iName] ?? '').trim(),
-        trainerNo,
-        trainerName: (r[iTrainerName] ?? '').trim(),
+        rayatCode: row.rayatCode,
+        courseName: row.courseName,
+        trainerNo: row.trainerNo,
+        trainerName: row.trainerName,
         sections: [],
-        term: (r[iTerm] ?? '').trim(),
+        term: row.term,
       };
       byKey.set(key, assignment);
     }
-    const ref = (r[iRef] ?? '').trim();
-    if (ref && !assignment.sections.some((s) => s.ref === ref)) {
-      assignment.sections.push({ ref, type: (r[iType] ?? '').trim() });
+    if (row.ref && !assignment.sections.some((s) => s.ref === row.ref)) {
+      assignment.sections.push({ ref: row.ref, type: row.type });
     }
   }
 
@@ -158,7 +237,7 @@ export function parseSS01(
     ok: true,
     assignments: [...byKey.values()].sort((a, b) => a.id.localeCompare(b.id)),
     term,
-    totalRows: rows.length - 1,
+    totalRows: read.rows.length,
     unknownRayatCodes: [...unknown].sort(),
   };
 }
