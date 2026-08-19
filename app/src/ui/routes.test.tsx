@@ -82,7 +82,7 @@ describe('مع جلسة', () => {
     const html = render('/home');
     expect(html).toContain('لوحتي');
     expect(html).toContain('خروج');
-    expect(html).toContain('الفصل التدريبي الأول ١٤٤٧هـ');
+    expect(html).toContain('الفصل التدريبي 144710');
   });
 
   it('وثيقة المقرر تُعرض تحت القشرة نفسها', () => {
@@ -97,7 +97,7 @@ describe('مع جلسة', () => {
 describe('مسارات أخرى', () => {
   it('صفحة الأدمن تُعرض على مسارها بأدواتها', () => {
     const html = render('/admin');
-    expect(html).toContain('مركز إدارة الجداول والبيانات الأكاديمية');
+    expect(html).toContain('مركز إدارة الجداول والبيانات التدريبية');
     expect(html).toContain('اسحب تقرير جدول الشعب');
     expect(html).toContain('استقبال نسخ المدربين الاحتياطية');
   });

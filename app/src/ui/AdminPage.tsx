@@ -206,7 +206,7 @@ export function AdminPage() {
         <div className="admin-main">
           <div className="admin-head">
             <div>
-              <h1>مركز إدارة الجداول والبيانات الأكاديمية</h1>
+              <h1>مركز إدارة الجداول والبيانات التدريبية</h1>
               <p>
                 تحديث تقرير الشعب (SS01)، ومقارنة فروقه، واستقبال نسخ المدربين، وإنتاج حزمة النشر
                 المعمّاة.
@@ -261,7 +261,6 @@ export function AdminPage() {
               {diff && active && (
                 <AdminDiff
                   diff={diff.diff}
-                  term={active.term}
                   previousSavedAt={diff.previousSavedAt}
                 />
               )}

@@ -45,7 +45,7 @@ describe('ملخّص التقرير', () => {
 
   it('الفصل بتسميته العربية لا برمزه وحده', () => {
     expect(summary.term).toBe('144710');
-    expect(summary.termLabel).toBe('الفصل التدريبي الأول ١٤٤٧هـ');
+    expect(summary.termLabel).toBe('الفصل التدريبي 144710');
   });
 
   it('العدّ بالشعبة لا بالصف، والشاغرة معدودة على حدة', () => {
@@ -128,7 +128,7 @@ describe('أرشيف الفصول', () => {
 
     const archive = await listArchivedTerms();
     expect(archive.map((t) => t.term)).toEqual(['144720', '144710']);
-    expect(archive[1].termLabel).toBe('الفصل التدريبي الأول ١٤٤٧هـ');
+    expect(archive[1].termLabel).toBe('الفصل التدريبي 144710');
     expect(archive[0].sections).toBe(36);
     expect(archive[0].trainers).toBe(6);
   });

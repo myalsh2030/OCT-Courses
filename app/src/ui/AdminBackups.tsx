@@ -1,5 +1,4 @@
 import { CloudUpload, FileText, Info, Trash2, Upload } from 'lucide-react';
-import { arabicDigits } from '../domain/vocab';
 import {
   BACKUP_STATUS_CLASS,
   BACKUP_STATUS_LABEL,
@@ -38,7 +37,7 @@ export function AdminBackups({ backups, onFiles, onRemove }: AdminBackupsProps) 
         <span className="counter" title="النسخ المرفوعة في هذه الجلسة، وكم منها جاهز للدمج">
           {backups.length === 0
             ? 'لا نسخة بعد'
-            : `${arabicDigits(backups.length)} نسخة — ${arabicDigits(ready)} جاهزة`}
+            : `${backups.length} نسخة — ${ready} جاهزة`}
         </span>
       </header>
 
@@ -105,7 +104,7 @@ export function AdminBackups({ backups, onFiles, onRemove }: AdminBackupsProps) 
                     <td>{stamp(backup.savedAt)}</td>
                     <td>
                       {backup.file
-                        ? `${arabicDigits(backup.courses)} مقرراً — ${arabicDigits(backup.drafts)} مسودّة`
+                        ? `${backup.courses} مقرراً — ${backup.drafts} مسودّة`
                         : '—'}
                     </td>
                     <td className="center">

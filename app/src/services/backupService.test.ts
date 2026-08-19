@@ -184,7 +184,7 @@ describe('الاستعادة', () => {
     if (!round.ok) return;
     expect(round.summary).toMatchObject({
       term: '144710',
-      termLabel: 'الفصل التدريبي الأول ١٤٤٧هـ',
+      termLabel: 'الفصل التدريبي 144710',
       trainerNo: '0013270',
       specialization: 'مصيم',
       courses: 2,

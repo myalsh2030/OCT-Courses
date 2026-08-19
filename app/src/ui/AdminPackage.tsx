@@ -1,8 +1,6 @@
 import { CircleAlert, CircleCheck, Download, LoaderCircle, Package, ShieldCheck } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { SS01Row } from '../domain/ss01';
-import { termLabel } from '../domain/term';
-import { arabicDigits } from '../domain/vocab';
 import {
   buildTermPackage,
   countDerivations,
@@ -107,9 +105,9 @@ export function AdminPackage({ rows, term }: AdminPackageProps) {
       setResult({
         kind: 'ok',
         text:
-          `حزمة ${termLabel(term)}: ${arabicDigits(outcome.entry.trainers)} مدرباً و` +
-          `${arabicDigits(outcome.entry.sections)} شعبة مسندة، ${arabicDigits(kb)} ك.ب، ` +
-          `في ${arabicDigits(Math.round(outcome.seconds))} ثانية. لا حرف عربي واحد في الملف.`,
+          `حزمة الفصل ${term}: ${outcome.entry.trainers} مدرباً و` +
+          `${outcome.entry.sections} شعبة مسندة، ${kb} ك.ب، ` +
+          `في ${Math.round(outcome.seconds)} ثانية. لا حرف عربي واحد في الملف.`,
         files: outcome.files,
       });
     } catch (error) {
@@ -128,7 +126,7 @@ export function AdminPackage({ rows, term }: AdminPackageProps) {
       <div className="package-icon">
         <Package size={28} aria-hidden />
       </div>
-      <h2>إنتاج حزمة بيانات {termLabel(term)}</h2>
+      <h2>إنتاج حزمة بيانات الفصل {term}</h2>
 
       <button
         type="button"
@@ -144,7 +142,7 @@ export function AdminPackage({ rows, term }: AdminPackageProps) {
         {busy ? (
           <>
             <LoaderCircle size={20} className="spin" aria-hidden />
-            تُبنى الحزمة… {arabicDigits(percent)}٪
+            تُبنى الحزمة… {percent}٪
           </>
         ) : (
           <>
@@ -161,24 +159,20 @@ export function AdminPackage({ rows, term }: AdminPackageProps) {
           </div>
           <div className="progress-meta">
             <span>
-              {arabicDigits(progress.done)} من {arabicDigits(progress.total)} اشتقاق مفتاح
+              {progress.done} من {progress.total} اشتقاق مفتاح
             </span>
-            <span>مضى {arabicDigits(elapsed)} ثانية</span>
+            <span>مضى {elapsed} ثانية</span>
           </div>
         </div>
       )}
 
       <p className="package-note">
-        يُنتج الزر ملفَّين: حزمة الفصل المعمّاة و<span className="ltr">terms.json</span> محدَّثاً.
-        سلّمهما لمن ينشرهما في <span className="ltr">public/data</span> بالمستودع — لا يُنشر تقرير
-        الشعب نصاً صريحاً أبداً.
+        يُنتج الزر ملفَّي الفصل جاهزَين للنشر. سلّمهما لمن ينشر الموقع.
       </p>
 
       <p className="package-note" style={{ fontSize: 13, color: '#155e59' }}>
-        <ShieldCheck size={14} aria-hidden style={{ verticalAlign: -2 }} /> يبني المتصفح{' '}
-        {arabicDigits(derivations)} مفتاحاً (PBKDF2 ٣١٠ ألف دورة لكل شعبة) — نصف دقيقة أو أكثر
-        بحسب جهازك، فلا تغلق الصفحة. ولو منع المتصفح التنزيل التلقائي فالملفان يُنزَّلان بنقرة من
-        الإشعار أدناه بلا إعادة بناء.
+        <ShieldCheck size={14} aria-hidden style={{ verticalAlign: -2 }} /> بيانات المدربين تُعمَّى
+        قبل الحفظ، فلا يقرؤها إلا صاحبها. البناء يستغرق نحو دقيقة — أبقِ الصفحة مفتوحة.
       </p>
 
       {result && (

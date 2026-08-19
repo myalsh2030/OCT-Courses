@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { DEFAULT_DEPARTMENT } from '../domain/department';
 import { courseCompletion } from '../domain/missing';
 import type { TrainerProfile } from '../domain/department';
-import { arabicCount, arabicDigits, COUNT_ITEMS } from '../domain/vocab';
+import { arabicCount, COUNT_ITEMS } from '../domain/vocab';
 import type { AssignedCourse } from '../services/trainerHome';
 
 /**
@@ -22,7 +22,7 @@ export interface CourseCardProps {
 }
 
 function sectionLabel(index: number): string {
-  return `ش${arabicDigits(index + 1)}`;
+  return `ش${index + 1}`;
 }
 
 export function CourseCard({ course, profile, onComplete }: CourseCardProps) {
@@ -89,7 +89,7 @@ export function CourseCard({ course, profile, onComplete }: CourseCardProps) {
     ? { className: 'badge complete', text: 'مكتمل ١٠٠٪' }
     : {
         className: 'badge warning',
-        text: `ينقص ${arabicCount(missing.length, COUNT_ITEMS)} — ${arabicDigits(percent)}٪`,
+        text: `ينقص ${arabicCount(missing.length, COUNT_ITEMS)} — ${percent}٪`,
       };
   const fill = complete ? 'complete' : course.hasDraft ? 'draft' : 'warning';
 
@@ -119,18 +119,18 @@ export function CourseCard({ course, profile, onComplete }: CourseCardProps) {
             {complete ? 'جاهز للطباعة والاعتماد' : `ينقص: ${missing.map((m) => m.label).join('، ')}`}
           </span>
           <span className="num" title="نسبة اكتمال وثيقة هذا المقرر">
-            {arabicDigits(percent)}٪
+            {percent}٪
           </span>
         </div>
       </div>
 
       <div className="meta-badges">
         <span className="badge level" title="المستوى في الخطة التدريبية">
-          المستوى {arabicDigits(course.level)}
+          المستوى {course.level}
         </span>
         <span className="badge" title="ساعات الاتصال الأسبوعية">
           <Clock size={12} aria-hidden style={{ verticalAlign: -1.5, marginLeft: 3 }} />
-          {arabicDigits(course.contactHours)} س/أسبوع
+          {course.contactHours} س/أسبوع
         </span>
         <span className="badge" title="نوع التدريب في الخطة">
           {course.trainingType}

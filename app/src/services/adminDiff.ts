@@ -99,3 +99,46 @@ export function flattenDiff(diff: BundleDiff, only: SectionChange | 'all' = 'all
   if (only !== 'all') return diff[only];
   return DIFF_ORDER.flatMap((kind) => diff[kind]);
 }
+
+/* ───────────────────── التصنيف حسب التخصص ───────────────────── */
+
+/**
+ * التخصص = بادئة رمز المقرر في رايات (`مصيم-141` ← `مصيم`).
+ *
+ * التقرير الحقيقي ٥٦٦ شعبة في خمسة أقسام، وسردها في قائمة واحدة متعب
+ * بلا فائدة: من يراجع إسنادات الميكانيكية لا يعنيه صف واحد من المدنية.
+ * فالعرض يُصنَّف بالتخصص دائماً (قرار المالك ٢٠٢٦-٠٨-٢٠).
+ */
+export function specialtyOf(rayatCode: string): string {
+  const code = (rayatCode ?? '').trim();
+  const dash = code.indexOf('-');
+  return dash > 0 ? code.slice(0, dash) : code || '—';
+}
+
+export interface SpecialtyGroup {
+  specialty: string;
+  rows: SectionDiff[];
+  /** عدد الصفوف المتغيّرة (غير المطابقة) في هذا التخصص. */
+  changed: number;
+}
+
+/**
+ * يجمع الصفوف في مجموعات تخصص مرتّبة: الأكثر تغيّراً أولاً، فالأكبر عدداً —
+ * لأن الأدمن يفتح الصفحة ليرى ما تغيّر لا ليتصفح ما ثبت.
+ */
+export function groupBySpecialty(rows: SectionDiff[]): SpecialtyGroup[] {
+  const groups = new Map<string, SpecialtyGroup>();
+  for (const row of rows) {
+    const specialty = specialtyOf(row.rayatCode);
+    let group = groups.get(specialty);
+    if (!group) {
+      group = { specialty, rows: [], changed: 0 };
+      groups.set(specialty, group);
+    }
+    group.rows.push(row);
+    if (row.change !== 'same') group.changed += 1;
+  }
+  return [...groups.values()].sort(
+    (a, b) => b.changed - a.changed || b.rows.length - a.rows.length || a.specialty.localeCompare(b.specialty, 'ar'),
+  );
+}

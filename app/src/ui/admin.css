@@ -331,3 +331,52 @@
   .admin-page .data-table { font-size: 11px; }
   .admin-page .data-table td, .admin-page .data-table th { padding: 4px 6px; }
 }
+
+/* ───────── التصنيف حسب التخصص في جدول الفروق ───────── */
+
+/* شريط ثانٍ للتخصصات تحت شريط الحالات، بمسمّى يفصل الشريطين
+   فلا يظنّ القارئ الشرائح صفاً واحداً بأربعة عشر خياراً. */
+.admin-page .specialty-bar {
+  margin-top: -4px;
+  border-top: 1px dashed #dbe4e6;
+  padding-top: 10px;
+}
+.admin-page .filter-bar-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #5b6b6e;
+  align-self: center;
+  margin-inline-end: 2px;
+}
+/* نقطة تنبّه على التخصص الذي فيه تغيير — تُقرأ بلمحة قبل قراءة العدّاد. */
+.admin-page .chip-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e08600;
+  display: inline-block;
+  margin-inline-start: 2px;
+}
+.admin-page .chip.on .chip-dot { background: #fff; }
+
+/* صف عنوان المجموعة: خلية مدموجة بشريط لوني على حافتها. */
+.admin-page .group-row th {
+  background: #eef4f4;
+  border-inline-end: 4px solid #24a89c;
+  text-align: start;
+  padding: 7px 12px;
+  font-size: 13px;
+  color: #14424a;
+}
+.admin-page .group-row.alt th {
+  background: #f6faf9;
+  border-inline-end-color: #487890;
+}
+.admin-page .group-name { font-weight: 800; }
+.admin-page .group-meta {
+  font-weight: 500;
+  color: #5b6b6e;
+  margin-inline-start: 10px;
+}
+/* تناوب خلفية المجموعات لا الصفوف الفرادى — حتى تُقرأ المجموعة كتلةً. */
+.admin-page tbody tr.group-alt td { background: #fbfdfd; }

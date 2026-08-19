@@ -1,5 +1,4 @@
 import { Clock, LoaderCircle } from 'lucide-react';
-import { arabicDigits } from '../domain/vocab';
 import type { ArchivedTerm } from '../services/adminArchive';
 import { stamp } from '../services/adminFormat';
 import './admin.css';
@@ -59,8 +58,8 @@ export function AdminArchive({ terms, activeTerm, busyTerm, onOpen }: AdminArchi
                   </td>
                   <td>{active ? <strong>{entry.termLabel}</strong> : entry.termLabel}</td>
                   <td title={`من ملف: ${entry.fileName}`}>{stamp(entry.savedAt)}</td>
-                  <td>{arabicDigits(entry.sections)} شعبة</td>
-                  <td>{arabicDigits(entry.trainers)} مدرباً</td>
+                  <td>{entry.sections} شعبة</td>
+                  <td>{entry.trainers} مدرباً</td>
                   <td className="center">
                     {active ? (
                       <span className="badge complete" title="هذا هو الفصل المعروض في الصفحة الآن">

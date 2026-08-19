@@ -7,7 +7,6 @@ import {
   type MissingItem,
   type OwnReference,
 } from '../domain/missing';
-import { arabicDigits } from '../domain/vocab';
 import { getCourseService } from '../services/courseService';
 import type { AssignedCourse } from '../services/trainerHome';
 import { ContactStep, CourseStep, HoursStep } from './MissingSteps';
@@ -191,7 +190,7 @@ export function MissingDataModal({
 
         <div className="modal-stepper">
           <span style={{ fontWeight: 600, color: '#475569' }}>
-            النقيصة {arabicDigits(at + 1)} من {arabicDigits(steps.length)}
+            النقيصة {at + 1} من {steps.length}
           </span>
           <div className="stepper-nav">
             {steps.map((s, index) => (

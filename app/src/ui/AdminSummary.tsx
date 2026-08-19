@@ -1,6 +1,5 @@
 import { BookOpen, CalendarDays, Check, CircleAlert, Layers, LoaderCircle, Users } from 'lucide-react';
 import type { ReactNode } from 'react';
-import { arabicDigits } from '../domain/vocab';
 import type { TermSummary } from '../services/adminArchive';
 import { stamp } from '../services/adminFormat';
 import './admin.css';
@@ -25,8 +24,8 @@ function Metric({
 }: {
   icon: ReactNode;
   label: string;
-  value: string;
-  foot: string;
+  value: string | number;
+  foot?: string;
   highlight?: boolean;
   title: string;
 }) {
@@ -68,16 +67,15 @@ export function AdminSummary({ summary, source, fileName, savedAt }: AdminSummar
           icon={<CalendarDays size={14} aria-hidden />}
           label="الفصل التدريبي"
           value={summary.term}
-          foot={summary.termLabel}
           title="رمز الفصل كما ورد في عمود «الفصل التدريبي» بالتقرير"
         />
         <Metric
           icon={<Layers size={14} aria-hidden />}
           label="إجمالي الشعب"
-          value={arabicDigits(summary.sections)}
+          value={summary.sections}
           foot={
             summary.unassigned > 0
-              ? `شعبة، منها ${arabicDigits(summary.unassigned)} بلا مدرب`
+              ? `شعبة، منها ${summary.unassigned} بلا مدرب`
               : 'شعبة، كلّها مسندة لمدربين'
           }
           title="عدد الشعب بأرقامها المرجعية بلا تكرار — لا عدد صفوف الملف"
@@ -85,14 +83,14 @@ export function AdminSummary({ summary, source, fileName, savedAt }: AdminSummar
         <Metric
           icon={<Users size={14} aria-hidden />}
           label="عدد المدربين"
-          value={arabicDigits(summary.trainers)}
+          value={summary.trainers}
           foot="مدرباً مسنداً في هذا التقرير"
           title="أرقام المدربين بلا تكرار، مطبَّعةً سبع خانات"
         />
         <Metric
           icon={<BookOpen size={14} aria-hidden />}
           label="الأقسام المشمولة"
-          value={arabicDigits(summary.departments.length)}
+          value={summary.departments.length}
           foot={summary.departments.join('، ') || 'لا قسم مذكور في التقرير'}
           title="الأقسام الأكاديمية بأسمائها العربية كما وردت في عمود «القسم»"
         />
