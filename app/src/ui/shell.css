@@ -42,6 +42,28 @@
 .topbar .grow { flex: 1 1 auto; }
 .topbar a { color: #fff; text-decoration: none; display: flex; align-items: center; gap: 6px; }
 .topbar a:hover { color: #c9ecea; }
+.topbar-badge {
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 12.5px;
+  padding: 2px 10px 3px;
+  border-radius: 999px;
+  color: #e0f2f1;
+  white-space: nowrap;
+}
+.topbar-exit {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  font: inherit;
+  font-size: 15px;
+  padding: 4px 12px 5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+.topbar-exit:hover { background: rgba(255, 255, 255, 0.2); border-color: rgba(255, 255, 255, 0.3); }
 
 /* ═══════════ لوحة معنونة (تفضيل ثابت: شريط داكن + عدّاد) ═══════════ */
 

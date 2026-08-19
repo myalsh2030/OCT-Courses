@@ -87,3 +87,65 @@ export function arabicDigits(n: number): string {
 export function unitCode(weekNo: number, row: number): string {
   return `${arabicDigits(weekNo)} ـ ${arabicDigits(row)}`;
 }
+
+/** صيغ التمييز العربي لعدٍّ معدود: مفرد ومثنى وجمع قلة وتمييز مفرد. */
+export interface ArabicCountForms {
+  /** الواحد: «مقرر واحد». */
+  one: string;
+  /** الاثنان: «مقرران». */
+  two: string;
+  /** من ٣ إلى ١٠، يسبقه العدد: «٣ مقررات». */
+  few: string;
+  /** ١١ فأكثر، تمييزٌ مفرد يسبقه العدد: «١١ مقرراً». */
+  many: string;
+  /** الصفر إن أُريد نصٌّ خاص؛ وإلا «لا مقررات». */
+  none?: string;
+}
+
+/**
+ * عددٌ بمعدوده على قواعد العربية، لا رقمٌ ملصوقٌ بجمعٍ دائماً.
+ * «١ نواقص» و«٢ مقررات» عربيةٌ مكسورة تظهر في كل عدّاد إن لم تُعالج.
+ */
+export function arabicCount(n: number, forms: ArabicCountForms): string {
+  if (n === 0) return forms.none ?? `لا ${forms.few}`;
+  if (n === 1) return forms.one;
+  if (n === 2) return forms.two;
+  if (n <= 10) return `${arabicDigits(n)} ${forms.few}`;
+  return `${arabicDigits(n)} ${forms.many}`;
+}
+
+/** معدودات الواجهة المتكررة — تُعرَّف مرة ولا تُكتب في كل شاشة. */
+export const COUNT_COURSES: ArabicCountForms = {
+  one: 'مقرر واحد',
+  two: 'مقرران',
+  few: 'مقررات',
+  many: 'مقرراً',
+};
+
+export const COUNT_MISSING: ArabicCountForms = {
+  one: 'نقيصة واحدة',
+  two: 'نقيصتان',
+  few: 'نواقص',
+  many: 'نقيصة',
+};
+
+export const COUNT_ITEMS: ArabicCountForms = {
+  one: 'بند واحد',
+  two: 'بندان',
+  few: 'بنود',
+  many: 'بنداً',
+};
+
+export const COUNT_PLANS: ArabicCountForms = {
+  one: 'خطة واحدة',
+  two: 'خطتان',
+  few: 'خطط',
+  many: 'خطة',
+};
+
+export const COUNT_DRAFTS: ArabicCountForms = {
+  one: 'مسودّة واحدة',
+  two: 'مسودّتان',
+  few: 'مسودّات',
+  many: 'مسودّة',
+};

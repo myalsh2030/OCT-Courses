@@ -9,6 +9,7 @@ import {
 } from '../domain/department';
 import { adaptCourseLength } from '../domain/planLength';
 import type { SemesterLength } from '../domain/semester';
+import { arabicCount, COUNT_PLANS } from '../domain/vocab';
 import { CourseDocument } from '../render/CourseDocument';
 import { getCourseService } from '../services/courseService';
 
@@ -72,13 +73,15 @@ export function PrintAll() {
   return (
     <>
       <div className="course-toolbar">
-        <Link to="/" className="tb-btn" title="عودة إلى فهرس المقررات">
+        <Link to="/home" className="tb-btn" title="عودة إلى لوحة مقرراتي">
           <ArrowRight size={16} aria-hidden />
-          الفهرس
+          لوحتي
         </Link>
         <span className="tb-title">
           طباعة جماعية {data.scopeName ? `— خطط ${data.scopeName}` : '— كل خطط القسم'}
-          <span className="badge" title="عدد الخطط في هذا الملف">{data.courses.length} خطط</span>
+          <span className="badge" title="عدد الخطط في هذا الملف">
+            {arabicCount(data.courses.length, COUNT_PLANS)}
+          </span>
         </span>
         <span className="grow" />
         <button

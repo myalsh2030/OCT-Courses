@@ -10,6 +10,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
+    "data:bundle": "node scripts/run-ts.mjs scripts/build-bundle.ts",
     "print:check": "python scripts/print_check.py",
     "export:zip": "npm run build && python scripts/export_zip.py"
   },

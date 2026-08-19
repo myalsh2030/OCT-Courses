@@ -6,6 +6,6 @@ import react from '@vitejs/plugin-react'
 // /MaintCourses/… ؛ والتوجيه بالهاش (HashRouter) فلا يحتاج إعداداً إضافياً.
 // التطوير المحلي يبقى على الجذر.
 export default defineConfig(({ command }) => ({
-  base: command === 'build' ? '/MaintCourses/' : '/',
+  base: command === 'build' ? '/OCT-Courses/' : '/',
   plugins: [react()],
 }))

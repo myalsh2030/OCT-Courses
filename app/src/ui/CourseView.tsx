@@ -303,7 +303,7 @@ export function CourseView() {
   if (notFound) {
     return (
       <p className="center-note">
-        لا يوجد مقرر بهذا المعرّف. <Link to="/">عودة للفهرس</Link>
+        لا يوجد مقرر بهذا المعرّف. <Link to="/home">عودة إلى لوحتي</Link>
       </p>
     );
   }
@@ -314,9 +314,9 @@ export function CourseView() {
   return (
     <>
       <div className="course-toolbar">
-        <Link to="/" className="tb-btn" title="عودة إلى فهرس المقررات">
+        <Link to="/home" className="tb-btn" title="عودة إلى لوحة مقرراتي">
           <ArrowRight size={16} aria-hidden />
-          الفهرس
+          لوحتي
         </Link>
         <span className="tb-title">
           {course.name}

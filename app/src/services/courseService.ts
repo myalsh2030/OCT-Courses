@@ -1,7 +1,7 @@
 import { COLLECTIONS, getStorage, type StorageAdapter } from '../storage';
+import type { TrainerRecord } from '../domain/bundle';
 import { parseCourse, type Course } from '../domain/course.schema';
 import {
-  buildingFromOffice,
   contactBlockSchema,
   DEFAULT_DEPARTMENT,
   trainerProfileSchema,
@@ -16,19 +16,13 @@ import {
   type DefaultVersionPointer,
   type VersionFile,
 } from '../domain/versionFile';
+import { assignmentsFromRecord } from './assignments';
+import {
+  ensureTrainerProfile,
+  KNOWN_TRAINERS,
+  seedProfilesFromReport,
+} from './trainerProfiles';
 import defaultTrainerJson from '../data/trainers/0013270.json';
-import knownTrainersJson from '../data/trainers/known-trainers.json';
-
-/**
- * بيانات المدربين المعتمدة من المالك. الغرض منها تعبئة ما لا يوفّره تقرير
- * رايات في القالب: البريد ورقم المكتب (والمبنى مشتق من المكتب). الأسماء
- * المعروضة تبقى كما وردت في التقرير، ولا يُستدعى الاسم الكامل هنا إلا
- * للتفريق حين يتشابه اسمان برقمين وظيفيين مختلفين.
- */
-const KNOWN_TRAINERS = knownTrainersJson as Record<
-  string,
-  { name: string; email: string; office?: string }
->;
 
 /**
  * خدمة المقررات — كل تعامل الواجهة مع البيانات يمرّ من هنا.
@@ -288,56 +282,10 @@ export class CourseService {
     await this.storage.clear('assignments');
     await this.storage.putMany('assignments', result.assignments);
 
-    // ملف أوّلي لكل مدرب جديد: الاسم كما ورد في التقرير، والبريد والمكتب
-    // من البيانات المعتمدة إن وُجدت (والمبنى يُشتق من المكتب). الملف
-    // المزروع آلياً (لم يحفظه صاحبه) يُحدَّث اسمه من التقرير في كل رفع؛
-    // أما ما حفظه صاحبه فلا يُمسّ — تُستكمل فيه الحقول الفارغة فقط.
+    // ملفات المدربين: تُزرع وتُستكمل بقاعدة «ما حفظه صاحبه لا يُمسّ»
+    // المعلَنة في `trainerProfiles`.
     const trainerNos = [...new Set(result.assignments.map((a) => a.trainerNo))];
-    for (const a of result.assignments) {
-      const known = KNOWN_TRAINERS[a.trainerNo];
-      const office = known?.office ?? '';
-      const building = office ? buildingFromOffice(office) : '';
-      const existing = await this.storage.get<TrainerProfile>('trainerProfiles', a.trainerNo);
-      if (!existing) {
-        await this.storage.put<TrainerProfile>('trainerProfiles', {
-          id: a.trainerNo,
-          trainerNo: a.trainerNo,
-          name: a.trainerName,
-          email: known?.email ?? '',
-          whatsapp: '',
-          building,
-          office,
-          channels: { email: true, officeHours: true, whatsapp: false, other: false, otherValue: '' },
-          officeHours: ['الأحد', 'الأثنين', 'الثلاثاء', 'الاربعاء', 'الخميس'].map((day) => ({
-            day, from: '', to: '',
-          })),
-          updatedAt: '',
-        });
-      } else if (!existing.updatedAt) {
-        await this.storage.put<TrainerProfile>('trainerProfiles', {
-          ...existing,
-          name: a.trainerName,
-          email: existing.email || known?.email || '',
-          office: office || existing.office,
-          building: office ? building : existing.building,
-        });
-      } else if (known) {
-        // ملف حفظه صاحبه: لا يُستبدل شيء، ويُملأ الفارغ فقط
-        const patched: TrainerProfile = {
-          ...existing,
-          email: existing.email || known.email,
-          office: existing.office || office,
-          building: existing.building || (existing.office ? '' : building),
-        };
-        if (
-          patched.email !== existing.email ||
-          patched.office !== existing.office ||
-          patched.building !== existing.building
-        ) {
-          await this.storage.put<TrainerProfile>('trainerProfiles', patched);
-        }
-      }
-    }
+    await seedProfilesFromReport(this.storage, result.assignments);
 
     await this.storage.put<JsonSettingsEntry>('settings', {
       id: SS01_META_KEY,
@@ -359,6 +307,48 @@ export class CourseService {
   async getSS01Meta(): Promise<{ term: string; importedAt: string; assignmentCount: number } | null> {
     const entry = await this.storage.get<JsonSettingsEntry>('settings', SS01_META_KEY);
     return entry?.json ? JSON.parse(entry.json) : null;
+  }
+
+  /**
+   * يطبّق سجل مدربٍ فُكّ من حزمة الفصل: روابط مقرراته وملفه الشخصي
+   * وجعله المدرب النشط على هذا الجهاز.
+   *
+   * هذا مدخل المدرب مقابل `importSS01` مدخلِ الأدمن: ذاك يستبدل روابط
+   * القسم كلها من التقرير، وهذا يستبدل **روابط هذا المدرب وحده** من سجله
+   * المعمّى — فلا يمحو ما استورده الأدمن لسائر المدربين. وبهذا تعمل بقية
+   * الشاشات (الوثيقة، الطباعة الجماعية، التصدير) بلا تغيير.
+   *
+   * المقرر المسند في رايات بلا توصيف تفصيلي عندنا لا رابط له — يعود رمزه
+   * في `unknownRayatCodes` لتعرضه اللوحة بطاقةً بحالتها الخاصة لا فراغاً.
+   */
+  async applyTrainerRecord(
+    record: TrainerRecord,
+  ): Promise<{ assigned: number; unknownRayatCodes: string[] }> {
+    const courses = await this.storage.getAll<Course>('courses');
+    const known = new Map(courses.map((c) => [c.rayatCode, c.id]));
+    const { assignments, unknownRayatCodes } = assignmentsFromRecord(record, known);
+
+    // روابط هذا المدرب وحده تُستبدل؛ روابط غيره لا تُمسّ
+    const previous = await this.storage.findBy<SS01Assignment>(
+      'assignments',
+      'trainerNo',
+      record.trainerNo,
+    );
+    for (const old of previous) await this.storage.remove('assignments', old.id);
+    await this.storage.putMany('assignments', assignments);
+
+    await this.ensureTrainerProfile(record.trainerNo, record.trainerName);
+    return { assigned: assignments.length, unknownRayatCodes };
+  }
+
+  /**
+   * يضمن ملفاً للمدرب الداخل ويجعله النشط على هذا الجهاز؛ وما حفظه
+   * بنفسه لا يُمسّ (القاعدة في `trainerProfiles`).
+   */
+  async ensureTrainerProfile(trainerNo: string, name: string): Promise<TrainerProfile> {
+    const profile = await ensureTrainerProfile(this.storage, trainerNo, name);
+    await this.setActiveTrainer(trainerNo);
+    return profile;
   }
 
   /**
