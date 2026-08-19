@@ -14,13 +14,13 @@ describe('العدد بمعدوده', () => {
   });
 
   it('من ثلاثة إلى عشرة: جمع قلة يسبقه العدد', () => {
-    expect(arabicCount(3, COUNT_MISSING)).toBe('٣ نواقص');
-    expect(arabicCount(10, COUNT_COURSES)).toBe('١٠ مقررات');
+    expect(arabicCount(3, COUNT_MISSING)).toBe('3 نواقص');
+    expect(arabicCount(10, COUNT_COURSES)).toBe('10 مقررات');
   });
 
   it('أحد عشر فأكثر: تمييزٌ مفرد', () => {
-    expect(arabicCount(11, COUNT_COURSES)).toBe('١١ مقرراً');
-    expect(arabicCount(15, COUNT_MISSING)).toBe('١٥ نقيصة');
+    expect(arabicCount(11, COUNT_COURSES)).toBe('11 مقرراً');
+    expect(arabicCount(15, COUNT_MISSING)).toBe('15 نقيصة');
   });
 
   it('الصفر لا يُكتب رقماً', () => {
@@ -28,9 +28,9 @@ describe('العدد بمعدوده', () => {
     expect(arabicCount(0, { ...COUNT_COURSES, none: 'بلا مقررات' })).toBe('بلا مقررات');
   });
 
-  it('لا أرقام لاتينية في المخرجات — تنعكس وسط النص العربي', () => {
+  it('أرقام لاتينية في معدودات الواجهة (قرار المالك ٢٠٢٦-٠٨-٢٠)', () => {
     for (const n of [1, 2, 3, 10, 11, 25]) {
-      expect(arabicCount(n, COUNT_COURSES)).not.toMatch(/\d/);
+      expect(arabicCount(n, COUNT_COURSES)).not.toMatch(/[٠-٩]/);
     }
   });
 });

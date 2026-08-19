@@ -110,8 +110,10 @@ export function arabicCount(n: number, forms: ArabicCountForms): string {
   if (n === 0) return forms.none ?? `لا ${forms.few}`;
   if (n === 1) return forms.one;
   if (n === 2) return forms.two;
-  if (n <= 10) return `${arabicDigits(n)} ${forms.few}`;
-  return `${arabicDigits(n)} ${forms.many}`;
+  // أرقام لاتينية: هذه معدودات الواجهة، والوثيقة المطبوعة وحدها هندية
+  // لأن ترقيمها يجاور فاصلاً فتعكسه خوارزمية اتجاه النص.
+  if (n <= 10) return `${n} ${forms.few}`;
+  return `${n} ${forms.many}`;
 }
 
 /** معدودات الواجهة المتكررة — تُعرَّف مرة ولا تُكتب في كل شاشة. */
